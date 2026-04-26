@@ -1,0 +1,86 @@
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\Dell\Documents\KTC-APP-FINAL\
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (101ms) [Parameters=[@__emailId_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[UserId], [t].[Address], [t].[City], [t].[Doj], [t].[Email], [t].[LastLogIn], [t].[Password], [t].[Role], [t].[UserName]
+      FROM [TblUsers] AS [t]
+      WHERE ([t].[Email] = @__emailId_0) AND ([t].[Password] = @__password_1)
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [b].[BillID], [b].[BillNum], [b].[BillDate], [b].[BillType], CASE
+          WHEN [b].[FID] IS NOT NULL THEN (
+              SELECT TOP(1) [t].[FactoryName]
+              FROM [TblFactories] AS [t]
+              WHERE [t].[FID] = [b].[FID])
+          ELSE NULL
+      END AS [FactoryName]
+      FROM [BillTables] AS [b]
+warn: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[3]
+      Unable to configure Browser Link script injection on the response. 
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[BillID], [t].[ActualAmount], [t].[BillDate], [t].[BillNum], [t].[BillType], [t].[DeliveryNum], [t].[FID], [t].[Gst], [t].[GstDate], [t].[Lr], [t].[PId], [t].[PartyName], [t].[PaymentReceived], [t].[PaymentTablePId], [t].[Tds], [t].[TotalValue], [t0].[DispId], [t0].[BillID], [t0].[ChallanNo], [t0].[DeliveryNum], [t0].[Destination], [t0].[DisVid], [t0].[DispatchDate], [t0].[DispatchQuantity], [t0].[FinalPrice], [t0].[Lr], [t0].[PartyName], [t0].[TotalValue], [t0].[UnitPrice], [t0].[VehicleNo]
+      FROM (
+          SELECT TOP(1) [b].[BillID], [b].[ActualAmount], [b].[BillDate], [b].[BillNum], [b].[BillType], [b].[DeliveryNum], [b].[FID], [b].[Gst], [b].[GstDate], [b].[Lr], [b].[PId], [b].[PartyName], [b].[PaymentReceived], [b].[PaymentTablePId], [b].[Tds], [b].[TotalValue]
+          FROM [BillTables] AS [b]
+          WHERE [b].[BillID] = @__id_0
+      ) AS [t]
+      LEFT JOIN [TblDispatches] AS [t0] ON [t].[BillID] = [t0].[BillID]
+      ORDER BY [t].[BillID]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__bill_FID_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__bill_FID_0
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID] AS [id], [t].[FactoryName] AS [name]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (26ms) [Parameters=[p0='?' (DbType = DateTime2), p1='?' (DbType = DateTime2), p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      EXEC [dbo].[SpExpoBilldetail] @FromDate = @p0, @ToDate = @p1, @FactoryId = @p2
+fail: Microsoft.EntityFrameworkCore.Query[10100]
+      An exception occurred while iterating over the results of a query for context type 'CodeFirstTransport.Models.TransportMgmtContext'.
+      System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+         at Microsoft.Data.SqlClient.SqlBuffer.get_String()
+         at lambda_method449(Closure , DbDataReader , Int32[] )
+         at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadObject(DbDataReader reader, Int32 ordinal, ReaderColumn column)
+         at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadRow()
+         at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.Initialize(DbDataReader reader, IReadOnlyList`1 columns)
+         at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.Initialize(IReadOnlyList`1 columns)
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+         at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+         at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass31_0`2.<Execute>b__0(DbContext context, TState state)
+         at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+         at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+         at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.MoveNext()
+      System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+         at Microsoft.Data.SqlClient.SqlBuffer.get_String()
+         at lambda_method449(Closure , DbDataReader , Int32[] )
+         at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadObject(DbDataReader reader, Int32 ordinal, ReaderColumn column)
+         at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.ReadRow()
+         at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.BufferedDataRecord.Initialize(DbDataReader reader, IReadOnlyList`1 columns)
+         at Microsoft.EntityFrameworkCore.Query.Internal.BufferedDataReader.Initialize(IReadOnlyList`1 columns)
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+         at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+         at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass31_0`2.<Execute>b__0(DbContext context, TState state)
+         at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+         at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execut

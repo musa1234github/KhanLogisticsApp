@@ -1,0 +1,47 @@
+@model IEnumerable<KhanLogistics.Models.ViewModel.DispatchViewModel>
+
+<table class="table" @* id="Mytable" *@>
+    <thead>
+        <tr>
+            <th>Factory</th>
+            <th>Challan No</th>
+            <th>Destination</th>
+            <th>Vehicle No</th>
+            <th>Date</th>
+            <th>Quantity</th>
+            <th>Party Name</th>
+            <th>Shortage</th>
+            <th>Ex. Number</th>
+            <th>Price</th>
+            <th>Is Received</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.FactoryName)</td>
+                <td>@Html.DisplayFor(modelItem => item.ChallanNo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Destination)</td>
+                <td>@Html.DisplayFor(modelItem => item.VehicleNo)</td>
+                <td>@Html.DisplayFor(modelItem => item.DispatchDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.DispatchQuantity)</td>
+                <td>@Html.DisplayFor(modelItem => item.PartyName)</td>
+                <td>
+                    <input type="number" class="editable-shortage" data-id="@item.DispId" value="@item.Shortage" />
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.ExNo)</td>
+                <td>@Html.DisplayFor(modelItem => item.UnitPrice)</td>
+                <td>
+                    <input type="checkbox" class="editable-received" data-id="@item.DispId"
+                    @(item.IsReceived.HasValue && item.IsReceived.Value ? "checked=\"checked\"" : "") />
+                </td>
+                <td>
+                    <button class="btn btn-primary save-shortage-received" data-id="@item.DispId">Save</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

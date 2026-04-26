@@ -1,0 +1,2235 @@
+dbug: Microsoft.Extensions.Hosting.Internal.Host[1]
+      Hosting starting
+info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[63]
+      User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/ - -
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: G:\KTC-APP-FINAL\
+dbug: Microsoft.Extensions.Hosting.Internal.Host[2]
+      Hosting started
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller CodeFirstTransport.Controllers.UsersController (CodeFirstTransport).
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10401]
+      An 'IServiceProvider' was created for internal use by Entity Framework.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view Login.
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view Login executed in 625.6514ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport) in 2249.7561ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport)'
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/ - - - 200 - text/html;+charset=utf-8 4742.5707ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/lib/bootstrap/dist/css/bootstrap.min.css - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/KhanTransport.styles.css - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/lib/jquery/dist/jquery.min.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/KhanTransport.styles.css - - - 404 - - 47.4822ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - - - 200 13788 application/javascript;+charset=utf-8 33.4435ms
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/js/site.js'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\js\site.js'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_vs/browserLink - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/css/site.css?v=jKzyvarUBw1mnoaniDTwao0buQpy2sBEXyi6wiHfKN8 - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - - - 200 230 application/javascript 461.2164ms
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/css/site.css'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\css\site.css'
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\lib\jquery\dist\jquery.min.js'
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/css/site.css?v=jKzyvarUBw1mnoaniDTwao0buQpy2sBEXyi6wiHfKN8 - - - 200 199 text/css 119.3002ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/lib/jquery/dist/jquery.min.js - - - 200 89476 application/javascript 742.5375ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 200 78468 application/javascript 744.8210ms
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/lib/bootstrap/dist/css/bootstrap.min.css - - - 200 162720 text/css 808.8280ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 800.2465ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST https://localhost:44307/ application/x-www-form-urlencoded 231
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(System.String, System.String) on controller CodeFirstTransport.Controllers.UsersController (CodeFirstTransport).
+dbug: Microsoft.EntityFrameworkCore.Model.Validation[10600]
+      The property 'BillTable.PaymentTablePId' was created in shadow state because there are no eligible CLR members with a matching name.
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Query[10111]
+      Compiling query expression: 
+      'DbSet<TblUser>()
+          .FirstOrDefault(a => a.Email == __emailId_0 && a.Password == __password_1)'
+dbug: Microsoft.EntityFrameworkCore.Query[10107]
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<TblUser>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: TblUser.UserId (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: TblUser.Address (string), 1], [Property: TblUser.City (string), 2], [Property: TblUser.Doj (DateTime?), 3], [Property: TblUser.Email (string) Required, 4], [Property: TblUser.LastLogIn (DateTime?), 5], [Property: TblUser.Password (string) Required, 6], [Property: TblUser.Role (string), 7], [Property: TblUser.UserName (string) Required, 8] }
+              SELECT TOP(1) t.UserId, t.Address, t.City, t.Doj, t.Email, t.LastLogIn, t.Password, t.Role, t.UserName
+              FROM TblUsers AS t
+              WHERE (t.Email == @__emailId_0) && (t.Password == @__password_1)), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, TblUser>, 
+          CodeFirstTransport.Models.TransportMgmtContext, 
+          False, 
+          False, 
+          True
+      )
+          .SingleOrDefault()'
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (313ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__emailId_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[UserId], [t].[Address], [t].[City], [t].[Doj], [t].[Email], [t].[LastLogIn], [t].[Password], [t].[Role], [t].[UserName]
+      FROM [TblUsers] AS [t]
+      WHERE ([t].[Email] = @__emailId_0) AND ([t].[Password] = @__password_1)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (272ms) [Parameters=[@__emailId_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[UserId], [t].[Address], [t].[City], [t].[Doj], [t].[Email], [t].[LastLogIn], [t].[Password], [t].[Role], [t].[UserName]
+      FROM [TblUsers] AS [t]
+      WHERE ([t].[Email] = @__emailId_0) AND ([t].[Password] = @__password_1)
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+info: Microsoft.AspNetCore.Mvc.RedirectToActionResult[1]
+      Executing RedirectResult, redirecting to /Home/Index.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport) in 11329.895ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport)'
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'TransportMgmtContext' disposed.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Home/Index - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST https://localhost:44307/ application/x-www-form-urlencoded 231 - 302 - - 11548.6700ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.HomeController.Index (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CodeFirstTransport.Controllers.HomeController (CodeFirstTransport).
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view Index.
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view Index executed in 146.8556ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.HomeController.Index (CodeFirstTransport) in 204.8081ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/datatable/jquery.datatables.min.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/datatable/jquery.datatables.js - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.HomeController.Index (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/css/datatablecss/jquery.datatables.min.css - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/css/datatablecss/jquery.datatables.css - -
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/Home/Index - - - 200 - text/html;+charset=utf-8 417.2514ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - - - 404 - - 93.5414ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - - - 200 13788 application/javascript;+charset=utf-8 89.6524ms
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/css/datatablecss/jquery.datatables.min.css'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\css\datatablecss\jquery.datatables.min.css'
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/css/datatablecss/jquery.datatables.css'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\css\datatablecss\jquery.datatables.css'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/css/datatablecss/jquery.datatables.min.css - - - 200 18369 text/css 366.3162ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/css/datatablecss/jquery.datatables.css - - - 200 21049 text/css 425.6690ms
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/datatable/jquery.datatables.min.js'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\datatable\jquery.datatables.min.js'
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/datatable/jquery.datatables.js'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\datatable\jquery.datatables.js'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/datatable/jquery.datatables.min.js - - - 200 90265 application/javascript 567.7083ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_vs/browserLink - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/datatable/jquery.datatables.js - - - 200 453651 application/javascript 656.0621ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 139.1950ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Report/CheckBills - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "CheckBills", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CheckBills(System.DateTime, System.DateTime, System.Nullable`1[System.Int32], Boolean) on controller CodeFirstTransport.Controllers.ReportController (CodeFirstTransport).
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Query[10111]
+      Compiling query expression: 
+      'DbSet<TblFactory>()'
+dbug: Microsoft.EntityFrameworkCore.Query[10107]
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<TblFactory>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: TblFactory.FID (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: TblFactory.Address (string), 1], [Property: TblFactory.Code (string) Required, 2], [Property: TblFactory.CreatedBy (int?), 3], [Property: TblFactory.CreatedOn (DateTime?), 4], [Property: TblFactory.FactoryName (string) Required, 5], [Property: TblFactory.Gstin (double?), 6], [Property: TblFactory.IsActive (bool) Required, 7], [Property: TblFactory.ModifiedBy (int?), 8], [Property: TblFactory.ModifiedOn (DateTime?), 9] }
+              SELECT t.FID, t.Address, t.Code, t.CreatedBy, t.CreatedOn, t.FactoryName, t.Gstin, t.IsActive, t.ModifiedBy, t.ModifiedOn
+              FROM TblFactories AS t), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, TblFactory>, 
+          CodeFirstTransport.Models.TransportMgmtContext, 
+          False, 
+          False, 
+          True
+      )'
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (4ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (32ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Query[10111]
+      Compiling query expression: 
+      'DbSet<SpCheckBill>().FromSql(EXECUTE [dbo].[SpCheckBill] @StartDate = {0}, @EndDate = {1}, @FactoryId = {2}, __p_0)
+      '
+dbug: Microsoft.EntityFrameworkCore.Query[10107]
+      Generated query execution expression: 
+      'queryContext => new FromSqlQueryingEnumerable<SpCheckBill>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: SpCheckBill.BillNum (string), 0], [Property: SpCheckBill.ChallanNo (string), 1], [Property: SpCheckBill.Destination (string), 2], [Property: SpCheckBill.DispatchDate (DateTime?), 3], [Property: SpCheckBill.DispatchQuantity (double?), 4], [Property: SpCheckBill.FactoryName (string), 5], [Property: SpCheckBill.VehicleNo (string), 6] }
+              SELECT c.BillNum, c.ChallanNo, c.Destination, c.DispatchDate, c.DispatchQuantity, c.FactoryName, c.VehicleNo
+              FROM EXECUTE [dbo].[SpCheckBill] @StartDate = {0}, @EndDate = {1}, @FactoryId = {2}), 
+          List<string> { "BillNum", "ChallanNo", "Destination", "DispatchDate", "DispatchQuantity", "FactoryName", "VehicleNo" }, 
+          Func<QueryContext, DbDataReader, int[], SpCheckBill>, 
+          CodeFirstTransport.Models.TransportMgmtContext, 
+          False, 
+          False, 
+          True
+      )'
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (5ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[p0='?' (DbType = DateTime2), p1='?' (DbType = DateTime2), p2='?'], CommandType='Text', CommandTimeout='120']
+      EXECUTE [dbo].[SpCheckBill] @StartDate = @p0, @EndDate = @p1, @FactoryId = @p2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (314ms) [Parameters=[p0='?' (DbType = DateTime2), p1='?' (DbType = DateTime2), p2='?'], CommandType='Text', CommandTimeout='120']
+      EXECUTE [dbo].[SpCheckBill] @StartDate = @p0, @EndDate = @p1, @FactoryId = @p2
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view CheckBills.
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view CheckBills executed in 138.7757ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport) in 2417.1366ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport)'
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'TransportMgmtContext' disposed.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/Report/CheckBills - - - 200 - text/html;+charset=utf-8 2527.5689ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_vs/browserLink - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - - - 404 - - 23.5003ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - - - 200 13788 application/javascript;+charset=utf-8 13.6764ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 73.5335ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Report/CheckBills?startDate=2025-01-01&endDate=2025-02-01&factoryId=10 - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "CheckBills", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CheckBills(System.DateTime, System.DateTime, System.Nullable`1[System.Int32], Boolean) on controller CodeFirstTransport.Controllers.ReportController (CodeFirstTransport).
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (3ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (3ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[p0='?' (DbType = DateTime2), p1='?' (DbType = DateTime2), p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      EXECUTE [dbo].[SpCheckBill] @StartDate = @p0, @EndDate = @p1, @FactoryId = @p2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (25,191ms) [Parameters=[p0='?' (DbType = DateTime2), p1='?' (DbType = DateTime2), p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      EXECUTE [dbo].[SpCheckBill] @StartDate = @p0, @EndDate = @p1, @FactoryId = @p2
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view CheckBills.
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view CheckBills executed in 1371.6471ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport) in 26834.5856ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport)'
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - - - 404 - - 18.0727ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_vs/browserLink - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - -
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'TransportMgmtContext' disposed.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/Report/CheckBills?startDate=2025-01-01&endDate=2025-02-01&factoryId=10 - - - 200 - text/html;+charset=utf-8 26995.7088ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - - - 200 13788 application/javascript;+charset=utf-8 63.2620ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 110.2721ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Report/CheckBills?exportExcel=true&startDate=2025-01-01&endDate=2025-02-01&factoryId=10 - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "CheckBills", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CheckBills(System.DateTime, System.DateTime, System.Nullable`1[System.Int32], Boolean) on controller CodeFirstTransport.Controllers.ReportController (CodeFirstTransport).
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (4ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (10ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[p0='?' (DbType = DateTime2), p1='?' (DbType = DateTime2), p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      EXECUTE [dbo].[SpCheckBill] @StartDate = @p0, @EndDate = @p1, @FactoryId = @p2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (25,040ms) [Parameters=[p0='?' (DbType = DateTime2), p1='?' (DbType = DateTime2), p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      EXECUTE [dbo].[SpCheckBill] @StartDate = @p0, @EndDate = @p1, @FactoryId = @p2
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+Export data count: 410
+FactoryName: JSW, ChallanNo: 3020788040, Destination: TELANGANA
+FactoryName: JSW, ChallanNo: 3020791188, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020791580, Destination: TELANGANA 
+FactoryName: JSW, ChallanNo: 3020790609, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020798282, Destination: GOPANNAPALLY
+FactoryName: JSW, ChallanNo: 3020789738, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020797855, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020794499, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020801223, Destination: UDGIR
+FactoryName: JSW, ChallanNo: 3020801762, Destination: TIRUMALAGIRI
+FactoryName: JSW, ChallanNo: 3020778090, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020782299, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020780909, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020785161, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020778599, Destination: GOPANNAPALLY
+FactoryName: JSW, ChallanNo: 3020782955, Destination: GOPANNAPALLY
+FactoryName: JSW, ChallanNo: 3020785414, Destination: NACHARAM
+FactoryName: JSW, ChallanNo: 3020778026, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020786252, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020781419, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020786185, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020786273, Destination: MANIKONDA
+FactoryName: JSW, ChallanNo: 3020784151, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020786423, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020782161, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020784349, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020785607, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020785948, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020783697, Destination: MANIKONDA
+FactoryName: JSW, ChallanNo: 3020787175, Destination: SHAMSHABAD
+FactoryName: JSW, ChallanNo: 3020780660, Destination: NARSIGI
+FactoryName: JSW, ChallanNo: 3020786363, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020787742, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020774590, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020787583, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020787653, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020788223, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020780205, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020780206, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020786105, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020785121, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020787954, Destination: SANGAREDDY 
+FactoryName: JSW, ChallanNo: 3020783179, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020785336, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020781227, Destination: PUPPALGUDA
+FactoryName: JSW, ChallanNo: 3020786071, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020783755, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020779427, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020788192, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020784990, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020781151, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020787294, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020787874, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020787572, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020785529, Destination: MANIKONDA
+FactoryName: JSW, ChallanNo: 3020786913, Destination: GOPANNAPALLY
+FactoryName: JSW, ChallanNo: 3020787063, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020778407, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020781451, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020786003, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020785665, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020785305, Destination: TELLAPUR 
+FactoryName: JSW, ChallanNo: 3020780286, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020783630, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020786410, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020786075, Destination: SHAMSHABAD
+FactoryName: JSW, ChallanNo: 3020786779, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020782566, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020784557, Destination: SANGAREDDY
+FactoryName: JSW, ChallanNo: 3020789525, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020786148, Destination: SHAMSHABAD
+FactoryName: JSW, ChallanNo: 3020787410, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020784807, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020788633, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020788475, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020787069, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020786106, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020787794, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020734566, Destination: TELLAPUR 
+FactoryName: JSW, ChallanNo: 3020788485, Destination: GOPANNAPALLY
+FactoryName: JSW, ChallanNo: 3020777199, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020788963, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020787949, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020786319, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020788453, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020789097, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020790985, Destination: KOLLUR
+FactoryName: JSW, ChallanNo: 3020789094, Destination: MAHESHWARAM
+FactoryName: JSW, ChallanNo: 3020790992, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020791303, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020779411, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020789010, Destination: GOPANNAPALLY
+FactoryName: JSW, ChallanNo: 3020792502, Destination: RAJENDRANAGAR
+FactoryName: JSW, ChallanNo: 3020789759, Destination: RAJENDRANAGAR
+FactoryName: JSW, ChallanNo: 3020792642, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020791152, Destination: TIRUMALAGIRI
+FactoryName: JSW, ChallanNo: 3020787240, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020787241, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020788040, Destination: TELANGANA
+FactoryName: JSW, ChallanNo: 3020791682, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020791495, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020790575, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020787636, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020791673, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020790600, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020787650, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020790588, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020790467, Destination: RANGAREDDY 
+FactoryName: JSW, ChallanNo: 3020786541, Destination: RANGAREDDY 
+FactoryName: JSW, ChallanNo: 3020776029, Destination: RANGAREDDY 
+FactoryName: JSW, ChallanNo: 3020784738, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020788286, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020785980, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020785367, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020790432, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020789503, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020789936, Destination: RAJENDRANAGAR
+FactoryName: JSW, ChallanNo: 3020778178, Destination: GOPANNAPALLY
+FactoryName: JSW, ChallanNo: 3020789505, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020790442, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020789646, Destination: TIRUMALAGIRI 
+FactoryName: JSW, ChallanNo: 3020779997, Destination: RAJENDRANAGAR
+FactoryName: JSW, ChallanNo: 3020783311, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020784190, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020786260, Destination: SHAMSHABAD
+FactoryName: JSW, ChallanNo: 3020789795, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020770425, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020789524, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020789912, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020785588, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020789025, Destination: TIRUMALAGIRI 
+FactoryName: JSW, ChallanNo: 3020788184, Destination: KHAMMAM
+FactoryName: JSW, ChallanNo: 3020784400, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020787555, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020764007, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020787536, Destination: UPPAL
+FactoryName: JSW, ChallanNo: 3020787615, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020783369, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020786315, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020787319, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020783116, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020785160, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020786533, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020787339, Destination: RAJENDRANAGAR
+FactoryName: JSW, ChallanNo: 3020790048, Destination: GOPANNAPALLY
+FactoryName: JSW, ChallanNo: 3020786136, Destination: RANGAREDDY 
+FactoryName: JSW, ChallanNo: 3020792252, Destination: GOPANNAPALLY
+FactoryName: JSW, ChallanNo: 3020792894, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020790394, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020789761, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020790111, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020788840, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020785937, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020793803, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020792313, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020792136, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020791626, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020784747, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020788845, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020780220, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020777830, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020777831, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020787581, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020786370, Destination: UPPAL
+FactoryName: JSW, ChallanNo: 3020791836, Destination: GHATKESAR
+FactoryName: JSW, ChallanNo: 3020786833, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020790419, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020790373, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020790779, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020793473, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020792876, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020790579, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020790578, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020782789, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020791516, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020788839, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020793629, Destination: SAMSHABAD
+FactoryName: JSW, ChallanNo: 3020792041, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020777816, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020791689, Destination: SAMSHABAD
+FactoryName: JSW, ChallanNo: 3020794205, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020795365, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020795474, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020778179, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020795882, Destination: GANDIPET
+FactoryName: JSW, ChallanNo: 3020786617, Destination: RAJENDRANAGAR
+FactoryName: JSW, ChallanNo: 3020795313, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020794815, Destination: RAJENDRANAGAR
+FactoryName: JSW, ChallanNo: 3020792479, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020792277, Destination: KHAMMAM
+FactoryName: JSW, ChallanNo: 3020793773, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020790141, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020734167, Destination: GHATKESAR
+FactoryName: JSW, ChallanNo: 3020792038, Destination: RANGAREDDY 
+FactoryName: JSW, ChallanNo: 3020790557, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020779585, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020794155, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020783249, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020794392, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020786378, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020794028, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020790055, Destination: GHATKESAR
+FactoryName: JSW, ChallanNo: 3020786340, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020795053, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020787479, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020792809, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020794309, Destination: RAJENDRANAGAR
+FactoryName: JSW, ChallanNo: 3020791164, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020792358, Destination: PATANCHERU
+FactoryName: JSW, ChallanNo: 3020791519, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020790628, Destination: RANGAREDDY 
+FactoryName: JSW, ChallanNo: 3020789979, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020791034, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020791921, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020790421, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020793522, Destination: NARSIGI
+FactoryName: JSW, ChallanNo: 3020792137, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020787370, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020791845, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020788887, Destination: RAJENDRANAGAR
+FactoryName: JSW, ChallanNo: 3020790775, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020791566, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020792337, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020791302, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020790188, Destination: TIRUMALAGIRI
+FactoryName: JSW, ChallanNo: 3020791086, Destination: KOLLUR
+FactoryName: JSW, ChallanNo: 3020784620, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020783370, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020791661, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020783141, Destination: PATANCHERU
+FactoryName: JSW, ChallanNo: 3020793436, Destination: HYDERABAD
+FactoryName: JSW, ChallanNo: 3020798335, Destination: HYDERABAD
+FactoryName: JSW, ChallanNo: 3020791307, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020793102, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020787727, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020793472, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020791598, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020792321, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020793248, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020791015, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020794198, Destination: GOPANNAPALLY
+FactoryName: JSW, ChallanNo: 3020795052, Destination: PATANCHERU
+FactoryName: JSW, ChallanNo: 3020791980, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020794029, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020792737, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020794027, Destination: KOMPALLY
+FactoryName: JSW, ChallanNo: 3020792403, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020795473, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020794844, Destination: RAJENDRANAGAR
+FactoryName: JSW, ChallanNo: 3020794596, Destination: RAJENDRANAGAR
+FactoryName: JSW, ChallanNo: 3020791036, Destination: RANGAREDDY
+FactoryName: JSW, ChallanNo: 3020795203, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020792936, Destination: SHAMSHBAD 
+FactoryName: JSW, ChallanNo: 3020791607, Destination: RANGAREDDY 
+FactoryName: JSW, ChallanNo: 3020794465, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020794986, Destination: MAHESHWARAM
+FactoryName: JSW, ChallanNo: 3020790301, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020793654, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020790750, Destination: TELLAPUR 
+FactoryName: JSW, ChallanNo: 3020796422, Destination: TELLAPUR 
+FactoryName: JSW, ChallanNo: 3020796293, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020790355, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020794683, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020796963, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020793295, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020786918, Destination: RANGAREDDY 
+FactoryName: JSW, ChallanNo: 3020783420, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020796126, Destination: GOPANNAPALLY
+FactoryName: JSW, ChallanNo: 3020797992, Destination: MANIKONDA
+FactoryName: JSW, ChallanNo: 3020793489, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020795504, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020796832, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020766921, Destination: PATANCHERU
+FactoryName: JSW, ChallanNo: 3020796582, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020789905, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020794466, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020782737, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020794987, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020794065, Destination: TELLAPUR 
+FactoryName: JSW, ChallanNo: 3020794206, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020790610, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020796137, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020795049, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020798735, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020795957, Destination: GOPANNAPALLY
+FactoryName: JSW, ChallanNo: 3020796739, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020798134, Destination: PATANCHERUVU
+FactoryName: JSW, ChallanNo: 3020798792, Destination: PATANCHERUVU
+FactoryName: JSW, ChallanNo: 3020793815, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020789229, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020795460, Destination: UPPAL
+FactoryName: JSW, ChallanNo: 3020789661, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020791045, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020795187, Destination: KHAMMAM
+FactoryName: JSW, ChallanNo: 3020785038, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020794498, Destination: RANGAREDDY 
+FactoryName: JSW, ChallanNo: 3020793550, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020797843, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020794851, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020788965, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020794766, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020783896, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020791387, Destination: RANGAREDDY 
+FactoryName: JSW, ChallanNo: 3020792185, Destination: MANIKONDA
+FactoryName: JSW, ChallanNo: 3020790011, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020794103, Destination: GHATKESAR
+FactoryName: JSW, ChallanNo: 3020790381, Destination: RANGAREDDY 
+FactoryName: JSW, ChallanNo: 3020793371, Destination: TATHAWADE-PUNE
+FactoryName: JSW, ChallanNo: 3020791937, Destination: PCMC-PUNE
+FactoryName: JSW, ChallanNo: 3020788441, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020795480, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020791688, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020778601, Destination: TIRUMALAGIRI
+FactoryName: JSW, ChallanNo: 3020790766, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020795920, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020795161, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020798514, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020798519, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020798734, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020786860, Destination: KOLLUR
+FactoryName: JSW, ChallanNo: 3020799133, Destination: KOLLUR
+FactoryName: JSW, ChallanNo: 3020799772, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020796303, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020796270, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020794955, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020799926, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020792981, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020795236, Destination: RANGAREDDY
+FactoryName: JSW, ChallanNo: 3020796269, Destination: GOPANNAPALLY
+FactoryName: JSW, ChallanNo: 3020797328, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020798343, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020799042, Destination: SHAMSHABAD
+FactoryName: JSW, ChallanNo: 3020790950, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020791699, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020798083, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020797563, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020792266, Destination: GANDIPET
+FactoryName: JSW, ChallanNo: 3020798076, Destination: RAJENDRANAGAR
+FactoryName: JSW, ChallanNo: 3020792820, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020793040, Destination: MOINABAD 
+FactoryName: JSW, ChallanNo: 3020792821, Destination: SHAMSHABAD
+FactoryName: JSW, ChallanNo: 3020797957, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020796948, Destination: KOMPALLY
+FactoryName: JSW, ChallanNo: 3020799470, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020800295, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020794580, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020800184, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020799943, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020800294, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020800712, Destination: RANGAREDDY
+FactoryName: JSW, ChallanNo: 3020797369, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020794148, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020789045, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020792870, Destination: MARUNJI-PUNE
+FactoryName: JSW, ChallanNo: 3020793365, Destination: RANGAREDDY 
+FactoryName: JSW, ChallanNo: 3020794379, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020800773, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020776429, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020776428, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020800727, Destination: OSMANABAD
+FactoryName: JSW, ChallanNo: 3020792536, Destination: OSMANABAD
+FactoryName: JSW, ChallanNo: 3020800223, Destination: GANDIPET
+FactoryName: JSW, ChallanNo: 3020795220, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020795287, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020798377, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020800622, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020795219, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020798850, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020800516, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020801483, Destination: KOMPALLY
+FactoryName: JSW, ChallanNo: 3020793888, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020800726, Destination: PIRANGUT-PUNE
+FactoryName: JSW, ChallanNo: 3020801309, Destination: KOMPALLY
+FactoryName: JSW, ChallanNo: 3020800717, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020799675, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020801324, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020801323, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020799382, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020797397, Destination: PATANCHERU
+FactoryName: JSW, ChallanNo: 3020799775, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020800104, Destination: KOMPALLY
+FactoryName: JSW, ChallanNo: 3020800708, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020800777, Destination: KHED-PUNE
+FactoryName: JSW, ChallanNo: 3020798466, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020801482, Destination: KOMPALLY
+FactoryName: JSW, ChallanNo: 3020801372, Destination: NARSIGI
+FactoryName: JSW, ChallanNo: 3020798149, Destination: UDGIR-LATUR
+FactoryName: JSW, ChallanNo: 3020801742, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020801473, Destination: RAJENDRANAGAR 
+FactoryName: JSW, ChallanNo: 3020800735, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020800402, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020800066, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020790370, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020798008, Destination: RANGAREDDY
+FactoryName: JSW, ChallanNo: 3020798976, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020795880, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020799762, Destination: NARSIGI
+FactoryName: JSW, ChallanNo: 3020799488, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020800274, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020801973, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020800806, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020802072, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020797010, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020780988, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020782616, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020802222, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020802053, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020782579, Destination: GOPANNAPALLY
+FactoryName: JSW, ChallanNo: 3020800013, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020796592, Destination: MOINABAD 
+info: Microsoft.AspNetCore.Mvc.Infrastructure.FileContentResultExecutor[2]
+      Executing FileContentResult, sending file with download name 'Bills_20250101_to_20250201_10.xlsx' ...
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport) in 27418.2448ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport)'
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'TransportMgmtContext' disposed.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/Report/CheckBills?exportExcel=true&startDate=2025-01-01&endDate=2025-02-01&factoryId=10 - - - 200 17893 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 27460.4747ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Payment/ShowBill - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.PaymentController.ShowBill (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "ShowBill", controller = "Payment"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ShowBill() on controller CodeFirstTransport.Controllers.PaymentController (CodeFirstTransport).
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (102ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (10ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Query[10111]
+      Compiling query expression: 
+      'DbSet<BillTable>()'
+dbug: Microsoft.EntityFrameworkCore.Query[10107]
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<BillTable>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: BillTable.BillID (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: BillTable.ActualAmount (double?), 1], [Property: BillTable.BillDate (DateTime?), 2], [Property: BillTable.BillNum (string), 3], [Property: BillTable.BillType (string), 4], [Property: BillTable.FID (int?), 5], [Property: BillTable.Gst (double?), 6], [Property: BillTable.GstDate (DateTime?), 7], [Property: BillTable.PId (int?), 8], [Property: BillTable.PartyName (string), 9], [Property: BillTable.PaymentReceived (double?), 10], [Property: BillTable.PaymentTablePId (no field, int?) Shadow FK Index, 11], [Property: BillTable.Tds (double?), 12], [Property: BillTable.TotalValue (double?), 13] }
+              SELECT b.BillID, b.ActualAmount, b.BillDate, b.BillNum, b.BillType, b.FID, b.Gst, b.GstDate, b.PId, b.PartyName, b.PaymentReceived, b.PaymentTablePId, b.Tds, b.TotalValue
+              FROM BillTables AS b), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, BillTable>, 
+          CodeFirstTransport.Models.TransportMgmtContext, 
+          False, 
+          False, 
+          True
+      )'
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (12ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [b].[BillID], [b].[ActualAmount], [b].[BillDate], [b].[BillNum], [b].[BillType], [b].[FID], [b].[Gst], [b].[GstDate], [b].[PId], [b].[PartyName], [b].[PaymentReceived], [b].[PaymentTablePId], [b].[Tds], [b].[TotalValue]
+      FROM [BillTables] AS [b]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [b].[BillID], [b].[ActualAmount], [b].[BillDate], [b].[BillNum], [b].[BillType], [b].[FID], [b].[Gst], [b].[GstDate], [b].[PId], [b].[PartyName], [b].[PaymentReceived], [b].[PaymentTablePId], [b].[Tds], [b].[TotalValue]
+      FROM [BillTables] AS [b]
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view ShowBill.
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view ShowBill executed in 598.6899ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.PaymentController.ShowBill (CodeFirstTransport) in 3045.8438ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.PaymentController.ShowBill (CodeFirstTransport)'
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'TransportMgmtContext' disposed.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/Payment/ShowBill - - - 200 - text/html;+charset=utf-8 4377.6685ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Report/CheckBills?startDate=2025-02-01&endDate=2025-02-21&factoryId=10 - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "CheckBills", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CheckBills(System.DateTime, System.DateTime, System.Nullable`1[System.Int32], Boolean) on controller CodeFirstTransport.Controllers.ReportController (CodeFirstTransport).
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (3ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (3ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[p0='?' (DbType = DateTime2), p1='?' (DbType = DateTime2), p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      EXECUTE [dbo].[SpCheckBill] @StartDate = @p0, @EndDate = @p1, @FactoryId = @p2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (32ms) [Parameters=[p0='?' (DbType = DateTime2), p1='?' (DbType = DateTime2), p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      EXECUTE [dbo].[SpCheckBill] @StartDate = @p0, @EndDate = @p1, @FactoryId = @p2
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view CheckBills.
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view CheckBills executed in 536.4209ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport) in 732.9382ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport)'
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - - - 404 - - 6.3028ms
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'TransportMgmtContext' disposed.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/Report/CheckBills?startDate=2025-02-01&endDate=2025-02-21&factoryId=10 - - - 200 - text/html;+charset=utf-8 911.9386ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_vs/browserLink - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - - - 200 13788 application/javascript;+charset=utf-8 51.2696ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 74.7323ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Report/CheckBills?exportExcel=true&startDate=2025-02-01&endDate=2025-02-21&factoryId=10 - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "CheckBills", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CheckBills(System.DateTime, System.DateTime, System.Nullable`1[System.Int32], Boolean) on controller CodeFirstTransport.Controllers.ReportController (CodeFirstTransport).
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (4ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (3ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[p0='?' (DbType = DateTime2), p1='?' (DbType = DateTime2), p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      EXECUTE [dbo].[SpCheckBill] @StartDate = @p0, @EndDate = @p1, @FactoryId = @p2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (16ms) [Parameters=[p0='?' (DbType = DateTime2), p1='?' (DbType = DateTime2), p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      EXECUTE [dbo].[SpCheckBill] @StartDate = @p0, @EndDate = @p1, @FactoryId = @p2
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+Export data count: 174
+FactoryName: JSW, ChallanNo: 3020803045, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020803144, Destination: UPPAL
+FactoryName: JSW, ChallanNo: 3020800217, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020803502, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020802578, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020801687, Destination: KUKATPALLY
+FactoryName: JSW, ChallanNo: 3020803772, Destination: KUKATPALLY
+FactoryName: JSW, ChallanNo: 3020802845, Destination: KUKATPALLY
+FactoryName: JSW, ChallanNo: 3020803215, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020803436, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020800943, Destination: KHAMMAM
+FactoryName: JSW, ChallanNo: 3020806692, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020807645, Destination: MAHESWARAM
+FactoryName: JSW, ChallanNo: 3020806904, Destination: MAHESWARAM
+FactoryName: JSW, ChallanNo: 3020808952, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020807009, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020808746, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020807086, Destination: HYDERABAD
+FactoryName: JSW, ChallanNo: 3020795890, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020797638, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020795891, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020804611, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020806229, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020798559, Destination: MADHANPUR
+FactoryName: JSW, ChallanNo: 3020809161, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020796849, Destination: MURAMULLA
+FactoryName: JSW, ChallanNo: 3020809442, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020808364, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020806473, Destination: L B NAGAR
+FactoryName: JSW, ChallanNo: 3020809352, Destination: HYDERABAD
+FactoryName: JSW, ChallanNo: 3020800169, Destination: PATANCHERU
+FactoryName: JSW, ChallanNo: 3020799588, Destination: BUSKAR NAGAR 
+FactoryName: JSW, ChallanNo: 3020807961, Destination: L B NAGAR
+FactoryName: JSW, ChallanNo: 3020804501, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020809113, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020809497, Destination: GANDIPET
+FactoryName: JSW, ChallanNo: 3020806991, Destination: GANDIPET
+FactoryName: JSW, ChallanNo: 3020806147, Destination: GANDIPET
+FactoryName: JSW, ChallanNo: 3020801385, Destination: GOPANPALLY
+FactoryName: JSW, ChallanNo: 3020808805, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020806134, Destination: TELLAPUR 
+FactoryName: JSW, ChallanNo: 3020807548, Destination: KOKAPRT
+FactoryName: JSW, ChallanNo: 3020800701, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020810152, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020810442, Destination: TELLAPUR 
+FactoryName: JSW, ChallanNo: 3020801096, Destination: GANDIPRT
+FactoryName: JSW, ChallanNo: 3020803584, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020800475, Destination: TELLAPUR 
+FactoryName: JSW, ChallanNo: 30208010162, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020808537, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020800700, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020804996, Destination: KOKAPEY
+FactoryName: JSW, ChallanNo: 3020806942, Destination: GANDIPET
+FactoryName: JSW, ChallanNo: 3020803585, Destination: TELLAPUR 
+FactoryName: JSW, ChallanNo: 3020803871, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020804691, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020801217, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020810712, Destination: SHAMSHABAD 
+FactoryName: JSW, ChallanNo: 3020807326, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020668479, Destination: GHATKESAR
+FactoryName: JSW, ChallanNo: 3020805201, Destination: GHATKESAR
+FactoryName: JSW, ChallanNo: 3020810852, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020811052, Destination: GHATKESAR
+FactoryName: JSW, ChallanNo: 3020810994, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020805733, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020804394, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020799337, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020802226, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020799328, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020803186, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020804285, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020804824, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020799368, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020801918, Destination: GOPANNAPALLY
+FactoryName: JSW, ChallanNo: 3020792990, Destination: HYDERABAD
+FactoryName: JSW, ChallanNo: 3020802825, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020803214, Destination: NARSINDI
+FactoryName: JSW, ChallanNo: 3020802583, Destination: NARSINDI
+FactoryName: JSW, ChallanNo: 3020803073, Destination: NARSINDI
+FactoryName: JSW, ChallanNo: 3020799099, Destination: GOPANNAPALLY
+FactoryName: JSW, ChallanNo: 3020803344, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020803522, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020800926, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020801236, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020801148, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020800581, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020803024, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020803016, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020802996, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020799488, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020800274, Destination: NARSINGI
+FactoryName: JSW, ChallanNo: 3020801973, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020800806, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020802072, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020797010, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020780988, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020782616, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020802222, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020802053, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020802422, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020800046, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020800945, Destination: KHAMMAM
+FactoryName: JSW, ChallanNo: 3020802703, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020798993, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020797551, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020797550, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020793440, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020793200, Destination: SHAMSHABAD
+FactoryName: JSW, ChallanNo: 3020799739, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020802210, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020802570, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020793156, Destination: HYDERABAD 
+FactoryName: JSW, ChallanNo: 3020800830, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020802833, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020804805, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020802224, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020804568, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020803435, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020799765, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020797056, Destination: VANSATHALIPURAM
+FactoryName: JSW, ChallanNo: 3020788515, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020804085, Destination: GHATKESAR
+FactoryName: JSW, ChallanNo: 3020806012, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020804086, Destination: KOMPALLY
+FactoryName: JSW, ChallanNo: 3020799136, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020805924, Destination: KOMPALLY
+FactoryName: JSW, ChallanNo: 3020804434, Destination: LB NAGAR
+FactoryName: JSW, ChallanNo: 3020799880, Destination: HYDERABAD
+FactoryName: JSW, ChallanNo: 3020802556, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020792191, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020806592, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020804236, Destination: SAMSHABAD
+FactoryName: JSW, ChallanNo: 3020805643, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020805642, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020797630, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020803164, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020803151, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020805414, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020803534, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020805451, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020805246, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020805058, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020807113, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020807142, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020802561, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020802560, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020806785, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020805860, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020802829, Destination: MIYAPUR 
+FactoryName: JSW, ChallanNo: 3020808203, Destination: PATANCHARU
+FactoryName: JSW, ChallanNo: 3020805199, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020804457, Destination: MANIKONDA
+FactoryName: JSW, ChallanNo: 3020795720, Destination: GACHIBOWLI 
+FactoryName: JSW, ChallanNo: 3020807315, Destination: LB.NAGAR
+FactoryName: JSW, ChallanNo: 3020791160, Destination: LB.NAGAR
+FactoryName: JSW, ChallanNo: 3020806460, Destination: PUPPALAGUNDA
+FactoryName: JSW, ChallanNo: 3020807692, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020806420, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020802759, Destination: KHAMMAM
+FactoryName: JSW, ChallanNo: 3020805861, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020804228, Destination: SHAMSHABAD
+FactoryName: JSW, ChallanNo: 3020804227, Destination: SHAMSHABAD
+FactoryName: JSW, ChallanNo: 3020802144, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020803671, Destination: MANIKONDA
+FactoryName: JSW, ChallanNo: 3020807184, Destination: GHATKESAR
+FactoryName: JSW, ChallanNo: 3020804220, Destination: KONDAPUR
+FactoryName: JSW, ChallanNo: 3020806913, Destination: MIYAPUR
+FactoryName: JSW, ChallanNo: 3020787121, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020805996, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020805696, Destination: KOKAPET
+FactoryName: JSW, ChallanNo: 3020805874, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020804942, Destination: MOINABAD
+FactoryName: JSW, ChallanNo: 3020802136, Destination: TELLAPUR
+FactoryName: JSW, ChallanNo: 3020767750, Destination: HYDERABAD
+info: Microsoft.AspNetCore.Mvc.Infrastructure.FileContentResultExecutor[2]
+      Executing FileContentResult, sending file with download name 'Bills_20250201_to_20250221_10.xlsx' ...
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport) in 235.8551ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport)'
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'TransportMgmtContext' disposed.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/Report/CheckBills?exportExcel=true&startDate=2025-02-01&endDate=2025-02-21&factoryId=10 - - - 200 9521 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 328.4016ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Bill/Index - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'BillController.Index (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "Index", controller = "Bill"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BillController (CodeFirstTransport).
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (16ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (5ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [b].[BillID], [b].[ActualAmount], [b].[BillDate], [b].[BillNum], [b].[BillType], [b].[FID], [b].[Gst], [b].[GstDate], [b].[PId], [b].[PartyName], [b].[PaymentReceived], [b].[PaymentTablePId], [b].[Tds], [b].[TotalValue]
+      FROM [BillTables] AS [b]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [b].[BillID], [b].[ActualAmount], [b].[BillDate], [b].[BillNum], [b].[BillType], [b].[FID], [b].[Gst], [b].[GstDate], [b].[PId], [b].[PartyName], [b].[PaymentReceived], [b].[PaymentTablePId], [b].[Tds], [b].[TotalValue]
+      FROM [BillTables] AS [b]
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'BillTable' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtCo

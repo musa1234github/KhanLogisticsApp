@@ -1,0 +1,94 @@
+@model IEnumerable<KhanLogistics.Models.ViewModel.SpBilldetail>
+
+@{
+    ViewData["Title"] = "Bill Detail";
+}
+
+<h1 style="text-align:center">Bill By Date</h1>
+
+<form method="post" id="filterForm">
+    <div class="form-group">
+        <label for="fromDate">From Date:</label>
+        <input type="date" id="fromDate" name="fromDate" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="toDate">To Date:</label>
+        <input type="date" id="toDate" name="toDate" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="factoryId">Factory:</label>
+        <select id="factoryId" name="factoryId" class="form-control">
+            <option value="">All</option>
+            @if (ViewBag.Factories != null)
+            {
+                foreach (var factory in ViewBag.Factories)
+                {
+                    <option value="@factory.FID">@factory.FactoryName</option>
+                }
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+
+<div id="tblTodaysView">
+    <table id="tblData" class="display" style="width:100%">
+        <!-- Table headers will be populated here -->
+    </table>
+</div>
+<script>
+
+    $(document).ready(function () {
+        $('#tblTodaysView').hide();
+
+        $('#filterForm').on('submit', function (e) {
+            e.preventDefault();
+            loadGridDataAjax();
+        });
+
+        function loadGridDataAjax() {
+            var formData = $('#filterForm').serialize(); // Serialize form data
+
+            $.ajax({
+                type: "POST",
+                url: "/Report/LoadGridDataTableByAjax",
+                data: formData, // Pass serialized form data
+                dataType: "json",
+                success: function (resultData) {
+                    // Your success handling code
+                },
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        }
+
+        success: function (resultData) {
+            var htmlResult = "";
+            $.each(resultData, function (index, rowData) {
+                // Construct HTML for each row
+                htmlResult += "<tr>";
+                // Append other table data here
+                htmlResult += "</tr>";
+            });
+            $('#tblData tbody').html(htmlResult);
+            $('#tblTodaysView').show();
+            initializeDataTable();
+        }
+
+        function initializeDataTable() {
+            if ($.fn.DataTable.isDataTable('#tblData')) {
+                $('#tblData').DataTable().destroy();
+            }
+
+            $('#tblData').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                deferRender: true
+            });
+        }
+
+    });
+</script>

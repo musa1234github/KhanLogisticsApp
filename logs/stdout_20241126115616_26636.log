@@ -1,0 +1,49 @@
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\Dell\Documents\KTC-APP-FINAL\
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (154ms) [Parameters=[@__emailId_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[UserId], [t].[Address], [t].[City], [t].[Doj], [t].[Email], [t].[LastLogIn], [t].[Password], [t].[Role], [t].[UserName]
+      FROM [TblUsers] AS [t]
+      WHERE ([t].[Email] = @__emailId_0) AND ([t].[Password] = @__password_1)
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (391ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [b].[BillID], [b].[BillNum], [b].[BillDate], [b].[BillType], CASE
+          WHEN [b].[FID] IS NOT NULL THEN (
+              SELECT TOP(1) [t].[FactoryName]
+              FROM [TblFactories] AS [t]
+              WHERE [t].[FID] = [b].[FID])
+          ELSE NULL
+      END AS [FactoryName]
+      FROM [BillTables] AS [b]
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (19ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[BillID], [t].[ActualAmount], [t].[BillDate], [t].[BillNum], [t].[BillType], [t].[DeliveryNum], [t].[FID], [t].[Gst], [t].[GstDate], [t].[Lr], [t].[PId], [t].[PartyName], [t].[PaymentReceived], [t].[PaymentTablePId], [t].[Tds], [t].[TotalValue], [t0].[DispId], [t0].[BillID], [t0].[ChallanNo], [t0].[DeliveryNum], [t0].[Destination], [t0].[DisVid], [t0].[DispatchDate], [t0].[DispatchQuantity], [t0].[FinalPrice], [t0].[Lr], [t0].[PartyName], [t0].[TotalValue], [t0].[UnitPrice], [t0].[VehicleNo]
+      FROM (
+          SELECT TOP(1) [b].[BillID], [b].[ActualAmount], [b].[BillDate], [b].[BillNum], [b].[BillType], [b].[DeliveryNum], [b].[FID], [b].[Gst], [b].[GstDate], [b].[Lr], [b].[PId], [b].[PartyName], [b].[PaymentReceived], [b].[PaymentTablePId], [b].[Tds], [b].[TotalValue]
+          FROM [BillTables] AS [b]
+          WHERE [b].[BillID] = @__id_0
+      ) AS [t]
+      LEFT JOIN [TblDispatches] AS [t0] ON [t].[BillID] = [t0].[BillID]
+      ORDER BY [t].[BillID]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@__bill_FID_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__bill_FID_0
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCor

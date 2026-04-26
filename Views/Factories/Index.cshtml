@@ -1,0 +1,109 @@
+@model IEnumerable<KhanLogistics.Models.TblFactory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Factories</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table" id="Mytable">
+    <thead>
+        <tr>
+            <th>
+                <input type="checkbox" class="form-check-input" id="Select_All" name="Select_All" />Select All
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FactoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+      
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </th>
+        
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" class="form-check-input" id="Select_One" name="Select_One" value="@item.FID" />
+                    
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FactoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedOn)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.FID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.FID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.FID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+   
+
+</table>
+<button style="cursor:pointer" class="btn btn-sm btn-outline-danger m-2 p-2 float-left" id="btnDelete">Delete</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script>
+    $('#Select_All').on('click', function () {
+        debugger;
+        let checkboxes = document.getElementsByTagName('input');
+        let val = null;
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].type === 'checkbox') {
+                if (val == null) {
+                    val = checkboxes[i].checked;
+                }
+                else {
+                    checkboxes[i].checked = val;
+                }
+            }
+        }
+    });
+
+    $('#btnDelete').on('click', function () {
+        debugger;
+        let val = [];
+        $("input[name='Select_One']:checked").each(function () {
+            val.push($(this).val());
+        });
+        $.ajax({
+            type: 'POST',
+            url: '/Factories/DeleteSingleOrMultiple',
+            //contentType: 'application/json', // Set content type to JSON
+            data: { 'ids': val }, // Convert data to JSON string
+            success: function (response) {
+                if (response == 'success') {
+                    location.reload();
+                }
+            },
+            error: function () {
+                // Handle error
+            }
+        });
+    });
+</script>

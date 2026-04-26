@@ -1,0 +1,98 @@
+ @using KhanLogistics.Models.ViewModel
+@model KhanLogistics.Models.ViewModel.DispatchVm
+
+@{
+    var viewModel = Model ?? new DispatchVm
+            {
+                ddlFactory = new List<SelectListItem>(),
+                dispatchVm = new List<DispatchViewModel>()
+            };
+}
+
+<h1 style="text-align:center">Shipment Upload</h1>
+
+@if (viewModel.ddlFactory != null && viewModel.ddlFactory.Any())
+{
+    <div style="width: 100px; padding-bottom: 25px;">
+        @Html.DropDownListFor(model => model.SelectedIds, viewModel.ddlFactory, new { @id = "ddlFactory", @class = "form-control" })
+    </div>
+}
+else
+{
+    <p style="color: red;">No factories available</p>
+}
+
+<form asp-controller="JswCtr" asp-action="JswShipment" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <input type="submit" value="Import" />
+</form>
+
+<table class="table" id="Mytable">
+    <thead>
+        <tr>
+            <th>Factory</th>
+            <th>Challan No</th>
+            <th>Destination</th>
+            <th>Vehicle No</th>
+            <th>Date</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in viewModel.dispatchVm)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.FactoryName)</td>
+                <td>@Html.DisplayFor(modelItem => item.ChallanNo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Destination)</td>
+                <td>@Html.DisplayFor(modelItem => item.VehicleNo)</td>
+                <td>@Html.DisplayFor(modelItem => item.DispatchDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.DispatchQuantity)</td>
+                <td>@Html.DisplayFor(modelItem => item.UnitPrice)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button style="cursor:pointer" class="btn btn-sm btn-outline-danger m-2 p-2 float-left btnDelete" id="DispId">Delete</button>
+
+<script>
+    $(document).ready(function () {
+        $('.btnDelete').on('click', function () {
+            let ids = [];
+            let allChecked = $('#Select_All').prop('checked');
+
+            if (allChecked) {
+                $('input[type="checkbox"]:not(#Select_All)').each(function () {
+                    ids.push($(this).val());
+                });
+            } else {
+                $('input[type="checkbox"]:checked').each(function () {
+                    ids.push($(this).val());
+                });
+            }
+
+            if (ids.length > 0) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("DeleteSingleOrMultiple", "Dispatch")',
+                    contentType: 'application/json',
+                    data: JSON.stringify(ids),
+                    success: function (response) {
+                        if (response === 'success') {
+                            location.reload();
+                        } else {
+                            console.log("Error occurred during deletion.");
+                        }
+                    },
+                    error: function () {
+                        console.log("Error occurred during AJAX request.");
+                    }
+                });
+            } else {
+                console.log("No records selected for deletion.");
+            }
+        });
+    });
+</script>

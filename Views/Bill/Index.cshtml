@@ -1,0 +1,48 @@
+@model IEnumerable<KhanLogistics.Models.ViewModel.BillDispatchViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="text-align:center">GST</h1>
+
+@if (Model == null || !Model.Any())
+{
+    <p>No bills available.</p>
+}
+else
+{
+    <table class="table" id="Mytable">
+        <thead>
+            <tr>
+                <th>Factory Name</th>
+                <th>Bill Number</th>
+                <th>Bill Date</th>
+                <th>Bill Type</th>
+                <th>Gst</th>
+                <th>Gst Received Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FactoryName</td>
+                    <td>@item.BillNum</td>
+                    <td>@item.BillDate?.ToString("yyyy-MM-dd")</td>
+                    <td>@item.BillType</td>
+                    <td>@(item.Gst?.ToString("F2") ?? "0.00")</td>
+                    <td>@item.GstDate?.ToString("yyyy-MM-dd")</td>
+                    <td>
+                        @Html.ActionLink("Detail", "Details", new { id = item.BillID }) |
+                        <a asp-action="Edit" asp-route-id="@item.BillID">Edit</a> |
+                        <form asp-action="Delete" asp-route-id="@item.BillID" method="post" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this bill? Linked dispatches will be unlinked.');">
+                            <button type="submit" class="btn btn-link p-0 text-danger" style="vertical-align: baseline;">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

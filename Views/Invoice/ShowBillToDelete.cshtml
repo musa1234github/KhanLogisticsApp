@@ -1,0 +1,108 @@
+@model KhanLogistics.Models.ViewModel.DispatchVm
+
+<h1 style="text-align:center">Filter Dispatch Records</h1>
+
+<div style="width: 100%; padding-bottom: 25px;">
+    <form method="get" asp-action="ShowBillToDelete" asp-controller="Invoice">
+        <div class="form-group">
+            <label for="factoryId">Select Factory:</label>
+            <select id="factoryId" name="factoryId" class="form-control">
+                <option value="">-- Select Factory --</option>
+                @foreach (var factory in Model.ddlFactory)
+                {
+                    <option value="@factory.Value">@factory.Text</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="billNumber">Enter Bill Number:</label>
+            <input type="text" id="billNumber" name="billNumber" class="form-control" placeholder="Enter Bill Number" />
+        </div>
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
+</div>
+
+@if (Model.dispatchVm != null && Model.dispatchVm.Any())
+{
+    <table class="table" id="Mytable">
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="selectAll" /></th>
+                <th>Factory</th>
+                <th>Challan No</th>
+                <th>Destination</th>
+                <th>Vehicle No</th>
+                <th>Date</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Total</th>
+                <th>Delivery #</th>
+                <th>Lr</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.dispatchVm)
+            {
+                <tr>
+                    <td>
+                        <input type="checkbox" class="selectRow" value="@item.DispId" />
+                    </td>
+                    <td>@item.FactoryName</td>
+                    <td>@item.ChallanNo</td>
+                    <td>@item.Destination</td>
+                    <td>@item.VehicleNo</td>
+                    <td>@item.DispatchDate.ToString("yyyy-MM-dd")</td>
+                    <td>@item.DispatchQuantity</td>
+                    <td>@(item.UnitPrice.HasValue ? item.UnitPrice.Value.ToString("N2") : "-")</td>
+                    <td>@(item.TotalValue.HasValue ? item.TotalValue.Value.ToString("N2") : "-")</td>
+                    <td>@item.DeliveryNum</td>
+                    <td>@item.Lr</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-danger" id="deleteButton">Delete Selected</button>
+}
+else
+{
+    <p style="text-align: center; color: gray;">No records to display. Please apply filters to view dispatch records.</p>
+}
+
+
+
+<script>
+    $(document).ready(function () {
+        // Select All functionality
+        $("#selectAll").on("click", function () {
+            $(".selectRow").prop("checked", this.checked);
+        });
+
+        // Delete selected records
+        $("#deleteButton").on("click", function () {
+            let selectedIds = $(".selectRow:checked").map(function () {
+                return $(this).val();
+            }).get();
+
+            if (selectedIds.length > 0) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("DeleteSingleOrMultiple", "Invoice")',
+                    contentType: "application/json",
+                    data: JSON.stringify(selectedIds),
+                    success: function (response) {
+                        if (response === "success") {
+                            location.reload();
+                        } else {
+                            alert(response);
+                        }
+                    },
+                    error: function () {
+                        alert("Error occurred while deleting records.");
+                    }
+                });
+            } else {
+                alert("Please select records to delete.");
+            }
+        });
+    });
+</script>

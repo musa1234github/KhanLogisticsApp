@@ -1,0 +1,1328 @@
+dbug: Microsoft.Extensions.Hosting.Internal.Host[1]
+      Hosting starting
+info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[63]
+      User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\Admin\OneDrive\Desktop\PharmaInventory\KTC-APP-FINAL\
+dbug: Microsoft.Extensions.Hosting.Internal.Host[2]
+      Hosting started
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Dispatch/ShowReceipt - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/ - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.DispatchController.ShowReceipt (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "ShowReceipt", controller = "Dispatch"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ShowReceipt() on controller CodeFirstTransport.Controllers.DispatchController (CodeFirstTransport).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller CodeFirstTransport.Controllers.UsersController (CodeFirstTransport).
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10401]
+      An 'IServiceProvider' was created for internal use by Entity Framework.
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10401]
+      An 'IServiceProvider' was created for internal use by Entity Framework.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view Login.
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view Login executed in 283.6423ms.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/KhanTransport.styles.css - -
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport) in 746.6887ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport)'
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/KhanTransport.styles.css - - - 404 - - 17.1241ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_vs/browserLink - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/ - - - 200 - text/html;+charset=utf-8 1375.3628ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 42.8243ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 182.7497ms
+dbug: Microsoft.EntityFrameworkCore.Model.Validation[10600]
+      The property 'BillTable.PaymentTablePId' was created in shadow state because there are no eligible CLR members with a matching name.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST https://localhost:44307/ application/x-www-form-urlencoded 231
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(System.String, System.String) on controller CodeFirstTransport.Controllers.UsersController (CodeFirstTransport).
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Query[10111]
+      Compiling query expression: 
+      'DbSet<TblFactory>()'
+dbug: Microsoft.EntityFrameworkCore.Query[10111]
+      Compiling query expression: 
+      'DbSet<TblUser>()
+          .FirstOrDefault(a => a.Email == __emailId_0 && a.Password == __password_1)'
+dbug: Microsoft.EntityFrameworkCore.Query[10107]
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<TblFactory>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: TblFactory.FID (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: TblFactory.Address (string), 1], [Property: TblFactory.Code (string) Required, 2], [Property: TblFactory.CreatedBy (int?), 3], [Property: TblFactory.CreatedOn (DateTime?), 4], [Property: TblFactory.FactoryName (string) Required, 5], [Property: TblFactory.Gstin (double?), 6], [Property: TblFactory.IsActive (bool) Required, 7], [Property: TblFactory.ModifiedBy (int?), 8], [Property: TblFactory.ModifiedOn (DateTime?), 9] }
+              SELECT t.FID, t.Address, t.Code, t.CreatedBy, t.CreatedOn, t.FactoryName, t.Gstin, t.IsActive, t.ModifiedBy, t.ModifiedOn
+              FROM TblFactories AS t), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, TblFactory>, 
+          CodeFirstTransport.Models.TransportMgmtContext, 
+          False, 
+          False, 
+          True
+      )'
+dbug: Microsoft.EntityFrameworkCore.Query[10107]
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<TblUser>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: TblUser.UserId (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: TblUser.Address (string), 1], [Property: TblUser.City (string), 2], [Property: TblUser.Doj (DateTime?), 3], [Property: TblUser.Email (string) Required, 4], [Property: TblUser.LastLogIn (DateTime?), 5], [Property: TblUser.Password (string) Required, 6], [Property: TblUser.Role (string), 7], [Property: TblUser.UserName (string) Required, 8] }
+              SELECT TOP(1) t.UserId, t.Address, t.City, t.Doj, t.Email, t.LastLogIn, t.Password, t.Role, t.UserName
+              FROM TblUsers AS t
+              WHERE (t.Email == @__emailId_0) && (t.Password == @__password_1)), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, TblUser>, 
+          CodeFirstTransport.Models.TransportMgmtContext, 
+          False, 
+          False, 
+          True
+      )
+          .SingleOrDefault()'
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (113ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (113ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__emailId_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[UserId], [t].[Address], [t].[City], [t].[Doj], [t].[Email], [t].[LastLogIn], [t].[Password], [t].[Role], [t].[UserName]
+      FROM [TblUsers] AS [t]
+      WHERE ([t].[Email] = @__emailId_0) AND ([t].[Password] = @__password_1)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (94ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (143ms) [Parameters=[@__emailId_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[UserId], [t].[Address], [t].[City], [t].[Doj], [t].[Email], [t].[LastLogIn], [t].[Password], [t].[Role], [t].[UserName]
+      FROM [TblUsers] AS [t]
+      WHERE ([t].[Email] = @__emailId_0) AND ([t].[Password] = @__password_1)
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+info: Microsoft.AspNetCore.Mvc.RedirectToActionResult[1]
+      Executing RedirectResult, redirecting to /Home/Index.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport) in 2155.0383ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view ShowReceipt.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Home/Index - -
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'TransportMgmtContext' disposed.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.HomeController.Index (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CodeFirstTransport.Controllers.HomeController (CodeFirstTransport).
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view Index.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST https://localhost:44307/ application/x-www-form-urlencoded 231 - 302 - - 2267.1335ms
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view Index executed in 129.0839ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.HomeController.Index (CodeFirstTransport) in 164.8655ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.HomeController.Index (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - -
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - - - 404 - - 11.9421ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/Home/Index - - - 200 - text/html;+charset=utf-8 228.6527ms
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view ShowReceipt executed in 249.1275ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.DispatchController.ShowReceipt (CodeFirstTransport) in 4665.9418ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.DispatchController.ShowReceipt (CodeFirstTransport)'
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'TransportMgmtContext' disposed.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/Dispatch/ShowReceipt - - - 200 - text/html;+charset=utf-8 5244.3467ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_vs/browserLink - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 12.0627ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 47.5645ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Invoice/ShowBillToDelete - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.InvoiceController.ShowBillToDelete (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "ShowBillToDelete", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ShowBillToDelete(System.Nullable`1[System.Int32], System.String) on controller CodeFirstTransport.Controllers.InvoiceController (CodeFirstTransport).
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view ShowBillToDelete.
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view ShowBillToDelete executed in 16.0764ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.InvoiceController.ShowBillToDelete (CodeFirstTransport) in 138.5194ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.InvoiceController.ShowBillToDelete (CodeFirstTransport)'
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'TransportMgmtContext' disposed.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/Invoice/ShowBillToDelete - - - 200 - text/html;+charset=utf-8 186.3979ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - - - 404 - - 9.1329ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_vs/browserLink - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 14.4991ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 49.1346ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Invoice/ShowBillToDelete?factoryId=10&billNumber=KTC%2F24-25%2FJ-100 - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.InvoiceController.ShowBillToDelete (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "ShowBillToDelete", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ShowBillToDelete(System.Nullable`1[System.Int32], System.String) on controller CodeFirstTransport.Controllers.InvoiceController (CodeFirstTransport).
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Query[10111]
+      Compiling query expression: 
+      'DbSet<TblDispatch>()
+          .Where(d => d.DisVid == __factoryId_Value_0)
+          .Where(d => d.bill.BillNum == __billNumber_1)'
+dbug: Microsoft.EntityFrameworkCore.Query[10107]
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<TblDispatch>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: TblDispatch.DispId (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: TblDispatch.BillID (int?) FK Index, 1], [Property: TblDispatch.ChallanNo (string), 2], [Property: TblDispatch.DeliveryNum (string), 3], [Property: TblDispatch.Destination (string), 4], [Property: TblDispatch.DisVid (int?), 5], [Property: TblDispatch.DispatchDate (DateTime?), 6], [Property: TblDispatch.DispatchQuantity (double?), 7], [Property: TblDispatch.FinalPrice (double?), 8], [Property: TblDispatch.IsReceived (bool?), 9], [Property: TblDispatch.Lr (string), 10], [Property: TblDispatch.PartyName (string), 11], [Property: TblDispatch.Shortage (int?), 12], [Property: TblDispatch.TotalValue (double?), 13], [Property: TblDispatch.UnitPrice (double?), 14], [Property: TblDispatch.VehicleNo (string), 15] }
+              SELECT t.DispId, t.BillID, t.ChallanNo, t.DeliveryNum, t.Destination, t.DisVid, t.DispatchDate, t.DispatchQuantity, t.FinalPrice, t.IsReceived, t.Lr, t.PartyName, t.Shortage, t.TotalValue, t.UnitPrice, t.VehicleNo
+              FROM TblDispatches AS t
+              LEFT JOIN BillTables AS b ON t.BillID == b.BillID
+              WHERE (t.DisVid == @__factoryId_Value_0) && (b.BillNum == @__billNumber_1)), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, TblDispatch>, 
+          CodeFirstTransport.Models.TransportMgmtContext, 
+          False, 
+          False, 
+          True
+      )'
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__factoryId_Value_0='?' (DbType = Int32), @__billNumber_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[IsReceived], [t].[Lr], [t].[PartyName], [t].[Shortage], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      LEFT JOIN [BillTables] AS [b] ON [t].[BillID] = [b].[BillID]
+      WHERE ([t].[DisVid] = @__factoryId_Value_0) AND ([b].[BillNum] = @__billNumber_1)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (35ms) [Parameters=[@__factoryId_Value_0='?' (DbType = Int32), @__billNumber_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[IsReceived], [t].[Lr], [t].[PartyName], [t].[Shortage], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      LEFT JOIN [BillTables] AS [b] ON [t].[BillID] = [b].[BillID]
+      WHERE ([t].[DisVid] = @__factoryId_Value_0) AND ([b].[BillNum] = @__billNumber_1)
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view ShowBillToDelete.
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view ShowBillToDelete executed in 8.9695ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.InvoiceController.ShowBillToDelete (CodeFirstTransport) in 257.8814ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.InvoiceController.ShowBillToDelete (CodeFirstTransport)'
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - - - 404 - - 7.2463ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_vs/browserLink - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - -
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'TransportMgmtContext' disposed.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/Invoice/ShowBillToDelete?factoryId=10&billNumber=KTC%2F24-25%2FJ-100 - - - 200 - text/html;+charset=utf-8 316.8040ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 34.3768ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 49.6031ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Invoice/ShowBillToDelete?factoryId=10&billNumber=KTC%2F24-25%2FJ-188 - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.InvoiceController.ShowBillToDelete (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "ShowBillToDelete", controller = "Invoice"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ShowBillToDelete(System.Nullable`1[System.Int32], System.String) on controller CodeFirstTransport.Controllers.InvoiceController (CodeFirstTransport).
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (1ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__factoryId_Value_0='?' (DbType = Int32), @__billNumber_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[IsReceived], [t].[Lr], [t].[PartyName], [t].[Shortage], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      LEFT JOIN [BillTables] AS [b] ON [t].[BillID] = [b].[BillID]
+      WHERE ([t].[DisVid] = @__factoryId_Value_0) AND ([b].[BillNum] = @__billNumber_1)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (16ms) [Parameters=[@__factoryId_Value_0='?' (DbType = Int32), @__billNumber_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[IsReceived], [t].[Lr], [t].[PartyName], [t].[Shortage], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      LEFT JOIN [BillTables] AS [b] ON [t].[BillID] = [b].[BillID]
+      WHERE ([t].[DisVid] = @__factoryId_Value_0) AND ([b].[BillNum] = @__billNumber_1)
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblDispatch' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Query[10111]
+      Compiling query expression: 
+      'DbSet<TblFactory>()
+          .FirstOrDefault(f => (int?)f.FID == __a_DisVid_0)'
+dbug: Microsoft.EntityFrameworkCore.Query[10107]
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<TblFactory>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: TblFactory.FID (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: TblFactory.Address (string), 1], [Property: TblFactory.Code (string) Required, 2], [Property: TblFactory.CreatedBy (int?), 3], [Property: TblFactory.CreatedOn (DateTime?), 4], [Property: TblFactory.FactoryName (string) Required, 5], [Property: TblFactory.Gstin (double?), 6], [Property: TblFactory.IsActive (bool) Required, 7], [Property: TblFactory.ModifiedBy (int?), 8], [Property: TblFactory.ModifiedOn (DateTime?), 9] }
+              SELECT TOP(1) t.FID, t.Address, t.Code, t.CreatedBy, t.CreatedOn, t.FactoryName, t.Gstin, t.IsActive, t.ModifiedBy, t.ModifiedOn
+              FROM TblFactories AS t
+              WHERE t.FID == @__a_DisVid_0), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, TblFactory>, 
+          CodeFirstTransport.Models.TransportMgmtContext, 
+          False, 
+          False, 
+          True
+      )
+          .SingleOrDefault()'
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (3ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (1ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (4ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (1ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (1ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (1ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (1ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (3ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (1ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (1ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (1ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (3ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (3ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@__a_DisVid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+      WHERE [t].[FID] = @__a_DisVid_0
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (2ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4R

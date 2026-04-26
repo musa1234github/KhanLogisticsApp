@@ -1,0 +1,129 @@
+@model IEnumerable<KhanLogistics.Models.ViewModel.SpGetDispatch>
+
+@{
+    ViewData["Title"] = "Dispatch NoBills";
+}
+
+<h1 style="text-align:center">Dispatch NoBills</h1>
+
+<form asp-action="FetchDispatch" method="get" class="form-inline">
+    <div class="form-group">
+        <label for="startDate">Start Date:</label>
+        <input type="date" name="startDate" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="endDate">End Date:</label>
+        <input type="date" name="endDate" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="factoryId">Factory:</label>
+        <select name="factoryId" class="form-control">
+            <option value="">All</option>
+            @foreach (var factory in ViewBag.Factories)
+            {
+                <option value="@factory.FID">@factory.FactoryName</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<div class="form-group mt-3">
+    <label for="BillNumber">Bill Number:</label>
+    <input type="text" id="BillNumber" class="form-control" placeholder="Enter Bill Number" required />
+</div>
+<div class="form-group">
+    <label for="BillDate">Bill Date:</label>
+    <input type="date" id="BillDate" class="form-control" required />
+</div>
+
+<button class="btn btn-sm btn-outline-success m-2 p-2 float-left btnCreateBill">Create Bill</button>
+
+<table class="table table-striped mt-3" id="Mytable">
+    <thead>
+        <tr>
+            <th><input type="checkbox" id="Select_All" /></th>
+            <th>@Html.DisplayNameFor(model => model.FactoryName)</th>
+            <th>@Html.DisplayNameFor(model => model.ChallanNo)</th>
+            <th>@Html.DisplayNameFor(model => model.Destination)</th>
+            <th>@Html.DisplayNameFor(model => model.VehicleNo)</th>
+            <th>@Html.DisplayNameFor(model => model.DispatchDate)</th>
+            <th>@Html.DisplayNameFor(model => model.DispatchQuantity)</th>
+            <th>@Html.DisplayNameFor(model => model.UnitPrice)</th>
+            <th>@Html.DisplayNameFor(model => model.BillNum)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><input type="checkbox" class="select-item" value="@item.DispId" /></td>
+                <td>@Html.DisplayFor(modelItem => item.FactoryName)</td>
+                <td>@Html.DisplayFor(modelItem => item.ChallanNo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Destination)</td>
+                <td>@Html.DisplayFor(modelItem => item.VehicleNo)</td>
+                <td>@Html.DisplayFor(modelItem => item.DispatchDate)</td>
+                <td>@Math.Round(item.DispatchQuantity ?? 0, 2)</td>
+                <td>@Math.Round(item.UnitPrice ?? 0, 2)</td>
+                <td>@Html.DisplayFor(modelItem => item.BillNum)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function () {
+        $('#Mytable').DataTable();
+
+        $('#Select_All').on('click', function () {
+            $('.select-item').prop('checked', this.checked);
+        });
+
+        $('.btnCreateBill').on('click', function () {
+            let ids = [];
+            $('.select-item:checked').each(function () {
+                ids.push($(this).val());
+            });
+
+            let billNumber = $('#BillNumber').val().trim();
+            let billDate = $('#BillDate').val();
+
+            if (ids.length === 0) {
+                alert("No dispatch records selected!");
+                return;
+            }
+            if (!billNumber || !billDate) {
+                alert("Please enter Bill Number and Date.");
+                return;
+            }
+
+            let requestData = {
+                BillNumber: billNumber,
+                BillDate: billDate,
+                SelectedDispatchIds: ids
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("CreateOrUpdateBill", "Invoice")',
+                contentType: 'application/json',
+                data: JSON.stringify(requestData),
+                success: function (response) {
+                    alert(response.message);
+                    location.reload();
+                },
+                error: function (xhr) {
+                    console.error(xhr);
+                    let errorMessage = "An error occurred.";
+                    if (xhr.responseJSON && xhr.responseJSON.error) {
+                        errorMessage = xhr.responseJSON.error;
+                    } else if (xhr.responseText) {
+                        errorMessage = xhr.responseText;
+                    }
+                    alert("Error: " + errorMessage);
+                }
+            });
+        });
+    });
+</script>
+

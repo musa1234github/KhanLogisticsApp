@@ -1,0 +1,39 @@
+﻿@model IEnumerable<dynamic>
+
+<h2>Vehicles Near Expiry</h2>
+
+@if (Model != null && Model.Any())
+{
+    <a href="@Url.Action("ExportToExcel", "Vehicle")" class="btn btn-primary">Export to Excel</a>
+    <table class="table table-striped" id="Mytable">
+        <thead>
+            <tr>
+                <th>Vehicle Number</th>
+              @*   <th>Vehicle Type</th> *@
+                <th>Insurance Expiry</th>
+                <th>Fitness Expiry</th>
+                <th>Tax Expiry</th>
+                <th>Permit Expiry</th>
+                <th>Days to Expiry</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var vehicle in Model)
+            {
+                <tr>
+                    <td>@vehicle.Vehicle.VehicleNumber</td>
+                   @*  <td>@vehicle.Vehicle.VehicleType</td> *@
+                    <td>@(vehicle.Vehicle.VehicleInsurEndtDate?.ToString("dd-MM-yyyy") ?? "N/A")</td>
+                    <td>@(vehicle.Vehicle.VehicleFitnessEndDate?.ToString("dd-MM-yyyy") ?? "N/A")</td>
+                    <td>@(vehicle.Vehicle.TaxEndDate?.ToString("dd-MM-yyyy") ?? "N/A")</td>
+                    <td>@(vehicle.Vehicle.VehiclePermitDate?.ToString("dd-MM-yyyy") ?? "N/A")</td>
+                    <td>@vehicle.DaysToExpire</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No vehicles are nearing expiry in the next 30 days.</p>
+}

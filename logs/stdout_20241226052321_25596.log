@@ -1,0 +1,70 @@
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\Dell\Documents\KTC-APP-FINAL\
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (81ms) [Parameters=[@__emailId_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[UserId], [t].[Address], [t].[City], [t].[Doj], [t].[Email], [t].[LastLogIn], [t].[Password], [t].[Role], [t].[UserName]
+      FROM [TblUsers] AS [t]
+      WHERE ([t].[Email] = @__emailId_0) AND ([t].[Password] = @__password_1)
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (73ms) [Parameters=[@__nearExpiryThreshold_0='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[VehicleId], [t].[TaxEndDate], [t].[TaxStartDate], [t].[VehicleFitnessEndDate], [t].[VehicleFitnessStartDate], [t].[VehicleInsurEndtDate], [t].[VehicleInsurStartDate], [t].[VehicleNumber], [t].[VehiclePermitDate], [t].[VehicleType]
+      FROM [TblVehicles] AS [t]
+      WHERE ([t].[VehicleInsurEndtDate] IS NOT NULL) AND ([t].[VehicleInsurEndtDate] <= @__nearExpiryThreshold_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__nearExpiryThreshold_0='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[VehicleId], [t].[TaxEndDate], [t].[TaxStartDate], [t].[VehicleFitnessEndDate], [t].[VehicleFitnessStartDate], [t].[VehicleInsurEndtDate], [t].[VehicleInsurStartDate], [t].[VehicleNumber], [t].[VehiclePermitDate], [t].[VehicleType]
+      FROM [TblVehicles] AS [t]
+      WHERE ([t].[VehicleFitnessEndDate] IS NOT NULL) AND ([t].[VehicleFitnessEndDate] <= @__nearExpiryThreshold_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__nearExpiryThreshold_0='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[VehicleId], [t].[TaxEndDate], [t].[TaxStartDate], [t].[VehicleFitnessEndDate], [t].[VehicleFitnessStartDate], [t].[VehicleInsurEndtDate], [t].[VehicleInsurStartDate], [t].[VehicleNumber], [t].[VehiclePermitDate], [t].[VehicleType]
+      FROM [TblVehicles] AS [t]
+      WHERE ([t].[TaxEndDate] IS NOT NULL) AND ([t].[TaxEndDate] <= @__nearExpiryThreshold_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@__nearExpiryThreshold_0='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[VehicleId], [t].[TaxEndDate], [t].[TaxStartDate], [t].[VehicleFitnessEndDate], [t].[VehicleFitnessStartDate], [t].[VehicleInsurEndtDate], [t].[VehicleInsurStartDate], [t].[VehicleNumber], [t].[VehiclePermitDate], [t].[VehicleType]
+      FROM [TblVehicles] AS [t]
+      WHERE ([t].[VehiclePermitDate] IS NOT NULL) AND ([t].[VehiclePermitDate] <= @__nearExpiryThreshold_0)
+fail: Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer[2]
+      Connection ID "17942340916249362955", Request ID "4000020c-0000-f900-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+      System.InvalidOperationException: The model item passed into the ViewDataDictionary is of type 'CodeFirstTransport.Models.ViewModel.NearExpiryViewModel', but this ViewDataDictionary instance requires a model item of type 'System.Collections.Generic.IEnumerable`1[CodeFirstTransport.Models.TblVehicle]'.
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary.EnsureCompatible(Object value)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary..ctor(ViewDataDictionary source, Object model, Type declaredModelType)
+         at lambda_method228(Closure , ViewDataDictionary )
+         at Microsoft.AspNetCore.Mvc.Razor.RazorPagePropertyActivator.CreateViewDataDictionary(ViewContext context)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorPagePropertyActivator.Activate(Object page, ViewContext context)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorPageActivator.Activate(IRazorPage page, ViewContext context)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+         at Microsoft.AspNetCore.Mvc.ViewComponents.ViewViewComponentResult.ExecuteAsync(ViewComponentContext context)
+         at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentInvoker.InvokeAsync(ViewComponentContext context)
+         at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentHelper.InvokeCoreAsync(ViewComponentDescriptor descriptor, Object arguments)
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.<ExecuteAsync>b__48_1() in C:\Users\Dell\Documents\KTC-APP-FINAL\Views\Shared\_Layout.cshtml:line 100
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.ExecuteAsync()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeResultFilters>g__Awaited|28_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPi

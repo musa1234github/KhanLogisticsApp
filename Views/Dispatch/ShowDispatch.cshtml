@@ -1,0 +1,95 @@
+@model KhanLogistics.Models.ViewModel.DispatchVm
+
+
+<h1 style="text-align:center">Short / Damage</h1>
+
+<div class="filter-section">
+    <div style="width: 100px; padding-bottom: 25px;">
+        @Html.DropDownListFor(model => model.SelectedIds, Model.ddlFactory, "Select Factory", new { @id = "ddlFactory", @class = "form-control" })
+    </div>
+
+    <div>
+        <label for="challanNo">Challan No:</label>
+        <input type="text" id="challanNo" name="challanNo" class="form-control" />
+    </div>
+
+    <button id="filterButton" class="btn btn-primary">Filter</button>
+</div>
+
+@using (Html.BeginForm("ExportReport", "Dispatch", FormMethod.Post))
+{
+    <div class="export-section" style="margin-top: 50px;">
+        <h3>Export Report</h3>
+        <div class="form-group">
+            @Html.DropDownListFor(model => model.ExportFactoryId, Model.ddlFactory, "Select Factory", new { @class = "form-control", required = "required" })
+        </div>
+        <div class="form-group">
+            <label>Start Date:</label>
+            @Html.TextBoxFor(model => model.StartDate, new { @type = "date", @class = "form-control", required = "required" })
+        </div>
+        <div class="form-group">
+            <label>End Date:</label>
+            @Html.TextBoxFor(model => model.EndDate, new { @type = "date", @class = "form-control", required = "required" })
+        </div>
+        <div class="form-group">
+            <label>Report Type:</label>
+            <select name="reportType" class="form-control" required>
+                <option value="Shortage">Shortage Report</option>
+                <option value="Receipt">Receipt Report</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success">Export to Excel</button>
+    </div>
+}
+
+<div id="dispatchTable"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
+
+<script>
+    $(document).ready(function () {
+        $('#filterButton').on('click', function () {
+            var factoryId = $('#ddlFactory').val();
+            var challanNo = $('#challanNo').val();
+
+            if (!factoryId || !challanNo) {
+                alert('Please select a factory and enter a challan number.');
+                return;
+            }
+
+            $.ajax({
+                url: '@Url.Action("FilterDispatch", "Dispatch")',
+                type: 'POST',
+                data: { factoryId: factoryId, challanNo: challanNo },
+                success: function (result) {
+                    $('#dispatchTable').html(result);
+                    $('#Mytable').DataTable();
+                }
+            });
+        });
+
+        $(document).on('click', '.save-shortage-received', function () {
+            var row = $(this).closest('tr');
+            var dispId = $(this).data('id');
+            var shortage = row.find('.editable-shortage').val();
+            var isReceived = row.find('.editable-received').prop('checked');
+
+            $.ajax({
+                url: '@Url.Action("UpdateShortageAndReceived", "Dispatch")',
+                type: 'POST',
+                data: { dispId: dispId, shortage: shortage, isReceived: isReceived },
+                success: function (response) {
+                    if (response.success) {
+                        alert('Shortage and received status updated successfully.');
+
+                        row.find('.editable-received').prop('checked', response.isReceived);
+                    } else {
+                        alert('Failed to update data.');
+                    }
+                }
+            });
+        });
+    });
+</script>

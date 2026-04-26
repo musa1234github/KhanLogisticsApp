@@ -1,0 +1,45 @@
+@model KhanLogistics.Models.ViewModel.DispatchVm
+@{
+    ViewBag.Title = "Upload Dispatch";
+}
+
+<div>
+    <h2>Upload Dispatch</h2>
+
+    @if (TempData["Success"] != null)
+    {
+        <div id="success-message" class="alert alert-success">
+            @TempData["Success"]
+        </div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div id="error-message" class="alert alert-danger">
+            @TempData["Error"]
+        </div>
+    }
+
+    <form method="post" enctype="multipart/form-data" asp-action="UploadDispatch">
+        <div class="form-group">
+            <label for="FID">Select Factory:</label>
+            @Html.DropDownList("FID", (IEnumerable<SelectListItem>)Model.ddlFactory, "--- Select Factory ---", new { @class = "form-control", @id = "FID", required = "required" })
+        </div>
+
+        <div class="form-group">
+            <label for="file">Browse File:</label>
+            <input type="file" class="form-control" id="file" name="file" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+</div>
+
+<script>
+    // Auto-hide success or error messages after 5 seconds
+    setTimeout(() => {
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
+        if (successMessage) successMessage.style.display = 'none';
+        if (errorMessage) errorMessage.style.display = 'none';
+    }, 60000); // 60000ms = 60 seconds
+</script>

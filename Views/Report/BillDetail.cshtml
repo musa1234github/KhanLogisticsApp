@@ -1,0 +1,79 @@
+@model IEnumerable<KhanLogistics.Models.ViewModel.SpBilldetail>
+
+@{
+    ViewData["Title"] = "Bill Detail";
+}
+
+<h1 style="text-align:center">Bill By Date</h1>
+
+<form method="post" asp-action="BillDetail">
+    <div class="form-group">
+        <label for="fromDate">From Date:</label>
+        <input type="date" id="fromDate" name="fromDate" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="toDate">To Date:</label>
+        <input type="date" id="toDate" name="toDate" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="factoryId">Factory:</label>
+        <select id="factoryId" name="factoryId" class="form-control">
+            <option value="">All</option>
+            @if (ViewBag.Factories != null)
+            {
+                foreach (var factory in ViewBag.Factories)
+                {
+                    <option value="@factory.FID">@factory.FactoryName</option>
+                }
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table" id="Mytable">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.LrQty)</th>
+                <th>@Html.DisplayNameFor(model => model.DispatchMonth)</th>
+                <th>@Html.DisplayNameFor(model => model.FactoryName)</th>
+                <th>@Html.DisplayNameFor(model => model.BillNum)</th>
+                <th>@Html.DisplayNameFor(model => model.BillDate)</th>
+                <th>@Html.DisplayNameFor(model => model.BillQty)</th>
+                <th>@Html.DisplayNameFor(model => model.TaxableAmount)</th>
+                <th>@Html.DisplayNameFor(model => model.ActualAmount)</th>
+                <th>@Html.DisplayNameFor(model => model.Tds)</th>
+                <th>@Html.DisplayNameFor(model => model.Gst)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.LrQty)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DispatchMonth)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FactoryName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.BillNum)</td>
+                    <td>@Html.DisplayFor(modelItem => item.BillDate)</td>
+                    <td>@Math.Round(item.BillQty ?? 0, 2)</td>
+                    <td>@Math.Round(item.TaxableAmount ?? 0, 2)</td>
+                    <td>@Math.Round(item.ActualAmount ?? 0, 2)</td>
+                    <td>@Math.Round(item.Tds ?? 0, 2)</td>
+                    <td>@Math.Round(item.Gst ?? 0, 2)</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.FID">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No data available for the selected criteria.</p>
+}
+ 
+

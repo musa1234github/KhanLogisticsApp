@@ -1,0 +1,315 @@
+dbug: Microsoft.Extensions.Hosting.Internal.Host[1]
+      Hosting starting
+info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[63]
+      User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\Admin\OneDrive\Desktop\PharmaInventory\KTC-APP-FINAL\
+dbug: Microsoft.Extensions.Hosting.Internal.Host[2]
+      Hosting started
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/ - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller CodeFirstTransport.Controllers.UsersController (CodeFirstTransport).
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10401]
+      An 'IServiceProvider' was created for internal use by Entity Framework.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view Login.
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view Login executed in 491.6862ms.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/KhanTransport.styles.css - -
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport) in 1161.0485ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport)'
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/KhanTransport.styles.css - - - 404 - - 40.1456ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_vs/browserLink - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/ - - - 200 - text/html;+charset=utf-8 2022.9179ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 79.3031ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 255.3721ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST https://localhost:44307/ application/x-www-form-urlencoded 231
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(System.String, System.String) on controller CodeFirstTransport.Controllers.UsersController (CodeFirstTransport).
+dbug: Microsoft.EntityFrameworkCore.Model.Validation[10600]
+      The property 'BillTable.PaymentTablePId' was created in shadow state because there are no eligible CLR members with a matching name.
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Query[10111]
+      Compiling query expression: 
+      'DbSet<TblUser>()
+          .FirstOrDefault(a => a.Email == __emailId_0 && a.Password == __password_1)'
+dbug: Microsoft.EntityFrameworkCore.Query[10107]
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<TblUser>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: TblUser.UserId (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: TblUser.Address (string), 1], [Property: TblUser.City (string), 2], [Property: TblUser.Doj (DateTime?), 3], [Property: TblUser.Email (string) Required, 4], [Property: TblUser.LastLogIn (DateTime?), 5], [Property: TblUser.Password (string) Required, 6], [Property: TblUser.Role (string), 7], [Property: TblUser.UserName (string) Required, 8] }
+              SELECT TOP(1) t.UserId, t.Address, t.City, t.Doj, t.Email, t.LastLogIn, t.Password, t.Role, t.UserName
+              FROM TblUsers AS t
+              WHERE (t.Email == @__emailId_0) && (t.Password == @__password_1)), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, TblUser>, 
+          CodeFirstTransport.Models.TransportMgmtContext, 
+          False, 
+          False, 
+          True
+      )
+          .SingleOrDefault()'
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (216ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__emailId_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[UserId], [t].[Address], [t].[City], [t].[Doj], [t].[Email], [t].[LastLogIn], [t].[Password], [t].[Role], [t].[UserName]
+      FROM [TblUsers] AS [t]
+      WHERE ([t].[Email] = @__emailId_0) AND ([t].[Password] = @__password_1)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (252ms) [Parameters=[@__emailId_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[UserId], [t].[Address], [t].[City], [t].[Doj], [t].[Email], [t].[LastLogIn], [t].[Password], [t].[Role], [t].[UserName]
+      FROM [TblUsers] AS [t]
+      WHERE ([t].[Email] = @__emailId_0) AND ([t].[Password] = @__password_1)
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+info: Microsoft.AspNetCore.Mvc.RedirectToActionResult[1]
+      Executing RedirectResult, redirecting to /Home/Index.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport) in 7459.9495ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport)'
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'TransportMgmtContext' disposed.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Home/Index - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.HomeController.Index (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST https://localhost:44307/ application/x-www-form-urlencoded 231 - 302 - - 7637.4475ms
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CodeFirstTransport.Controllers.HomeController (CodeFirstTransport).
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view Index.
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view Index executed in 114.9421ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.HomeController.Index (CodeFirstTransport) in 124.4327ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.HomeController.Index (CodeFirstTransport)'
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/Home/Index - - - 200 - text/html;+charset=utf-8 228.7878ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - - - 404 - - 21.8822ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_vs/browserLink - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 25.2329ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 82.2631ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Dispatch/ShowDispatch - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.DispatchController.ShowDispatch (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "ShowDispatch", controller = "Dispatch"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ShowDispatch() on controller CodeFirstTransport.Controllers.DispatchController (CodeFirstTransport).
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Query[10111]
+      Compiling query expression: 
+      'DbSet<TblFactory>()'
+dbug: Microsoft.EntityFrameworkCore.Query[10107]
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<TblFactory>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: TblFactory.FID (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: TblFactory.Address (string), 1], [Property: TblFactory.Code (string) Required, 2], [Property: TblFactory.CreatedBy (int?), 3], [Property: TblFactory.CreatedOn (DateTime?), 4], [Property: TblFactory.FactoryName (string) Required, 5], [Property: TblFactory.Gstin (double?), 6], [Property: TblFactory.IsActive (bool) Required, 7], [Property: TblFactory.ModifiedBy (int?), 8], [Property: TblFactory.ModifiedOn (DateTime?), 9] }
+              SELECT t.FID, t.Address, t.Code, t.CreatedBy, t.CreatedOn, t.FactoryName, t.Gstin, t.IsActive, t.ModifiedBy, t.ModifiedOn
+              FROM TblFactories AS t), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, TblFactory>, 
+          CodeFirstTransport.Models.TransportMgmtContext, 
+          False, 
+          False, 
+          True
+      )'
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (10ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (34ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view ShowDispatch.
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view ShowDispatch executed in 156.4961ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.DispatchController.ShowDispatch (CodeFirstTransport) in 627.2703ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.DispatchController.ShowDispatch (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - -
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - - - 404 - - 28.6890ms
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'TransportMgmtContext' disposed.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_vs/browserLink - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/Dispatch/ShowDispatch - - - 200 - text/html;+charset=utf-8 759.5981ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 47.7879ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 103.4162ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST https://localhost:44307/Dispatch/ExportShortageReport application/x-www-form-urlencoded 240
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.DispatchController.ExportShortageReport (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "ExportShortageReport", controller = "Dispatch"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ExportShortageReport(Int32, System.DateTime, System.DateTime) on controller CodeFirstTransport.Controllers.DispatchController (CodeFirstTransport).
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Query[10111]
+      Compiling query expression: 
+      'DbSet<TblDispatch>()
+          .Where(d => d.DisVid == __ExportFactoryId_0 && d.DispatchDate >= __startDate_1 && d.DispatchDate <= __endDate_2 && d.Shortage.HasValue && d.Shortage > (int?)0)
+          .Select(d => new DispatchViewModel{ 
+              FactoryName = DbSet<TblFactory>()
+                  .FirstOrDefault(f => (int?)f.FID == d.DisVid).FactoryName, 
+              DispatchDate = Convert.ToDateTime((object)d.DispatchDate), 
+              ChallanNo = d.ChallanNo, 
+              VehicleNo = d.VehicleNo, 
+              Destination = d.Destination, 
+              PartyName = d.PartyName, 
+              DispatchQuantity = d.DispatchQuantity, 
+              Shortage = d.Shortage 
+          }
+          )'
+dbug: Microsoft.EntityFrameworkCore.Query[10107]
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<DispatchViewModel>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Client Projections:
+                  0 -> 0
+                  1 -> 1
+                  2 -> 2
+                  3 -> 3
+                  4 -> 4
+                  5 -> 5
+                  6 -> 6
+                  7 -> 7
+              SELECT (
+                  SELECT TOP(1) t0.FactoryName
+                  FROM TblFactories AS t0
+                  WHERE t0.FID == t.DisVid), t.DispatchDate, t.ChallanNo, t.VehicleNo, t.Destination, t.PartyName, t.DispatchQuantity, t.Shortage
+              FROM TblDispatches AS t
+              WHERE ((((t.DisVid == @__ExportFactoryId_0) && (t.DispatchDate >= @__startDate_1)) && (t.DispatchDate <= @__endDate_2)) && NotEqual(t.Shortage)) && (t.Shortage > 0)), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, DispatchViewModel>, 
+          CodeFirstTransport.Models.TransportMgmtContext, 
+          False, 
+          False, 
+          True
+      )'
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (5ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-4RBO5HC\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__ExportFactoryId_0='?' (DbType = Int32), @__startDate_1='?' (DbType = DateTime2), @__endDate_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='120']
+      SELECT (
+          SELECT TOP(1) [t0].[FactoryName]
+          FROM [TblFactories] AS [t0]
+          WHERE [t0].[FID] = [t].[DisVid]), [t].[DispatchDate], [t].[ChallanNo], [t].[VehicleNo], [t].[Destination], [t].[PartyName], [t].[DispatchQuantity], [t].[Shortage]
+      FROM [TblDispatches] AS [t]
+      WHERE (((([t].[DisVid] = @__ExportFactoryId_0) AND ([t].[DispatchDate] >= @__startDate_1)) AND ([t].[DispatchDate] <= @__endDate_2)) AND ([t].[Shortage] IS NOT NULL)) AND ([t].[Shortage] > 0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (47ms) [Parameters=[@__ExportFactoryId_0='?' (DbType = Int32), @__startDate_1='?' (DbType = DateTime2), @__endDate_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='120']
+      SELECT (
+          SELECT TOP(1) [t0].[FactoryName]
+          FROM [TblFactories] AS [t0]
+          WHERE [t0].[FID] = [t].[DisVid]), [t].[DispatchDate], [t].[ChallanNo], [t].[VehicleNo], [t].[Destination], [t].[PartyName], [t].[Di

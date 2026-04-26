@@ -1,0 +1,68 @@
+@model IEnumerable<KhanLogistics.Models.ViewModel.Sp_QtyByDay>
+
+@{
+    ViewData["Title"] = "Quantity By Day";
+}
+
+<h1 style="text-align:center">Quantity By Day</h1>
+
+<form asp-action="ShowDayQty" method="post" class="form-inline">
+    <div class="form-group">
+        <label for="yearMonth">Year/Month:</label>
+        <select name="yearMonth" id="yearMonth" class="form-control" required>
+            @foreach (var month in ViewBag.Months)
+            {
+                <option value="@month.Value">@month.Text</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="factoryName">Factory Name:</label>
+        <select name="factoryName" id="factoryName" class="form-control">
+            <option value="">-- All Factories --</option>
+            @foreach (var factory in ViewBag.Factories)
+            {
+                <option value="@factory.Value">@factory.Text</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<table class="table" id="Mytable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Factory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().DayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().totalQty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().BillQty)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Factory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DayName)
+                </td>
+                <td>
+                    @Math.Round(item.totalQty ?? 0, 2)
+                </td>
+                <td>
+                    @Math.Round(item.BillQty ?? 0, 2)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

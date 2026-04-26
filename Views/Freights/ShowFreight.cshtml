@@ -1,0 +1,61 @@
+@model KhanLogistics.Models.ViewModels.FreightVModel
+
+<div style=" width:100px; padding-bottom:25px;">
+    @Html.DropDownListFor(f=>f.ddlVendors, Model.ddlVendors, new {@Id="ddlVendor", @placeholder="Select Vendor ", @class = "form-control"})
+</div>
+<form asp-controller="Freights" asp-action="UploadFreight" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <input type="submit" value="Import" />
+</form>
+
+<table class="table" id="Mytable">
+    <thead>
+        <tr>
+           @*  <th>
+            DestId
+            </th> *@
+            <th>
+                CompanyName
+            </th>
+            <th>
+                Destination
+            </th>
+           @*  <th>
+                Wheels
+            </th> *@
+            <th>
+                Freight
+            </th>
+           @*  <th>
+                FreightRate
+            </th> *@
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.freightVm)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Destination)
+                </td>
+                @* <td>
+                    @Html.DisplayFor(modelItem => item.Wheels)
+                </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Freight)
+                </td>
+               @*  <td>
+                    @Html.DisplayFor(modelItem => item.FreightRate)
+                </td> *@
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+

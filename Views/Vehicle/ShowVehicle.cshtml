@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Show Vehicle";
+}
+
+<h2>Show Vehicle</h2>
+
+<!-- Form to upload Excel file -->
+<form asp-action="ShowVehicle" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="file">Upload Excel File:</label>
+        <input type="file" name="file" class="form-control" accept=".xls,.xlsx" />
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>
+
+@if (ViewBag.SuccessfulUploads != null)
+{
+    <div class="alert alert-success mt-3">
+        @ViewBag.SuccessfulUploads successful vehicles uploaded!
+    </div>
+}
+
+<!-- Display the list of vehicles -->
+<h3>Vehicle List</h3>
+
+<table class="table table-striped" id="Mytable">
+    <thead>
+        <tr>
+            <th>Vehicle Number</th>
+           @*  <th>Vehicle Type</th> *@
+            <th>Insurance Start Date</th>
+            <th>Insurance End Date</th>
+            <th>Fitness Start Date</th>
+            <th>Fitness End Date</th>
+            <th>Tax Start Date</th>
+            <th>Tax End Date</th>
+            <th>Permit Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var vehicle in Model)
+        {
+            <tr>
+                <td>@vehicle.VehicleNumber</td>
+               @*  <td>@vehicle.VehicleType</td> *@
+                <td>@vehicle.VehicleInsurStartDate?.ToString("yyyy-MM-dd")</td>
+                <td>@vehicle.VehicleInsurEndtDate?.ToString("yyyy-MM-dd")</td>
+                <td>@vehicle.VehicleFitnessStartDate?.ToString("yyyy-MM-dd")</td>
+                <td>@vehicle.VehicleFitnessEndDate?.ToString("yyyy-MM-dd")</td>
+                <td>@vehicle.TaxStartDate?.ToString("yyyy-MM-dd")</td>
+                <td>@vehicle.TaxEndDate?.ToString("yyyy-MM-dd")</td>
+                <td>@vehicle.VehiclePermitDate?.ToString("yyyy-MM-dd")</td>
+            </tr>
+        }
+    </tbody>
+</table>

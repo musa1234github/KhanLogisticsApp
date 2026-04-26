@@ -1,0 +1,138 @@
+@model IEnumerable<KhanLogistics.Models.ViewModel.SpCheckBill>
+
+@{
+    ViewData["Title"] = "Check Bills";
+}
+
+<h1 style="text-align:center">Bill By Dispatch Number</h1>
+
+<!-- Form to accept StartDate, EndDate, and FactoryId -->
+<form asp-action="CheckBills" method="get" class="form-inline">
+    <div class="form-group">
+        <label for="startDate">Start Date:</label>
+        <input type="date" name="startDate" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="endDate">End Date:</label>
+        <input type="date" name="endDate" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="factoryId">Factory:</label>
+        <select name="factoryId" class="form-control">
+            <option value="">All</option>
+            @foreach (var factory in ViewBag.Factories)
+            {
+                <option value="@factory.FID">@factory.FactoryName</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<!-- Excel export button -->
+<form asp-action="CheckBills" method="get" class="form-inline" style="margin-top: 20px;">
+    <input type="hidden" name="exportExcel" value="true" />
+    <input type="hidden" name="startDate" value="@ViewData["StartDate"]" />
+    <input type="hidden" name="endDate" value="@ViewData["EndDate"]" />
+    <input type="hidden" name="factoryId" value="@ViewData["FactoryId"]" />
+    <button type="submit" class="btn btn-success">Export to Excel</button>
+</form>
+
+<table class="table" id="Mytable">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.FactoryName)</th>
+            <th>@Html.DisplayNameFor(model => model.ChallanNo)</th>
+            <th>@Html.DisplayNameFor(model => model.Destination)</th>
+            <th>@Html.DisplayNameFor(model => model.VehicleNo)</th>
+            <th>@Html.DisplayNameFor(model => model.DispatchDate)</th>
+            <th>@Html.DisplayNameFor(model => model.DispatchQuantity)</th>
+            <th>@Html.DisplayNameFor(model => model.BillNum)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.FactoryName)</td>
+                <td>@Html.DisplayFor(modelItem => item.ChallanNo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Destination)</td>
+                <td>@Html.DisplayFor(modelItem => item.VehicleNo)</td>
+                <td>@Html.DisplayFor(modelItem => item.DispatchDate)</td>
+                <td>@Math.Round(item.DispatchQuantity ?? 0, 2)</td>
+                <td>@Html.DisplayFor(modelItem => item.BillNum)</td>
+                <td><a asp-action="GetAllPayment" asp-route-id="@item.FactoryName">View</a> |</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+@* @model IEnumerable<KhanLogistics.Models.ViewModel.SpCheckBill>
+
+@{
+    ViewData["Title"] = "Check Bills";
+}
+
+<h1 style="text-align:center">Bill By Dispatch Number</h1>
+<!-- Form to accept StartDate, EndDate, and FactoryId -->
+<form asp-action="CheckBills" method="get" class="form-inline">
+    <div class="form-group">
+        <label for="startDate">Start Date:</label>
+        <input type="date" name="startDate" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="endDate">End Date:</label>
+        <input type="date" name="endDate" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="factoryId">Factory:</label>
+        <select name="factoryId" class="form-control">
+            <option value="">All</option>
+            @foreach (var factory in ViewBag.Factories)
+            {
+                <option value="@factory.FID">@factory.FactoryName</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<table class="table" id="Mytable">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.FactoryName)</th>
+            <th>@Html.DisplayNameFor(model => model.ChallanNo)</th>
+            <th>@Html.DisplayNameFor(model => model.Destination)</th>
+            <th>@Html.DisplayNameFor(model => model.VehicleNo)</th>
+            <th>@Html.DisplayNameFor(model => model.DispatchDate)</th>
+            <th>@Html.DisplayNameFor(model => model.DispatchQuantity)</th>
+            <th>@Html.DisplayNameFor(model => model.BillNum)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.FactoryName)</td>
+                <td>@Html.DisplayFor(modelItem => item.ChallanNo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Destination)</td>
+                <td>@Html.DisplayFor(modelItem => item.VehicleNo)</td>
+                <td>@Html.DisplayFor(modelItem => item.DispatchDate)</td>
+                <td>@Math.Round(item.DispatchQuantity ?? 0, 2)</td>
+                <td>@Html.DisplayFor(modelItem => item.BillNum)</td>
+                <td><a asp-action="GetAllPayment" asp-route-id="@item.FactoryName"></a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+ *@

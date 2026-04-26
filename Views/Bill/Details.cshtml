@@ -1,0 +1,49 @@
+@model KhanLogistics.Models.ViewModel.BillDispatchViewModel
+
+@{
+    ViewBag.Title = "Bill Details";
+}
+
+<h1 style="text-align:center">Bill Details</h1>
+<a href="@Url.Action("ExportToExcel", new { id = Model.BillID })" class="btn btn-primary">Export to Excel</a>
+
+<div>
+    <p><strong>Factory Name:</strong> @(Model.FactoryName ?? "N/A")</p>
+    <p><strong>Bill Number:</strong> @Model.BillNum</p>
+    <p><strong>Bill Date:</strong> @Model.BillDate?.ToString("yyyy-MM-dd")</p>
+    <p><strong>Bill Type:</strong> @Model.BillType</p>
+</div>
+
+<table class="table" id="Mytable">
+    <thead>
+        <tr>
+            <th>Challan No</th>
+            <th>Dispatch Date</th>
+            <th>Destination</th>
+            <th>Dispatch Quantity</th>
+            <th>Unit Price</th>
+            <th>Final Price</th>
+            <th>Vehicle No</th>
+            <th>LR Number</th>
+            <th>Delivery Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dispatch in Model.tblDispatches)
+        {
+            <tr>
+                <td>@dispatch.ChallanNo</td>
+                <td>@dispatch.DispatchDate.ToString("yyyy-MM-dd")</td>
+                <td>@dispatch.Destination</td>
+                <td>@dispatch.DispatchQuantity</td>
+                <td>@(@dispatch.UnitPrice.HasValue ? dispatch.UnitPrice.Value.ToString("F2") : "0.00")</td>
+                <td>@(@dispatch.FinalPrice.HasValue ? dispatch.FinalPrice.Value.ToString("F2") : "0.00")</td>
+                <td>@dispatch.VehicleNo</td>
+                <td>@dispatch.Lr</td>
+                <td>@dispatch.DeliveryNum</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("BillView")">Back to List</a>

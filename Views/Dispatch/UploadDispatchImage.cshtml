@@ -1,0 +1,60 @@
+@* @model KhanLogistics.Models.ViewModel.DispatchVm
+@{
+    ViewBag.Title = "Upload Dispatch Images";
+}
+
+<div class="container">
+    <h2>Upload Dispatch Images</h2>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success" id="successMessage">
+            @TempData["Success"]
+        </div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger" id="errorMessage">
+            @TempData["Error"]
+        </div>
+    }
+
+    <form asp-action="UploadDispatchImage" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="SelectedImageFactoryId">Factory</label>
+            <select asp-for="SelectedImageFactoryId" asp-items="Model.ddlFactory" class="form-control">
+                <option value="">-- Select Factory --</option>
+            </select>
+            <span asp-validation-for="SelectedImageFactoryId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ImageFile">Dispatch Image</label>
+            <div class="custom-file">
+                <input asp-for="ImageFile" class="custom-file-input" accept="image/*" required>
+                <label class="custom-file-label">Choose image file</label>
+            </div>
+            <small class="form-text text-muted">
+                File name must match challan number (e.g., "CH12345.jpg").
+            </small>
+            <span asp-validation-for="ImageFile" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Upload Image</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        document.querySelector('.custom-file-input').addEventListener('change', function () {
+            this.nextElementSibling.textContent = this.files[0].name;
+        });
+
+        setTimeout(() => {
+            document.querySelectorAll('.alert').forEach(alert => {
+                alert.style.display = 'none';
+            });
+        }, 5000);
+    </script>
+}
+ *@

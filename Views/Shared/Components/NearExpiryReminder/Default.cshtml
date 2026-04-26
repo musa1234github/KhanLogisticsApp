@@ -1,0 +1,18 @@
+﻿@model IEnumerable<dynamic>
+
+@if (Model.Any())
+{
+    <div class="alert alert-warning">
+        <strong>Reminder:</strong>
+        @if (Model.Count() == 1)
+        {
+            <span>There is 1 vehicle nearing expiry in the next 30 days. </span>
+        }
+        else
+        {
+            <span>There are @Model.Count() vehicles nearing expiry in the next 30 days. </span>
+        }
+
+        <a href="@Url.Action("NearExpiryVehicles", "Vehicle")">View Details</a>
+    </div>
+}

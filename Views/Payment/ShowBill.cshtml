@@ -1,0 +1,118 @@
+@model KhanLogistics.Models.ViewModel.PaymentVm
+
+<H1 style="text-align:center">Payments</H1>
+
+<div style="width: 100px; padding-bottom: 25px;">
+    @Html.DropDownListFor(model => model.SelectedIds, Model.FactoryList, new { @id = "ddlFactory", @placeholder = "Select Vendor", @class = "form-control" })
+</div>
+
+<form asp-controller="Payment" asp-action="ShowBill" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <input type="submit" value="Import" />
+</form>
+
+<table class="table" id="Mytable">
+    <thead>
+        <tr>
+            @*  <th>
+            <input type="checkbox" class="form-check-input" id="Select_All" name="Select_All" />Select All
+            </th> *@
+             <th>
+                Factory
+            </th>
+            <th>
+                Bill Number
+            </th>
+            <th>
+                Bill Date
+            </th>
+          
+            <th>
+                Receive Amount
+            </th>
+                   
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.payments)
+        {
+            <tr>
+                @*  <td>
+            <input type="checkbox" class="form-check-input" id="Select_One_@item.DispId" name="Select_One_@item.DispId" value="@item.DispId" />
+            </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.FactoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BillNum)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.BillDate)
+                </td>
+
+                <td>
+                    @(item.PaymentReceived.HasValue ? item.PaymentReceived.Value.ToString("F2") : "N/A")
+                </td>
+
+                @* <td>
+                    @Html.DisplayFor(modelItem => item.PaymentReceived)
+                </td> *@
+                               
+            </tr>
+        }
+    </tbody>
+
+</table>
+<button style="cursor:pointer" class="btn btn-sm btn-outline-danger m-2 p-2 float-left btnDelete" id="DispId">Delete</button>
+
+
+@* <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ *@<script>
+    $(document).ready(function () {
+        $('#Select_All').on('click', function () {
+            let checkboxes = $('input[type="checkbox"]');
+            let val = this.checked;
+            checkboxes.prop('checked', val);
+        });
+
+        $('.btnDelete').on('click', function () {
+            console.log("Delete button clicked."); // Debugging
+            let ids = []; // Array to hold selected IDs
+            let allChecked = $('#Select_All').prop('checked');
+
+            if (allChecked) {
+                // If "Select All" is checked, get all checkbox values except for the "Select All" checkbox
+                $('input[type="checkbox"]:not(#Select_All)').each(function () {
+                    ids.push($(this).val()); // Push each ID into the array
+                });
+            } else {
+                // If individual checkboxes are checked, get their values
+                $('input[type="checkbox"]:checked').each(function () {
+                    ids.push($(this).val()); // Push each selected ID into the array
+                });
+            }
+
+            if (ids.length > 0) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("DeleteSingleOrMultiple", "Dispatch")',
+                    contentType: 'application/json', // Set content type to JSON
+                    data: JSON.stringify(ids), // Pass array of IDs directly
+                    success: function (response) {
+                        if (response === 'success') {
+                            location.reload();
+                        } else {
+                            console.log("Error occurred during deletion."); // Debugging
+                        }
+                    },
+                    error: function () {
+                        console.log("Error occurred during AJAX request."); // Debugging
+                    }
+                });
+            } else {
+                console.log("No records selected for deletion."); // Debugging
+            }
+        });
+    });
+</script>

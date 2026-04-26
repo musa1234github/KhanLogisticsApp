@@ -1,0 +1,65 @@
+@model IEnumerable<KhanLogistics.Models.ViewModel.Sp_QtyByMonth>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="text-align:center">Quantity By Month</h1>
+
+<table class="table" id="Mytable">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Factory)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.MonthName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.totalQty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillQty)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Balance)
+            </th>
+         
+           </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                              
+                <td>
+                    @Html.DisplayFor(modelItem => item.Factory)
+                </td>
+               
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.MonthName)
+                </td>
+
+                <td>
+                    @Math.Round(item.totalQty ?? 0, 2)
+                </td>
+                <td>
+                    @Math.Round(item.BillQty ?? 0, 2)
+                </td>
+                <td>
+                    @Math.Round(item.Balance ?? 0, 2)
+                </td>
+
+                
+            </tr>
+        }
+    </tbody>
+</table>

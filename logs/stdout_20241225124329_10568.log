@@ -1,0 +1,281 @@
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\Dell\Documents\KTC-APP-FINAL\
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (207ms) [Parameters=[@__emailId_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[UserId], [t].[Address], [t].[City], [t].[Doj], [t].[Email], [t].[LastLogIn], [t].[Password], [t].[Role], [t].[UserName]
+      FROM [TblUsers] AS [t]
+      WHERE ([t].[Email] = @__emailId_0) AND ([t].[Password] = @__password_1)
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (101ms) [Parameters=[@__nearExpiryThreshold_0='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[VehicleId], [t].[TaxEndDate], [t].[TaxStartDate], [t].[VehicleFitnessEndDate], [t].[VehicleFitnessStartDate], [t].[VehicleInsurEndtDate], [t].[VehicleInsurStartDate], [t].[VehicleNumber], [t].[VehiclePermitDate], [t].[VehicleType]
+      FROM [TblVehicles] AS [t]
+      WHERE (((([t].[VehicleInsurEndtDate] IS NOT NULL) AND ([t].[VehicleInsurEndtDate] <= @__nearExpiryThreshold_0)) OR (([t].[VehicleFitnessEndDate] IS NOT NULL) AND ([t].[VehicleFitnessEndDate] <= @__nearExpiryThreshold_0))) OR (([t].[TaxEndDate] IS NOT NULL) AND ([t].[TaxEndDate] <= @__nearExpiryThreshold_0))) OR (([t].[VehiclePermitDate] IS NOT NULL) AND ([t].[VehiclePermitDate] <= @__nearExpiryThreshold_0))
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [b].[BillID], [b].[ActualAmount], [b].[BillDate], [b].[BillNum], [b].[BillType], [b].[FID], [b].[Gst], [b].[GstDate], [b].[PId], [b].[PartyName], [b].[PaymentReceived], [b].[PaymentTablePId], [b].[Tds], [b].[TotalValue]
+      FROM [BillTables] AS [b]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__nearExpiryThreshold_0='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[VehicleId], [t].[TaxEndDate], [t].[TaxStartDate], [t].[VehicleFitnessEndDate], [t].[VehicleFitnessStartDate], [t].[VehicleInsurEndtDate], [t].[VehicleInsurStartDate], [t].[VehicleNumber], [t].[VehiclePermitDate], [t].[VehicleType]
+      FROM [TblVehicles] AS [t]
+      WHERE (((([t].[VehicleInsurEndtDate] IS NOT NULL) AND ([t].[VehicleInsurEndtDate] <= @__nearExpiryThreshold_0)) OR (([t].[VehicleFitnessEndDate] IS NOT NULL) AND ([t].[VehicleFitnessEndDate] <= @__nearExpiryThreshold_0))) OR (([t].[TaxEndDate] IS NOT NULL) AND ([t].[TaxEndDate] <= @__nearExpiryThreshold_0))) OR (([t].[VehiclePermitDate] IS NOT NULL) AND ([t].[VehiclePermitDate] <= @__nearExpiryThreshold_0))
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [b].[BillID], [b].[ActualAmount], [b].[BillDate], [b].[BillNum], [b].[BillType], [b].[FID], [b].[Gst], [b].[GstDate], [b].[PId], [b].[PartyName], [b].[PaymentReceived], [b].[PaymentTablePId], [b].[Tds], [b].[TotalValue]
+      FROM [BillTables] AS [b]
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (15ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (56ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Double), @p7='?' (DbType = Double), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Double), @p11='?' (DbType = Double), @p12='?' (Size = 4000), @p13='?' (DbType = Int32), @p14='?' (Size = 4000), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime2), @p19='?' (DbType = Double), @p20='?' (DbType = Double), @p21='?' (Size = 4000), @p22='?' (Size = 4000), @p23='?' (DbType = Double), @p24='?' (DbType = Double), @p25='?' (Size = 4000), @p26='?' (DbType = Int32), @p27='?' (Size = 4000), @p28='?' (Size = 4000), @p29='?' (Size = 4000), @p30='?' (DbType = Int32), @p31='?' (DbType = DateTime2), @p32='?' (DbType = Double), @p33='?' (DbType = Double), @p34='?' (Size = 4000), @p35='?' (Size = 4000), @p36='?' (DbType = Double), @p37='?' (DbType = Double), @p38='?' (Size = 4000), @p39='?' (DbType = Int32), @p40='?' (Size = 4000), @p41='?' (Size = 4000), @p42='?' (Size = 4000), @p43='?' (DbType = Int32), @p44='?' (DbType = DateTime2), @p45='?' (DbType = Double), @p46='?' (DbType = Double), @p47='?' (Size = 4000), @p48='?' (Size = 4000), @p49='?' (DbType = Double), @p50='?' (DbType = Double), @p51='?' (Size = 4000), @p52='?' (DbType = Int32), @p53='?' (Size = 4000), @p54='?' (Size = 4000), @p55='?' (Size = 4000), @p56='?' (DbType = Int32), @p57='?' (DbType = DateTime2), @p58='?' (DbType = Double), @p59='?' (DbType = Double), @p60='?' (Size = 4000), @p61='?' (Size = 4000), @p62='?' (DbType = Double), @p63='?' (DbType = Double), @p64='?' (Size = 4000), @p65='?' (DbType = Int32), @p66='?' (Size = 4000), @p67='?' (Size = 4000), @p68='?' (Size = 4000), @p69='?' (DbType = Int32), @p70='?' (DbType = DateTime2), @p71='?' (DbType = Double), @p72='?' (DbType = Double), @p73='?' (Size = 4000), @p74='?' (Size = 4000), @p75='?' (DbType = Double), @p76='?' (DbType = Double), @p77='?' (Size = 4000), @p78='?' (DbType = Int32), @p79='?' (Size = 4000), @p80='?' (Size = 4000), @p81='?' (Size = 4000), @p82='?' (DbType = Int32), @p83='?' (DbType = DateTime2), @p84='?' (DbType = Double), @p85='?' (DbType = Double), @p86='?' (Size = 4000), @p87='?' (Size = 4000), @p88='?' (DbType = Double), @p89='?' (DbType = Double), @p90='?' (Size = 4000), @p91='?' (DbType = Int32), @p92='?' (Size = 4000), @p93='?' (Size = 4000), @p94='?' (Size = 4000), @p95='?' (DbType = Int32), @p96='?' (DbType = DateTime2), @p97='?' (DbType = Double), @p98='?' (DbType = Double), @p99='?' (Size = 4000), @p100='?' (Size = 4000), @p101='?' (DbType = Double), @p102='?' (DbType = Double), @p103='?' (Size = 4000), @p104='?' (DbType = Int32), @p105='?' (Size = 4000), @p106='?' (Size = 4000), @p107='?' (Size = 4000), @p108='?' (DbType = Int32), @p109='?' (DbType = DateTime2), @p110='?' (DbType = Double), @p111='?' (DbType = Double), @p112='?' (Size = 4000), @p113='?' (Size = 4000), @p114='?' (DbType = Double), @p115='?' (DbType = Double), @p116='?' (Size = 4000), @p117='?' (DbType = Int32), @p118='?' (Size = 4000), @p119='?' (Size = 4000), @p120='?' (Size = 4000), @p121='?' (DbType = Int32), @p122='?' (DbType = DateTime2), @p123='?' (DbType = Double), @p124='?' (DbType = Double), @p125='?' (Size = 4000), @p126='?' (Size = 4000), @p127='?' (DbType = Double), @p128='?' (DbType = Double), @p129='?' (Size = 4000), @p130='?' (DbType = Int32), @p131='?' (Size = 4000), @p132='?' (Size = 4000), @p133='?' (Size = 4000), @p134='?' (DbType = Int32), @p135='?' (DbType = DateTime2), @p136='?' (DbType = Double), @p137='?' (DbType = Double), @p138='?' (Size = 4000), @p139='?' (Size = 4000), @p140='?' (DbType = Double), @p141='?' (DbType = Double), @p142='?' (Size = 4000), @p143='?' (DbType = Int32), @p144='?' (Size = 4000), @p145='?' (Size = 4000), @p146='?' (Size = 4000), @p147='?' (DbType = Int32), @p148='?' (DbType = DateTime2), @p149='?' (DbType = Double), @p150='?' (DbType = Double), @p151='?' (Size = 4000), @p152='?' (Size = 4000), @p153='?' (DbType = Double), @p154='?' (DbType = Double), @p155='?' (Size = 4000), @p156='?' (DbType = Int32), @p157='?' (Size = 4000), @p158='?' (Size = 4000), @p159='?' (Size = 4000), @p160='?' (DbType = Int32), @p161='?' (DbType = DateTime2), @p162='?' (DbType = Double), @p163='?' (DbType = Double), @p164='?' (Size = 4000), @p165='?' (Size = 4000), @p166='?' (DbType = Double), @p167='?' (DbType = Double), @p168='?' (Size = 4000), @p169='?' (DbType = Int32), @p170='?' (Size = 4000), @p171='?' (Size = 4000), @p172='?' (Size = 4000), @p173='?' (DbType = Int32), @p174='?' (DbType = DateTime2), @p175='?' (DbType = Double), @p176='?' (DbType = Double), @p177='?' (Size = 4000), @p178='?' (Size = 4000), @p179='?' (DbType = Double), @p180='?' (DbType = Double), @p181='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SET NOCOUNT ON;
+      DECLARE @inserted0 TABLE ([DispId] int, [_Position] [int]);
+      MERGE [TblDispatches] USING (
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, 0),
+      (@p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, 1),
+      (@p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38, 2),
+      (@p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, @p48, @p49, @p50, @p51, 3),
+      (@p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64, 4),
+      (@p65, @p66, @p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77, 5),
+      (@p78, @p79, @p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, 6),
+      (@p91, @p92, @p93, @p94, @p95, @p96, @p97, @p98, @p99, @p100, @p101, @p102, @p103, 7),
+      (@p104, @p105, @p106, @p107, @p108, @p109, @p110, @p111, @p112, @p113, @p114, @p115, @p116, 8),
+      (@p117, @p118, @p119, @p120, @p121, @p122, @p123, @p124, @p125, @p126, @p127, @p128, @p129, 9),
+      (@p130, @p131, @p132, @p133, @p134, @p135, @p136, @p137, @p138, @p139, @p140, @p141, @p142, 10),
+      (@p143, @p144, @p145, @p146, @p147, @p148, @p149, @p150, @p151, @p152, @p153, @p154, @p155, 11),
+      (@p156, @p157, @p158, @p159, @p160, @p161, @p162, @p163, @p164, @p165, @p166, @p167, @p168, 12),
+      (@p169, @p170, @p171, @p172, @p173, @p174, @p175, @p176, @p177, @p178, @p179, @p180, @p181, 13)) AS i ([BillID], [ChallanNo], [DeliveryNum], [Destination], [DisVid], [DispatchDate], [DispatchQuantity], [FinalPrice], [Lr], [PartyName], [TotalValue], [UnitPrice], [VehicleNo], _Position) ON 1=0
+      WHEN NOT MATCHED THEN
+      INSERT ([BillID], [ChallanNo], [DeliveryNum], [Destination], [DisVid], [DispatchDate], [DispatchQuantity], [FinalPrice], [Lr], [PartyName], [TotalValue], [UnitPrice], [VehicleNo])
+      VALUES (i.[BillID], i.[ChallanNo], i.[DeliveryNum], i.[Destination], i.[DisVid], i.[DispatchDate], i.[DispatchQuantity], i.[FinalPrice], i.[Lr], i.[PartyName], i.[TotalValue], i.[UnitPrice], i.[VehicleNo])
+      OUTPUT INSERTED.[DispId], i._Position
+      INTO @inserted0;
+      
+      SELECT [i].[DispId] FROM @inserted0 i
+      ORDER BY [i].[_Position];
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (59ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (9ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[@__cell1_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+      WHERE [t].[ChallanNo] = @__cell1_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (911ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Double), @p7='?' (DbType = Double), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Double), @p11='?' (DbType = Double), @p12='?' (Size = 4000), @p13='?' (DbType = Int32), @p14='?' (Size = 4000), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime2), @p19='?' (DbType = Double), @p20='?' (DbType = Double), @p21='?' (Size = 4000), @p22='?' (Size = 4000), @p23='?' (DbType = Double), @p24='?' (DbType = Double), @p25='?' (Size = 4000), @p26='?' (DbType = Int32), @p27='?' (Size = 4000), @p28='?' (Size = 4000), @p29='?' (Size = 4000), @p30='?' (DbType = Int32), @p31='?' (DbType = DateTime2), @p32='?' (DbType = Double), @p33='?' (DbType = Double), @p34='?' (Size = 4000), @p35='?' (Size = 4000), @p36='?' (DbType = Double), @p37='?' (DbType = Double), @p38='?' (Size = 4000), @p39='?' (DbType = Int32), @p40='?' (Size = 4000), @p41='?' (Size = 4000), @p42='?' (Size = 4000), @p43='?' (DbType = Int32), @p44='?' (DbType = DateTime2), @p45='?' (DbType = Double), @p46='?' (DbType = Double), @p47='?' (Size = 4000), @p48='?' (Size = 4000), @p49='?' (DbType = Double), @p50='?' (DbType = Double), @p51='?' (Size = 4000), @p52='?' (DbType = Int32), @p53='?' (Size = 4000), @p54='?' (Size = 4000), @p55='?' (Size = 4000), @p56='?' (DbType = Int32), @p57='?' (DbType = DateTime2), @p58='?' (DbType = Double), @p59='?' (DbType = Double), @p60='?' (Size = 4000), @p61='?' (Size = 4000), @p62='?' (DbType = Double), @p63='?' (DbType = Double), @p64='?' (Size = 4000), @p65='?' (DbType = Int32), @p66='?' (Size = 4000), @p67='?' (Size = 4000), @p68='?' (Size = 4000), @p69='?' (DbType = Int32), @p70='?' (DbType = DateTime2), @p71='?' (DbType = Double), @p72='?' (DbType = Double), @p73='?' (Size = 4000), @p74='?' (Size = 4000), @p75='?' (DbType = Double), @p76='?' (DbType = Double), @p77='?' (Size = 4000), @p78='?' (DbType = Int32), @p79='?' (Size = 4000), @p80='?' (Size = 4000), @p81='?' (Size = 4000), @p82='?' (DbType = Int32), @p83='?' (DbType = DateTime2), @p84='?' (DbType = Double), @p85='?' (DbType = Double), @p86='?' (Size = 4000), @p87='?' (Size = 4000), @p88='?' (DbType = Double), @p89='?' (DbType = Double), @p90='?' (Size = 4000), @p91='?' (DbType = Int32), @p92='?' (Size = 4000), @p93='?' (Size = 4000), @p94='?' (Size = 4000), @p95='?' (DbType = Int32), @p96='?' (DbType = DateTime2), @p97='?' (DbType = Double), @p98='?' (DbType = Double), @p99='?' (Size = 4000), @p100='?' (Size = 4000), @p101='?' (DbType = Double), @p102='?' (DbType = Double), @p103='?' (Size = 4000), @p104='?' (DbType = Int32), @p105='?' (Size = 4000), @p106='?' (Size = 4000), @p107='?' (Size = 4000), @p108='?' (DbType = Int32), @p109='?' (DbType = DateTime2), @p110='?' (DbType = Double), @p111='?' (DbType = Double), @p112='?' (Size = 4000), @p113='?' (Size = 4000), @p114='?' (DbType = Double), @p115='?' (DbType = Double), @p116='?' (Size = 4000), @p117='?' (DbType = Int32), @p118='?' (Size = 4000), @p119='?' (Size = 4000), @p120='?' (Size = 4000), @p121='?' (DbType = Int32), @p122='?' (DbType = DateTime2), @p123='?' (DbType = Double), @p124='?' (DbType = Double), @p125='?' (Size = 4000), @p126='?' (Size = 4000), @p127='?' (DbType = Double), @p128='?' (DbType = Double), @p129='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SET NOCOUNT ON;
+      DECLARE @inserted0 TABLE ([DispId] int, [_Position] [int]);
+      MERGE [TblDispatches] USING (
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, 0),
+      (@p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, 1),
+      (@p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38, 2),
+      (@p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, @p48, @p49, @p50, @p51, 3),
+      (@p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64, 4),
+      (@p65, @p66, @p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77, 5),
+      (@p78, @p79, @p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, 6),
+      (@p91, @p92, @p93, @p94, @p95, @p96, @p97, @p98, @p99, @p100, @p101, @p102, @p103, 7),
+      (@p104, @p105, @p106, @p107, @p108, @p109, @p110, @p111, @p112, @p113, @p114, @p115, @p116, 8),
+      (@p117, @p118, @p119, @p120, @p121, @p122, @p123, @p124, @p125, @p126, @p127, @p128, @p129, 9)) AS i ([BillID], [ChallanNo], [DeliveryNum], [Destination], [DisVid], [DispatchDate], [DispatchQuantity], [FinalPrice], [Lr], [PartyName], [TotalValue], [UnitPrice], [VehicleNo], _Position) ON 1=0
+      WHEN NOT MATCHED THEN
+      INSERT ([BillID], [ChallanNo], [DeliveryNum], [Destination], [DisVid], [DispatchDate], [DispatchQuantity], [FinalPrice], [Lr], [PartyName], [TotalValue], [UnitPrice], [VehicleNo])
+      VALUES (i.[BillID], i.[ChallanNo], i.[DeliveryNum], i.[Destination], i.[DisVid], i.[DispatchDate], i.[DispatchQuantity], i.[FinalPrice], i.[Lr], i.[PartyName], i.[TotalValue], i.[UnitPrice], i.[VehicleNo])
+      OUTPUT INSERTED.[DispId], i._Position
+      INTO @inserted0;
+      
+      SELECT [i].[DispId] FROM @inserted0 i
+      ORDER BY [i].[_Position];
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (36ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[DispId], [t].[BillID], [t].[ChallanNo], [t].[DeliveryNum], [t].[Destination], [t].[DisVid], [t].[DispatchDate], [t].[DispatchQuantity], [t].[FinalPrice], [t].[Lr], [t].[PartyName], [t].[TotalValue], [t].[UnitPrice], [t].[VehicleNo]
+      FROM [TblDispatches] AS [t]
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (127ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[VehicleId], [t].[TaxEndDate], [t].[TaxStartDate], [t].[VehicleFitnessEndDate], [t].[VehicleFitnessStartDate], [t].[VehicleInsurEndtDate], [t].[VehicleInsurStartDate], [t].[VehicleNumber], [t].[VehiclePermitDate], [t].[VehicleType]
+      FROM [TblVehicles] AS [t]
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[VehicleId], [t].[TaxEndDate], [t].[TaxStartDate], [t].[VehicleFitnessEndDate], [t].[VehicleFitnessStartDate], [t].[VehicleInsurEndtDate], [t].[VehicleInsurStartDate], [t].[VehicleNumber], [t].[VehiclePermitDate], [t].[VehicleType]
+      FROM [TblVehicles] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[@__nearExpiryThreshold_0='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[VehicleId], [t].[TaxEndDate], [t].[TaxStartDate], [t].[VehicleFitnessEndDate], [t].[VehicleFitnessStartDate], [t].[VehicleInsurEndtDate], [t].[VehicleInsurStartDate], [t].[VehicleNumber], [t].[VehiclePermitDate], [t].[VehicleType]
+      FROM [TblVehicles] AS [t]
+      WHERE (((([t].[VehicleInsurEndtDate] IS NOT NULL) AND ([t].[VehicleInsurEndtDate] <= @__nearExpiryThreshold_0)) OR (([t].[VehicleFitnessEndDate] IS NOT NULL) AND ([t].[VehicleFitnessEndDate] <= @__nearExpiryThreshold_0))) OR (([t].[TaxEndDate] IS NOT NULL) AND ([t].[TaxEndDate] <= @__nearExpiryThreshold_0))) OR (([t].[VehiclePermitDate] IS NOT NULL) AND ([t].[VehiclePermitDate] <= @__nearExpiryThreshold_0))
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@__nearExpiryThreshold_0='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[VehicleId], [t].[TaxEndDate], [t].[TaxStartDate], [t].[VehicleFitnessEndDate], [t].[VehicleFitnessStartDate], [t].[VehicleInsurEndtDate], [t].[VehicleInsurStartDate], [t].[VehicleNumber], [t].[VehiclePermitDate], [t].[VehicleType]
+      FROM [TblVehicles] AS [t]
+      WHERE (((([t].[VehicleInsurEndtDate] IS NOT NULL) AND ([t].[VehicleInsurEndtDa

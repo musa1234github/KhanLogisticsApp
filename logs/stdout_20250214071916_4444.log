@@ -1,0 +1,1564 @@
+dbug: Microsoft.Extensions.Hosting.Internal.Host[1]
+      Hosting starting
+info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[63]
+      User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/ - -
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: G:\KTC-APP-FINAL\
+dbug: Microsoft.Extensions.Hosting.Internal.Host[2]
+      Hosting started
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller CodeFirstTransport.Controllers.UsersController (CodeFirstTransport).
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10401]
+      An 'IServiceProvider' was created for internal use by Entity Framework.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view Login.
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view Login executed in 742.0905ms.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/KhanTransport.styles.css - -
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport) in 1826.1296ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport)'
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/KhanTransport.styles.css - - - 404 - - 86.1641ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_vs/browserLink - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - - - 200 13788 application/javascript;+charset=utf-8 95.4111ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/ - - - 200 - text/html;+charset=utf-8 3401.2279ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 560.6538ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST https://localhost:44307/ application/x-www-form-urlencoded 231
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(System.String, System.String) on controller CodeFirstTransport.Controllers.UsersController (CodeFirstTransport).
+dbug: Microsoft.EntityFrameworkCore.Model.Validation[10600]
+      The property 'BillTable.PaymentTablePId' was created in shadow state because there are no eligible CLR members with a matching name.
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Query[10111]
+      Compiling query expression: 
+      'DbSet<TblUser>()
+          .FirstOrDefault(a => a.Email == __emailId_0 && a.Password == __password_1)'
+dbug: Microsoft.EntityFrameworkCore.Query[10107]
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<TblUser>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: TblUser.UserId (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: TblUser.Address (string), 1], [Property: TblUser.City (string), 2], [Property: TblUser.Doj (DateTime?), 3], [Property: TblUser.Email (string) Required, 4], [Property: TblUser.LastLogIn (DateTime?), 5], [Property: TblUser.Password (string) Required, 6], [Property: TblUser.Role (string), 7], [Property: TblUser.UserName (string) Required, 8] }
+              SELECT TOP(1) t.UserId, t.Address, t.City, t.Doj, t.Email, t.LastLogIn, t.Password, t.Role, t.UserName
+              FROM TblUsers AS t
+              WHERE (t.Email == @__emailId_0) && (t.Password == @__password_1)), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, TblUser>, 
+          CodeFirstTransport.Models.TransportMgmtContext, 
+          False, 
+          False, 
+          True
+      )
+          .SingleOrDefault()'
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (1757ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[@__emailId_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[UserId], [t].[Address], [t].[City], [t].[Doj], [t].[Email], [t].[LastLogIn], [t].[Password], [t].[Role], [t].[UserName]
+      FROM [TblUsers] AS [t]
+      WHERE ([t].[Email] = @__emailId_0) AND ([t].[Password] = @__password_1)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (447ms) [Parameters=[@__emailId_0='?' (Size = 4000), @__password_1='?' (Size = 4000)], CommandType='Text', CommandTimeout='120']
+      SELECT TOP(1) [t].[UserId], [t].[Address], [t].[City], [t].[Doj], [t].[Email], [t].[LastLogIn], [t].[Password], [t].[Role], [t].[UserName]
+      FROM [TblUsers] AS [t]
+      WHERE ([t].[Email] = @__emailId_0) AND ([t].[Password] = @__password_1)
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+info: Microsoft.AspNetCore.Mvc.RedirectToActionResult[1]
+      Executing RedirectResult, redirecting to /Home/Index.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport) in 15229.5449ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.UsersController.Login (CodeFirstTransport)'
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'TransportMgmtContext' disposed.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST https://localhost:44307/ application/x-www-form-urlencoded 231 - 302 - - 15539.5173ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Home/Index - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.HomeController.Index (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CodeFirstTransport.Controllers.HomeController (CodeFirstTransport).
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view Index.
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view Index executed in 546.6861ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.HomeController.Index (CodeFirstTransport) in 561.4107ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.HomeController.Index (CodeFirstTransport)'
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/Home/Index - - - 200 - text/html;+charset=utf-8 782.2194ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - - - 404 - - 10.7788ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - - - 200 13788 application/javascript;+charset=utf-8 21.7046ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_vs/browserLink - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 61.8514ms
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 200 78468 application/javascript 1275.4354ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - -
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/js/site.js'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\js\site.js'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - - - 200 230 application/javascript 15.6491ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Report/CheckBills - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "CheckBills", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CheckBills(System.DateTime, System.DateTime, System.Nullable`1[System.Int32], Boolean) on controller CodeFirstTransport.Controllers.ReportController (CodeFirstTransport).
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Query[10111]
+      Compiling query expression: 
+      'DbSet<TblFactory>()'
+dbug: Microsoft.EntityFrameworkCore.Query[10107]
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<TblFactory>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: TblFactory.FID (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: TblFactory.Address (string), 1], [Property: TblFactory.Code (string) Required, 2], [Property: TblFactory.CreatedBy (int?), 3], [Property: TblFactory.CreatedOn (DateTime?), 4], [Property: TblFactory.FactoryName (string) Required, 5], [Property: TblFactory.Gstin (double?), 6], [Property: TblFactory.IsActive (bool) Required, 7], [Property: TblFactory.ModifiedBy (int?), 8], [Property: TblFactory.ModifiedOn (DateTime?), 9] }
+              SELECT t.FID, t.Address, t.Code, t.CreatedBy, t.CreatedOn, t.FactoryName, t.Gstin, t.IsActive, t.ModifiedBy, t.ModifiedOn
+              FROM TblFactories AS t), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, TblFactory>, 
+          CodeFirstTransport.Models.TransportMgmtContext, 
+          False, 
+          False, 
+          True
+      )'
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (16ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (59ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Query[10111]
+      Compiling query expression: 
+      'DbSet<SpCheckBill>().FromSql(EXECUTE [dbo].[SpCheckBill] @StartDate = {0}, @EndDate = {1}, @FactoryId = {2}, __p_0)
+      '
+dbug: Microsoft.EntityFrameworkCore.Query[10107]
+      Generated query execution expression: 
+      'queryContext => new FromSqlQueryingEnumerable<SpCheckBill>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: SpCheckBill.BillNum (string), 0], [Property: SpCheckBill.ChallanNo (string), 1], [Property: SpCheckBill.Destination (string), 2], [Property: SpCheckBill.DispatchDate (DateTime?), 3], [Property: SpCheckBill.DispatchQuantity (double?), 4], [Property: SpCheckBill.FactoryName (string), 5], [Property: SpCheckBill.VehicleNo (string), 6] }
+              SELECT c.BillNum, c.ChallanNo, c.Destination, c.DispatchDate, c.DispatchQuantity, c.FactoryName, c.VehicleNo
+              FROM EXECUTE [dbo].[SpCheckBill] @StartDate = {0}, @EndDate = {1}, @FactoryId = {2}), 
+          List<string> { "BillNum", "ChallanNo", "Destination", "DispatchDate", "DispatchQuantity", "FactoryName", "VehicleNo" }, 
+          Func<QueryContext, DbDataReader, int[], SpCheckBill>, 
+          CodeFirstTransport.Models.TransportMgmtContext, 
+          False, 
+          False, 
+          True
+      )'
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (5ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[p0='?' (DbType = DateTime2), p1='?' (DbType = DateTime2), p2='?'], CommandType='Text', CommandTimeout='120']
+      EXECUTE [dbo].[SpCheckBill] @StartDate = @p0, @EndDate = @p1, @FactoryId = @p2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (239ms) [Parameters=[p0='?' (DbType = DateTime2), p1='?' (DbType = DateTime2), p2='?'], CommandType='Text', CommandTimeout='120']
+      EXECUTE [dbo].[SpCheckBill] @StartDate = @p0, @EndDate = @p1, @FactoryId = @p2
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view CheckBills.
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view CheckBills executed in 197.6535ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport) in 4431.5819ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/lib/bootstrap/dist/css/bootstrap.min.css - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/css/site.css?v=jKzyvarUBw1mnoaniDTwao0buQpy2sBEXyi6wiHfKN8 - -
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/css/datatablecss/jquery.datatables.min.css - -
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'TransportMgmtContext' disposed.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/Report/CheckBills - - - 200 - text/html;+charset=utf-8 4553.1919ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - - - 404 - - 46.0533ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/css/datatablecss/jquery.datatables.css - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/datatable/jquery.datatables.min.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/datatable/jquery.datatables.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/lib/jquery/dist/jquery.min.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - - - 200 13788 application/javascript;+charset=utf-8 32.8778ms
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/css/site.css'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\css\site.css'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/css/site.css?v=jKzyvarUBw1mnoaniDTwao0buQpy2sBEXyi6wiHfKN8 - - - 200 199 text/css 329.2923ms
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/css/datatablecss/jquery.datatables.css'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\css\datatablecss\jquery.datatables.css'
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/css/datatablecss/jquery.datatables.min.css'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\css\datatablecss\jquery.datatables.min.css'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/css/datatablecss/jquery.datatables.min.css - - - 200 18369 text/css 403.9556ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/css/datatablecss/jquery.datatables.css - - - 200 21049 text/css 432.9094ms
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/datatable/jquery.datatables.js'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\datatable\jquery.datatables.js'
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/datatable/jquery.datatables.min.js'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\datatable\jquery.datatables.min.js'
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/datatable/jquery.datatables.min.js - - - 200 90265 application/javascript 542.2895ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/datatable/jquery.datatables.js - - - 200 453651 application/javascript 417.6580ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/lib/bootstrap/dist/css/bootstrap.min.css - - - 200 162720 text/css 677.5976ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_vs/browserLink - -
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\lib\jquery\dist\jquery.min.js'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/lib/jquery/dist/jquery.min.js - - - 200 89476 application/javascript 522.7022ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 171.4559ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/favicon.ico - -
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/favicon.ico'. Physical path: 'G:\KTC-APP-FINAL\wwwroot\favicon.ico'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/favicon.ico - - - 200 5430 image/x-icon 95.4013ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Report/CheckBills?startDate=2025-01-01&endDate=2025-02-01&factoryId=7 - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "CheckBills", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CheckBills(System.DateTime, System.DateTime, System.Nullable`1[System.Int32], Boolean) on controller CodeFirstTransport.Controllers.ReportController (CodeFirstTransport).
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (5ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (4ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[p0='?' (DbType = DateTime2), p1='?' (DbType = DateTime2), p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      EXECUTE [dbo].[SpCheckBill] @StartDate = @p0, @EndDate = @p1, @FactoryId = @p2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (25,343ms) [Parameters=[p0='?' (DbType = DateTime2), p1='?' (DbType = DateTime2), p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      EXECUTE [dbo].[SpCheckBill] @StartDate = @p0, @EndDate = @p1, @FactoryId = @p2
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view CheckBills.
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[1]
+      Response markup is scheduled to include Browser Link script injection.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view CheckBills executed in 5214.8284ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport) in 31066.8553ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport)'
+dbug: Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware[2]
+      Response markup was updated to include Browser Link script injection.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/CodeFirstTransport.styles.css - - - 404 - - 6.5960ms
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'TransportMgmtContext' disposed.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/Report/CheckBills?startDate=2025-01-01&endDate=2025-02-01&factoryId=7 - - - 200 - text/html;+charset=utf-8 31215.4854ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_vs/browserLink - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_framework/aspnetcore-browser-refresh.js - - - 200 13788 application/javascript;+charset=utf-8 47.2680ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 GET https://localhost:44307/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 130.0000ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 GET https://localhost:44307/Report/CheckBills?exportExcel=true&startDate=2025-01-01&endDate=2025-02-01&factoryId=7 - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'CodeFirstTransport.Controllers.ReportController.CheckBills (CodeFirstTransport)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "CheckBills", controller = "Report"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CheckBills(System.DateTime, System.DateTime, System.Nullable`1[System.Int32], Boolean) on controller CodeFirstTransport.Controllers.ReportController (CodeFirstTransport).
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.21 initialized 'TransportMgmtContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: CommandTimeout=120 
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (5ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (37ms) [Parameters=[], CommandType='Text', CommandTimeout='120']
+      SELECT [t].[FID], [t].[Address], [t].[Code], [t].[CreatedBy], [t].[CreatedOn], [t].[FactoryName], [t].[Gstin], [t].[IsActive], [t].[ModifiedBy], [t].[ModifiedOn]
+      FROM [TblFactories] AS [t]
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'TransportMgmtContext' started tracking 'TblFactory' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20103]
+      Creating DbCommand for 'ExecuteReader'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20104]
+      Created DbCommand for 'ExecuteReader' (6ms).
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20000]
+      Opening connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20001]
+      Opened connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20100]
+      Executing DbCommand [Parameters=[p0='?' (DbType = DateTime2), p1='?' (DbType = DateTime2), p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      EXECUTE [dbo].[SpCheckBill] @StartDate = @p0, @EndDate = @p1, @FactoryId = @p2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (25,253ms) [Parameters=[p0='?' (DbType = DateTime2), p1='?' (DbType = DateTime2), p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='120']
+      EXECUTE [dbo].[SpCheckBill] @StartDate = @p0, @EndDate = @p1, @FactoryId = @p2
+dbug: Microsoft.EntityFrameworkCore.Database.Command[20300]
+      A data reader was disposed.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20002]
+      Closing connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+dbug: Microsoft.EntityFrameworkCore.Database.Connection[20003]
+      Closed connection to database 'FinalDb' on server 'DESKTOP-LTSV0GN\SQLEXPRESS'.
+Export data count: 1069
+FactoryName: ULTRATECH, ChallanNo: 6812482608, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6335003690, Destination: HINGOLI_6326-2603
+FactoryName: ULTRATECH, ChallanNo: 6812485673, Destination: UMERKHED
+FactoryName: ULTRATECH, ChallanNo: 6812485729, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6335003785, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812487774, Destination: BHOKARDAN (JLN)
+FactoryName: ULTRATECH, ChallanNo: 6812487985, Destination: GAUL
+FactoryName: ULTRATECH, ChallanNo: 6812488054, Destination: BELORA
+FactoryName: ULTRATECH, ChallanNo: 6812488067, Destination: UMRI
+FactoryName: ULTRATECH, ChallanNo: 6812488069, Destination: UMRI
+FactoryName: ULTRATECH, ChallanNo: 6812488071, Destination: UMRI
+FactoryName: ULTRATECH, ChallanNo: 6812478921, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812478933, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812478935, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812478936, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812478961, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479016, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479166, Destination: CHATARI
+FactoryName: ULTRATECH, ChallanNo: 6812479141, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812479176, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812479213, Destination: PUSEGAON -HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812479215, Destination: PUSEGAON -HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812479273, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812479274, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479275, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479229, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812479334, Destination: GOREGAON
+FactoryName: ULTRATECH, ChallanNo: 6812479335, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812479336, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812479360, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479361, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479400, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812479404, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479424, Destination: SIRSAM
+FactoryName: ULTRATECH, ChallanNo: 6812479425, Destination: SIRSAM
+FactoryName: ULTRATECH, ChallanNo: 6812479394, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812479546, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479568, Destination: SIRSAM
+FactoryName: ULTRATECH, ChallanNo: 6812479593, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479490, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812479446, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479403, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479355, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479356, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812479278, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812479187, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479177, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812479178, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812479596, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479597, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479598, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812479605, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479627, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479603, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812479643, Destination: JAM - NAND
+FactoryName: ULTRATECH, ChallanNo: 6812479676, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812479693, Destination: NARSI NAMDEO
+FactoryName: ULTRATECH, ChallanNo: 6812479694, Destination: NARSI NAMDEO
+FactoryName: ULTRATECH, ChallanNo: 6812479745, Destination: DARWA
+FactoryName: ULTRATECH, ChallanNo: 6812479835, Destination: SHIRAJGAON
+FactoryName: ULTRATECH, ChallanNo: 6812479840, Destination: CHATARI
+FactoryName: ULTRATECH, ChallanNo: 6812479902, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812479903, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812479916, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479955, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812479995, Destination: PETHWADAJ
+FactoryName: ULTRATECH, ChallanNo: 6812480035, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480040, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812480045, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812480084, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480087, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480110, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480228, Destination: HIMAYAT NAGAR(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812480088, Destination: CHATARI
+FactoryName: ULTRATECH, ChallanNo: 6812480334, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812480335, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812480370, Destination: ISLAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812480375, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480392, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812480543, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480376, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812480343, Destination: CHATARI
+FactoryName: ULTRATECH, ChallanNo: 6812480272, Destination: HIMAYAT NAGAR(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812480273, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812480327, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812479775, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479713, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812479672, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812479604, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479155, Destination: BOLDA
+FactoryName: ULTRATECH, ChallanNo: 6812479156, Destination: KURUNDA
+FactoryName: ULTRATECH, ChallanNo: 6812479173, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812479338, Destination: AUNDHA NAGNATH
+FactoryName: ULTRATECH, ChallanNo: 6812479339, Destination: AUNDHA NAGNATH
+FactoryName: ULTRATECH, ChallanNo: 6812479397, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479544, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812479545, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479448, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479337, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479362, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479370, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479162, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812479163, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812479137, Destination: PULGAON
+FactoryName: ULTRATECH, ChallanNo: 6812479281, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812479718, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812479628, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479633, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479641, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812479599, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479830, Destination: KANERGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812479831, Destination: KANERGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812479906, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812479907, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812479914, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479842, Destination: LOHI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480100, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812480113, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480038, Destination: RAMESHWAR
+FactoryName: ULTRATECH, ChallanNo: 6812479964, Destination: MALEGAON -LOHA
+FactoryName: ULTRATECH, ChallanNo: 6812479965, Destination: MALEGAON -LOHA
+FactoryName: ULTRATECH, ChallanNo: 6812479588, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480306, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480502, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480533, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812480509, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480530, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812480374, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480539, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812480349, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480423, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480628, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812480631, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812480643, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480646, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480649, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812480652, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480623, Destination: GOREGAON
+FactoryName: ULTRATECH, ChallanNo: 6812480751, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480826, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480828, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480650, Destination: VISHNUPURI
+FactoryName: ULTRATECH, ChallanNo: 6812480651, Destination: VISHNUPURI
+FactoryName: ULTRATECH, ChallanNo: 6812480218, Destination: HATTA(BASMAT)
+FactoryName: ULTRATECH, ChallanNo: 6812480219, Destination: HATTA(BASMAT)
+FactoryName: ULTRATECH, ChallanNo: 6812480305, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480280, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812480924, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481024, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812481026, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812481028, Destination: SHILONA
+FactoryName: ULTRATECH, ChallanNo: 6812481039, Destination: LOHI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481079, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481093, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481094, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481095, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481025, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481027, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481061, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481149, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481165, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480832, Destination: LOHI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480837, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480876, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480918, Destination: MUDKHED
+FactoryName: ULTRATECH, ChallanNo: 6812480843, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812480935, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480939, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480941, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480967, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480968, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480996, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812481188, Destination: BHOKER
+FactoryName: ULTRATECH, ChallanNo: 6812481189, Destination: BHOKER
+FactoryName: ULTRATECH, ChallanNo: 6812481209, Destination: BHOKER
+FactoryName: ULTRATECH, ChallanNo: 6812481233, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812481249, Destination: AUNDHA NAGNATH
+FactoryName: ULTRATECH, ChallanNo: 6812481253, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481254, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812481255, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481296, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481323, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812481325, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812481260, Destination: PUSEGAON -HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812481367, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812481368, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812481369, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481398, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812481399, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812481346, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812481347, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812481361, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481420, Destination: SIRSAM
+FactoryName: ULTRATECH, ChallanNo: 6812481427, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812481435, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812481477, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481497, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481510, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481525, Destination: PUSEGAON -HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812481526, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481530, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481532, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481535, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483071, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812481624, Destination: POHRADEVI
+FactoryName: ULTRATECH, ChallanNo: 6812481629, Destination: SIRSAM
+FactoryName: ULTRATECH, ChallanNo: 6812481652, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481675, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481699, Destination: ARNI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481781, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481878, Destination: NAIGAON-NANDED
+FactoryName: ULTRATECH, ChallanNo: 6812481928, Destination: DHARMABAD(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812482062, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812482008, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812482058, Destination: LOHI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482004, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812482147, Destination: ARNI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482174, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812482209, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812482213, Destination: UMERKHED (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482231, Destination: SHIRAJGAON
+FactoryName: ULTRATECH, ChallanNo: 6812482232, Destination: SHIRAJGAON
+FactoryName: ULTRATECH, ChallanNo: 6812482369, Destination: DHARMABAD(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812482370, Destination: DHARMABAD(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812481828, Destination: AURANGABAD [AR]
+FactoryName: ULTRATECH, ChallanNo: 6812482797, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812482798, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812482827, Destination: LOHI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482640, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812482646, Destination: JAWALA BHUDRUK
+FactoryName: ULTRATECH, ChallanNo: 6812482647, Destination: JAWALA BHUDRUK
+FactoryName: ULTRATECH, ChallanNo: 6812482672, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812482673, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812482525, Destination: JAWALA BHUDRUK
+FactoryName: ULTRATECH, ChallanNo: 6812482542, Destination: TAMSA (TAMSAL)
+FactoryName: ULTRATECH, ChallanNo: 6812482543, Destination: TAMSA (TAMSAL)
+FactoryName: ULTRATECH, ChallanNo: 6812482439, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482440, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480360, Destination: LOHI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480300, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812480275, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812480133, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812480138, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480160, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479951, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479952, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479875, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479844, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479836, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479837, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479832, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812479256, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812479279, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812479280, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812478828, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479031, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812478962, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479167, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812479170, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479536, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812479537, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812479557, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812479558, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812480363, Destination: ASHTI-WARDHA
+FactoryName: ULTRATECH, ChallanNo: 6812480373, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812480424, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812480425, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812480510, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812480512, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812480513, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812480529, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812480977, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812480938, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812480934, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812480929, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812480926, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812480927, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812480830, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480824, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812480816, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480701, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812480702, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812480705, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812481291, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812481161, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812481162, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812481251, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481023, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812481496, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812481611, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481805, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812482059, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812482060, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812482233, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812482214, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482127, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812482217, Destination: UMERKHED (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482211, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812482134, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482516, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812482643, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812482644, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812482609, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812482610, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812482598, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482599, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482820, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812483076, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482997, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812483406, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481493, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812481494, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812481438, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481449, Destination: KURUNDA
+FactoryName: ULTRATECH, ChallanNo: 6812481436, Destination: KALAMANURI
+FactoryName: ULTRATECH, ChallanNo: 6812481495, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812481583, Destination: KALAMANURI
+FactoryName: ULTRATECH, ChallanNo: 6812481619, Destination: LOHI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481279, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812481133, Destination: ASHTI-WARDHA
+FactoryName: ULTRATECH, ChallanNo: 6812481134, Destination: ASHTI-WARDHA
+FactoryName: ULTRATECH, ChallanNo: 6812480687, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480645, Destination: RISOD
+FactoryName: ULTRATECH, ChallanNo: 6812480928, Destination: RISOD
+FactoryName: ULTRATECH, ChallanNo: 6812481007, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812480532, Destination: RISOD
+FactoryName: ULTRATECH, ChallanNo: 6812480607, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812480432, Destination: BILLOLI (NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812480433, Destination: BILLOLI (NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812482003, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812481894, Destination: HANEGAON
+FactoryName: ULTRATECH, ChallanNo: 6812482110, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482215, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812482107, Destination: SHILONA
+FactoryName: ULTRATECH, ChallanNo: 6812482108, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482111, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812482128, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812481885, Destination: NANDED
+FactoryName: ULTRATECH, ChallanNo: 6812482336, Destination: HANEGAON
+FactoryName: ULTRATECH, ChallanNo: 6812482360, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482254, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812482405, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482432, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482433, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812482435, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482448, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812482490, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812482491, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812482764, Destination: NER (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482699, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812482700, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812482740, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482743, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482744, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482605, Destination: ARNI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482630, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812482612, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482524, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482446, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812482447, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812482350, Destination: JAM - NAND
+FactoryName: ULTRATECH, ChallanNo: 6812482351, Destination: JAM - NAND
+FactoryName: ULTRATECH, ChallanNo: 6812482523, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482784, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482823, Destination: CHATARI
+FactoryName: ULTRATECH, ChallanNo: 6812483031, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812483039, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483077, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812483078, Destination: LOHI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482855, Destination: ISLAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812482856, Destination: ISLAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812482871, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482888, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812482889, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812482890, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482908, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812482912, Destination: JAM - NAND
+FactoryName: ULTRATECH, ChallanNo: 6812482944, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812482968, Destination: JAM - NAND
+FactoryName: ULTRATECH, ChallanNo: 6812482996, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812483084, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812483085, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812483118, Destination: HIMAYAT NAGAR(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812483157, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483197, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812483198, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483242, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483243, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483245, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812483247, Destination: DARWA
+FactoryName: ULTRATECH, ChallanNo: 6812483255, Destination: RISOD
+FactoryName: ULTRATECH, ChallanNo: 6812483265, Destination: MUKARAMBAD (NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812483266, Destination: MUKARAMBAD (NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812483415, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812483387, Destination: SIRSAM
+FactoryName: ULTRATECH, ChallanNo: 6812483388, Destination: SIRSAM
+FactoryName: ULTRATECH, ChallanNo: 6812483500, Destination: HIMAYAT NAGAR(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812483511, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812483512, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812483435, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812483546, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812483552, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812483553, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812483555, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812483760, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812483645, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483675, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812483676, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812483241, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482853, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482565, Destination: LOHI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482528, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812482637, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812482638, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812482129, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812481511, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812481512, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812481397, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812479594, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479595, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812479889, Destination: POHRADEVI
+FactoryName: ULTRATECH, ChallanNo: 6812479959, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003642, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6335003646, Destination: BASMAT (VASMAT)
+FactoryName: ULTRATECH, ChallanNo: 6335003647, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6335003648, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6335003653, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003654, Destination: RISOD
+FactoryName: ULTRATECH, ChallanNo: 6335003659, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003660, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003678, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003695, Destination: KANERGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6335003701, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003698, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003699, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484953, Destination: PULGAON
+FactoryName: ULTRATECH, ChallanNo: 6812484514, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812484515, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812483972, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812483973, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812484430, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812484263, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812483246, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483254, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812483433, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483088, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481160, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812481141, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481622, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481623, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481321, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481322, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812481364, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483111, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812483132, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812482841, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812482641, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812481799, Destination: BELORA
+FactoryName: ULTRATECH, ChallanNo: 6812482437, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482414, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482416, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483412, Destination: KALAMANURI
+FactoryName: ULTRATECH, ChallanNo: 6812483239, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483240, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483343, Destination: KALAMANURI
+FactoryName: ULTRATECH, ChallanNo: 6812483360, Destination: KALAMANURI
+FactoryName: ULTRATECH, ChallanNo: 6812483327, Destination: KALAMANURI
+FactoryName: ULTRATECH, ChallanNo: 6812483638, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483567, Destination: SHIRAJGAON
+FactoryName: ULTRATECH, ChallanNo: 6812483547, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483549, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483485, Destination: SHIRAJGAON
+FactoryName: ULTRATECH, ChallanNo: 6812483697, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483673, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484411, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812484412, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812484416, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812484417, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812484523, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484524, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483976, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812483977, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812483823, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812483824, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812483851, Destination: BARHALI
+FactoryName: ULTRATECH, ChallanNo: 6812483884, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812483935, Destination: PUSEGAON -HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812484022, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484023, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484132, Destination: HANEGAON
+FactoryName: ULTRATECH, ChallanNo: 6812484183, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812484184, Destination: KANERGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812484128, Destination: KURUNDA
+FactoryName: ULTRATECH, ChallanNo: 6812484204, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812484249, Destination: HIMAYAT NAGAR(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812484250, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812484365, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812481401, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812481402, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812481105, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812481263, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812481264, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812480120, Destination: DHARMABAD(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812480276, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812479357, Destination: SHIRAJGAON
+FactoryName: ULTRATECH, ChallanNo: 6812480932, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812480699, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812480457, Destination: BHOKARDAN (JLN)
+FactoryName: ULTRATECH, ChallanNo: 6812480498, Destination: BHOKARDAN (JLN)
+FactoryName: ULTRATECH, ChallanNo: 6812479413, Destination: AURANGABAD [AR]
+FactoryName: ULTRATECH, ChallanNo: 6812479012, Destination: BHOKARDAN (JLN)
+FactoryName: ULTRATECH, ChallanNo: 6812479248, Destination: AURANGABAD [AR]
+FactoryName: ULTRATECH, ChallanNo: 6812480202, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6812484206, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484241, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812484129, Destination: VISHNUPURI
+FactoryName: ULTRATECH, ChallanNo: 6812484026, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812483963, Destination: AUNDHA NAGNATH
+FactoryName: ULTRATECH, ChallanNo: 6812483969, Destination: AUNDHA NAGNATH
+FactoryName: ULTRATECH, ChallanNo: 6812484252, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812484253, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812484423, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812484424, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812484294, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812484295, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812483792, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812483677, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812483494, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483541, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483614, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483615, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483627, Destination: VISHNUPURI
+FactoryName: ULTRATECH, ChallanNo: 6812483564, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483565, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483529, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482745, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482741, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483008, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484525, Destination: CHATARI
+FactoryName: ULTRATECH, ChallanNo: 6812484527, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484532, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812484533, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812484569, Destination: MALEGAON -LOHA
+FactoryName: ULTRATECH, ChallanNo: 6812484517, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484518, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484519, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812484521, Destination: ARDHAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812484522, Destination: ARDHAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812484752, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812484753, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812484755, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484756, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484764, Destination: RAMESHWAR
+FactoryName: ULTRATECH, ChallanNo: 6812484768, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484769, Destination: BOLDA
+FactoryName: ULTRATECH, ChallanNo: 6812484838, Destination: HIMAYAT NAGAR(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812484839, Destination: HIMAYAT NAGAR(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812484841, Destination: SIRSAM
+FactoryName: ULTRATECH, ChallanNo: 6812484777, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812484746, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484747, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484819, Destination: RISOD
+FactoryName: ULTRATECH, ChallanNo: 6812484837, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812484845, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484851, Destination: CHATARI
+FactoryName: ULTRATECH, ChallanNo: 6812484853, Destination: KANERGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812484958, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812484959, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812484963, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812484964, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812484983, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812485013, Destination: SAILU
+FactoryName: ULTRATECH, ChallanNo: 6812485095, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812485233, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812485120, Destination: GOREGAON
+FactoryName: ULTRATECH, ChallanNo: 6812485121, Destination: GOREGAON
+FactoryName: ULTRATECH, ChallanNo: 6812485165, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485166, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485170, Destination: BASMAT (VASMAT)
+FactoryName: ULTRATECH, ChallanNo: 6812485171, Destination: BASMAT (VASMAT)
+FactoryName: ULTRATECH, ChallanNo: 6812485183, Destination: SHIRAJGAON
+FactoryName: ULTRATECH, ChallanNo: 6812485189, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485278, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812485280, Destination: JAWALA BHUDRUK
+FactoryName: ULTRATECH, ChallanNo: 6812485281, Destination: JAWALA BHUDRUK
+FactoryName: ULTRATECH, ChallanNo: 6812485305, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485380, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812485381, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812485523, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485524, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485472, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485517, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485518, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485519, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485574, Destination: PUSEGAON -HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812485630, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485769, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812485819, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812485820, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812485932, Destination: DARWA
+FactoryName: ULTRATECH, ChallanNo: 6812485933, Destination: DARWA
+FactoryName: ULTRATECH, ChallanNo: 6812485645, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812485648, Destination: HADGAON (NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812485649, Destination: HADGAON (NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812485652, Destination: DARWA
+FactoryName: ULTRATECH, ChallanNo: 6812485571, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812485641, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485642, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485954, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812485961, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812486026, Destination: DHARMABAD(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812486027, Destination: DHARMABAD(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812486146, Destination: BASMAT (VASMAT)
+FactoryName: ULTRATECH, ChallanNo: 6812486509, Destination: AUNDHA NAGNATH
+FactoryName: ULTRATECH, ChallanNo: 6812486495, Destination: BHOKER
+FactoryName: ULTRATECH, ChallanNo: 6812486262, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812486236, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812485857, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812485858, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812485520, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812485521, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812485101, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485102, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484202, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484796, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483253, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812482808, Destination: DHARMABAD(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812482328, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6812481890, Destination: TALNI-ND
+FactoryName: ULTRATECH, ChallanNo: 6812481917, Destination: NANDED
+FactoryName: ULTRATECH, ChallanNo: 6812481929, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482002, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6812481488, Destination: JALNA TQ
+FactoryName: ULTRATECH, ChallanNo: 6812482449, Destination: AURANGABAD [AR]
+FactoryName: ULTRATECH, ChallanNo: 6812481926, Destination: BHOKARDAN (JLN)
+FactoryName: ULTRATECH, ChallanNo: 6812480266, Destination: BHOKARDAN (JLN)
+FactoryName: ULTRATECH, ChallanNo: 6812480267, Destination: BHOKARDAN (JLN)
+FactoryName: ULTRATECH, ChallanNo: 6812479218, Destination: DAWALWADI
+FactoryName: ULTRATECH, ChallanNo: 6812479220, Destination: DAWALWADI
+FactoryName: ULTRATECH, ChallanNo: 6812480964, Destination: VISHNUPURI
+FactoryName: ULTRATECH, ChallanNo: 6812479744, Destination: UMERKHED
+FactoryName: ULTRATECH, ChallanNo: 6812479847, Destination: UMERKHED
+FactoryName: ULTRATECH, ChallanNo: 6812481419, Destination: UMERKHED
+FactoryName: ULTRATECH, ChallanNo: 6812481428, Destination: UMERKHED
+FactoryName: ULTRATECH, ChallanNo: 6812481627, Destination: KALAMANURI
+FactoryName: ULTRATECH, ChallanNo: 6812480368, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003696, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6335003687, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6335003689, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003692, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003723, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003724, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6335003730, Destination: ARDHAPUR
+FactoryName: ULTRATECH, ChallanNo: 6335003731, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6335003736, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003739, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003747, Destination: HIMAYAT NAGAR(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6335003742, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6335003743, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6335003745, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003759, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003760, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6335003755, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003756, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003782, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6335003779, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6335003780, Destination: PUSEGAON -HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6335003783, Destination: UMRI
+FactoryName: ULTRATECH, ChallanNo: 6335003772, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6335003773, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6335003776, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487110, Destination: ROHADA
+FactoryName: ULTRATECH, ChallanNo: 6812487180, Destination: TAMSA (TAMSAL)
+FactoryName: ULTRATECH, ChallanNo: 6812487183, Destination: BHOKER
+FactoryName: ULTRATECH, ChallanNo: 6812487195, Destination: UMERKHED (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487780, Destination: CHATARI
+FactoryName: ULTRATECH, ChallanNo: 6812487714, Destination: SHILONA
+FactoryName: ULTRATECH, ChallanNo: 6812487715, Destination: SHILONA
+FactoryName: ULTRATECH, ChallanNo: 6812487819, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812487820, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812487561, Destination: SIRSAM
+FactoryName: ULTRATECH, ChallanNo: 6812487562, Destination: SIRSAM
+FactoryName: ULTRATECH, ChallanNo: 6812487563, Destination: LOHI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487578, Destination: PUSEGAON -HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812487633, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487703, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487248, Destination: PUSEGAON -HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812487264, Destination: DARWA
+FactoryName: ULTRATECH, ChallanNo: 6812487292, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812487293, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812487337, Destination: AUNDHA NAGNATH
+FactoryName: ULTRATECH, ChallanNo: 6812487346, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812487416, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487417, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487442, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487448, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812485655, Destination: WARDHA
+FactoryName: ULTRATECH, ChallanNo: 6812485656, Destination: WARDHA
+FactoryName: ULTRATECH, ChallanNo: 6812485669, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812485670, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812485357, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812485522, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485635, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812485636, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812485551, Destination: JAWALA BHUDRUK
+FactoryName: ULTRATECH, ChallanNo: 6812485552, Destination: JAWALA BHUDRUK
+FactoryName: ULTRATECH, ChallanNo: 6812485555, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812485556, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812485119, Destination: KALAMANURI
+FactoryName: ULTRATECH, ChallanNo: 6812485164, Destination: JAM - NAND
+FactoryName: ULTRATECH, ChallanNo: 6812485192, Destination: JAM - NAND
+FactoryName: ULTRATECH, ChallanNo: 6812485286, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812485319, Destination: KALAMANURI
+FactoryName: ULTRATECH, ChallanNo: 6812485179, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812485167, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485168, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485169, Destination: JAM - NAND
+FactoryName: ULTRATECH, ChallanNo: 6812485055, Destination: WARDHA
+FactoryName: ULTRATECH, ChallanNo: 6812485056, Destination: WARDHA
+FactoryName: ULTRATECH, ChallanNo: 6812484028, Destination: BELORA
+FactoryName: ULTRATECH, ChallanNo: 6812483726, Destination: MAHUR/MAHOR(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812485671, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812485672, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812485828, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812485855, Destination: VISHNUPURI
+FactoryName: ULTRATECH, ChallanNo: 6812485856, Destination: VISHNUPURI
+FactoryName: ULTRATECH, ChallanNo: 6812485935, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812485943, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485944, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485868, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812485892, Destination: UMERKHED (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485997, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485998, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486025, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812486144, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812485991, Destination: WARDHA
+FactoryName: ULTRATECH, ChallanNo: 6812485992, Destination: WARDHA
+FactoryName: ULTRATECH, ChallanNo: 6812485955, Destination: JAWALA BAZAR
+FactoryName: ULTRATECH, ChallanNo: 6812485927, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485931, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812486148, Destination: BASMAT (VASMAT)
+FactoryName: ULTRATECH, ChallanNo: 6812486150, Destination: BASMAT (VASMAT)
+FactoryName: ULTRATECH, ChallanNo: 6812486163, Destination: JAWALA BAZAR
+FactoryName: ULTRATECH, ChallanNo: 6812486165, Destination: JAWALA BAZAR
+FactoryName: ULTRATECH, ChallanNo: 6812486174, Destination: BASMAT (VASMAT)
+FactoryName: ULTRATECH, ChallanNo: 6812486175, Destination: BASMAT (VASMAT)
+FactoryName: ULTRATECH, ChallanNo: 6812486225, Destination: HIMAYAT NAGAR(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812486226, Destination: HIMAYAT NAGAR(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812486230, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486231, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486237, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486239, Destination: PUSEGAON -HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812486240, Destination: PUSEGAON -HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812486245, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486246, Destination: HIMAYAT NAGAR(NAD)
+FactoryName: ULTRATECH, ChallanNo: 6812486499, Destination: SIRSAM
+FactoryName: ULTRATECH, ChallanNo: 6812486500, Destination: SIRSAM
+FactoryName: ULTRATECH, ChallanNo: 6812486475, Destination: DARWA
+FactoryName: ULTRATECH, ChallanNo: 6812486385, Destination: UMRI
+FactoryName: ULTRATECH, ChallanNo: 6812486399, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486414, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812486462, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486265, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812486266, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812486275, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812486276, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812486311, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486568, Destination: TAMSA (TAMSAL)
+FactoryName: ULTRATECH, ChallanNo: 6812486575, Destination: TAMSA (TAMSAL)
+FactoryName: ULTRATECH, ChallanNo: 6812486591, Destination: VISHNUPURI
+FactoryName: ULTRATECH, ChallanNo: 6812486593, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486594, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486653, Destination: VISHNUPURI
+FactoryName: ULTRATECH, ChallanNo: 6812486660, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486661, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486663, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812486664, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812486741, Destination: NER (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486773, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812486774, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812486783, Destination: KANERGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812486784, Destination: KANERGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812486740, Destination: SHIRAJGAON
+FactoryName: ULTRATECH, ChallanNo: 6812486766, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812486899, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486900, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487107, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487062, Destination: SHIRAJGAON
+FactoryName: ULTRATECH, ChallanNo: 6812486994, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812487013, Destination: CHATARI
+FactoryName: ULTRATECH, ChallanNo: 6812487014, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487015, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487008, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812487101, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812487104, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812487105, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812484844, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484748, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812484749, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812485329, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812485331, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812485353, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812484758, Destination: PUSEGAON -HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812484759, Destination: PUSEGAON -HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812483437, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812483405, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484185, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484186, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484188, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484195, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812484771, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484774, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483970, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812483971, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812482514, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812482515, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812482684, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812482629, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812482825, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812482782, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812482783, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485864, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485821, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812485822, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812485572, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812485573, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812485558, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812485559, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812485643, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487003, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812487006, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812487016, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812486748, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812486749, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812486703, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812486314, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486313, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812486466, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812486467, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812486468, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812486469, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812486473, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812487350, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812487376, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812487377, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812487096, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812487439, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812487464, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812487419, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6812487706, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812487632, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487756, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812487992, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812487634, Destination: HATTA(BASMAT)
+FactoryName: ULTRATECH, ChallanNo: 6812487772, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487859, Destination: LOHI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487424, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812487425, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812487429, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812487465, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487205, Destination: KURUNDA
+FactoryName: ULTRATECH, ChallanNo: 6812487251, Destination: RAMESHWAR
+FactoryName: ULTRATECH, ChallanNo: 6812487254, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486315, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486228, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486229, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486708, Destination: HATTA(BASMAT)
+FactoryName: ULTRATECH, ChallanNo: 6812487011, Destination: BASMAT (VASMAT)
+FactoryName: ULTRATECH, ChallanNo: 6812487121, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487007, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812486905, Destination: HATTA(BASMAT)
+FactoryName: ULTRATECH, ChallanNo: 6812487082, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812485274, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485275, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485309, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812485311, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812485893, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812485894, Destination: KALIDAULATKHAN
+FactoryName: ULTRATECH, ChallanNo: 6812487000, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812487067, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487068, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486665, Destination: HARSUL (YAVATMAL)
+FactoryName: ULTRATECH, ChallanNo: 6812486845, Destination: DARWA
+FactoryName: ULTRATECH, ChallanNo: 6812486846, Destination: DARWA
+FactoryName: ULTRATECH, ChallanNo: 6812486898, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487095, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487435, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487719, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487447, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812487558, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487559, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812488225, Destination: VISHNUPURI
+FactoryName: ULTRATECH, ChallanNo: 6335003791, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6335003802, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6335003781, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6335003788, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6335003758, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003746, Destination: LONI (WASHIM)
+FactoryName: ULTRATECH, ChallanNo: 6335003700, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6335003725, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003655, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003693, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003764, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003803, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003793, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6335003800, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003801, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6335003797, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003799, Destination: BASMAT (VASMAT)
+FactoryName: ULTRATECH, ChallanNo: 6812488142, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487939, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487993, Destination: RAMESHWAR
+FactoryName: ULTRATECH, ChallanNo: 6812487994, Destination: RAMESHWAR
+FactoryName: ULTRATECH, ChallanNo: 6812488130, Destination: MALEGAON -LOHA
+FactoryName: ULTRATECH, ChallanNo: 6812488132, Destination: MALEGAON -LOHA
+FactoryName: ULTRATECH, ChallanNo: 6812487999, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812488002, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812488003, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812487974, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812487989, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487938, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812487567, Destination: VISHNUPURI
+FactoryName: ULTRATECH, ChallanNo: 6812487621, Destination: GOREGAON
+FactoryName: ULTRATECH, ChallanNo: 6812487622, Destination: GOREGAON
+FactoryName: ULTRATECH, ChallanNo: 6812487083, Destination: NANDED
+FactoryName: ULTRATECH, ChallanNo: 6812486964, Destination: KURUNDA
+FactoryName: ULTRATECH, ChallanNo: 6812486476, Destination: DARWA
+FactoryName: ULTRATECH, ChallanNo: 6812484986, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812484987, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812485296, Destination: NARSI NAMDEO
+FactoryName: ULTRATECH, ChallanNo: 6812485297, Destination: NARSI NAMDEO
+FactoryName: ULTRATECH, ChallanNo: 6812485692, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487654, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812487655, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812487895, Destination: AURANGABAD [AR]
+FactoryName: ULTRATECH, ChallanNo: 6812487976, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812487291, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6812488151, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6812487250, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6812487265, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6812487290, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6812486782, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812487198, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6812486769, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483493, Destination: NANDED
+FactoryName: ULTRATECH, ChallanNo: 6812483649, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6812483643, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6812487138, Destination: DARWA
+FactoryName: ULTRATECH, ChallanNo: 6812487145, Destination: AURANGABAD [AR]
+FactoryName: ULTRATECH, ChallanNo: 6812487146, Destination: AURANGABAD [AR]
+FactoryName: ULTRATECH, ChallanNo: 6812486261, Destination: AURANGABAD [AR]
+FactoryName: ULTRATECH, ChallanNo: 6812487137, Destination: BHOKARDAN (JLN)
+FactoryName: ULTRATECH, ChallanNo: 6812486957, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812486958, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812487092, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487093, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487099, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812486539, Destination: MANDVI-ND
+FactoryName: ULTRATECH, ChallanNo: 6812487436, Destination: SHILONA
+FactoryName: ULTRATECH, ChallanNo: 6812487638, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487489, Destination: POHRADEVI
+FactoryName: ULTRATECH, ChallanNo: 6812487782, Destination: HARSUL (YAVATMAL)
+FactoryName: ULTRATECH, ChallanNo: 6812487789, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812488152, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812488153, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812488016, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812488040, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812488041, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812488135, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812488136, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812488140, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812488141, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812488229, Destination: UMRI
+FactoryName: ULTRATECH, ChallanNo: 6812488176, Destination: MULAWA
+FactoryName: ULTRATECH, ChallanNo: 6812488178, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6812488186, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812488187, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812488053, Destination: CHATARI
+FactoryName: ULTRATECH, ChallanNo: 6812488015, Destination: JEWALI
+FactoryName: ULTRATECH, ChallanNo: 6812487838, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812487839, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812487430, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812487431, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812487336, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6335003794, Destination: PUSAD (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003789, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003784, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6335003748, Destination: PHOOLSAWANGI (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003749, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003706, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812487012, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812487758, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812487759, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6812488213, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6335003770, Destination: MEDSHI
+FactoryName: ULTRATECH, ChallanNo: 6335003740, Destination: MAHAGAON (T)
+FactoryName: ULTRATECH, ChallanNo: 6335003680, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6335003681, Destination: AKHADA BALAPUR
+FactoryName: ULTRATECH, ChallanNo: 6812483566, Destination: SHIRAJGAON
+FactoryName: ULTRATECH, ChallanNo: 6812482493, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812482494, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812482498, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812482175, Destination: SHENGAON-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812485873, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812485958, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812486341, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486901, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812486566, Destination: HARSUL (YAVATMAL)
+FactoryName: ULTRATECH, ChallanNo: 6812486567, Destination: HARSUL (YAVATMAL)
+FactoryName: ULTRATECH, ChallanNo: 6812488216, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812488217, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812487998, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812487990, Destination: HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812488017, Destination: GOREGAON
+FactoryName: ULTRATECH, ChallanNo: 6812488169, Destination: SADOBA SAWLI
+FactoryName: ULTRATECH, ChallanNo: 6812487879, Destination: DIGRAS (T)
+FactoryName: ULTRATECH, ChallanNo: 6812482365, Destination: AUNDHA NAGNATH
+FactoryName: ULTRATECH, ChallanNo: 6812483238, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483248, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812483249, Destination: SHEMBALPIMPRI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812486085, Destination: HARSUL (YAVATMAL)
+FactoryName: ULTRATECH, ChallanNo: 6812485658, Destination: UMERKHED
+FactoryName: ULTRATECH, ChallanNo: 6812484960, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812484961, Destination: UKALIPEN
+FactoryName: ULTRATECH, ChallanNo: 6812484855, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484857, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484848, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487222, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6812488149, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6812483720, Destination: TAMSA (TAMSAL)
+FactoryName: ULTRATECH, ChallanNo: 6812483791, Destination: SAKHARA-HINGOLI
+FactoryName: ULTRATECH, ChallanNo: 6812483644, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6812483646, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6812485432, Destination: AURANGABAD [AR]
+FactoryName: ULTRATECH, ChallanNo: 6812485433, Destination: AURANGABAD [AR]
+FactoryName: ULTRATECH, ChallanNo: 6812486350, Destination: DAWALWADI
+FactoryName: ULTRATECH, ChallanNo: 6812486340, Destination: DAWALWADI
+FactoryName: ULTRATECH, ChallanNo: 6812486716, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6812486727, Destination: PUSAD
+FactoryName: ULTRATECH, ChallanNo: 6812486737, Destination: UMERKHED
+FactoryName: ULTRATECH, ChallanNo: 6812485378, Destination: AUNDHA NAGNATH
+FactoryName: ULTRATECH, ChallanNo: 6812485379, Destination: VISHNUPURI
+FactoryName: ULTRATECH, ChallanNo: 6812484791, Destination: UMERKHED
+FactoryName: ULTRATECH, ChallanNo: 6812485267, Destination: VISHNUPURI
+FactoryName: ULTRATECH, ChallanNo: 6812487487, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812487486, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484671, Destination: DHANKI (T)
+FactoryName: ULTRATECH, ChallanNo: 6812484672, Destination: DHANKI (T)

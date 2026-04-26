@@ -1,0 +1,51 @@
+@model KhanLogistics.Models.ViewModel.DispatchVm
+
+<h1 style="text-align:center">Upload GST Update Data</h1>
+
+<p>
+    Please ensure your Excel file has three columns in the following order:
+    <strong>1) GST Amount</strong>, <strong>2) Bill Date</strong> (yyyy-MM-dd),
+    and <strong>3) GST Update Date</strong> (yyyy-MM-dd).
+</p>
+
+@if (TempData["SuccessCount"] != null && TempData["FailureCount"] != null)
+{
+    <div class="alert alert-info">
+        <strong>Upload Summary:</strong><br />
+        Records Uploaded Successfully: @TempData["SuccessCount"]<br />
+        Records Failed to Upload: @TempData["FailureCount"]
+        @if (TempData["FailedRecords"] is List<string> failed && failed.Count > 0)
+        {
+            <br />
+            <strong>Failed Record Info:</strong>
+            @string.Join(", ", failed)
+        }
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        <strong>Error:</strong> @TempData["ErrorMessage"]
+    </div>
+}
+
+<form asp-action="UploadGst" method="post" enctype="multipart/form-data">
+    <div class="form-group mb-3">
+        <label for="ddlFactory">Select Factory:</label>
+        <select name="selectedFactoryId" id="ddlFactory" class="form-control" required>
+            <option value="">-- Select Factory --</option>
+            @foreach (var factory in Model.ddlFactory)
+            {
+                <option value="@factory.Value">@factory.Text</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="file">Select Excel File to Upload:</label>
+        <input type="file" name="file" id="file" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>

@@ -1,0 +1,55 @@
+@model KhanLogistics.Models.ViewModel.BillViewModel
+
+@{
+    ViewBag.Title = "Bill List";
+}
+
+<h1 style="text-align:center">Bill List</h1>
+
+<!-- Filter Form -->
+@using (Html.BeginForm("BillView", "Bill", FormMethod.Get))
+{
+    <div class="form-group">
+        <label for="startDate">Start Date</label>
+        @Html.TextBox("startDate", Model.StartDate?.ToString("yyyy-MM-dd"), new { @class = "form-control", type = "date" })
+    </div>
+    <div class="form-group">
+        <label for="endDate">End Date</label>
+        @Html.TextBox("endDate", Model.EndDate?.ToString("yyyy-MM-dd"), new { @class = "form-control", type = "date" })
+    </div>
+    <div class="form-group">
+        <label for="factoryId">Factory</label>
+        @Html.DropDownList("factoryId", new SelectList(Model.Factories, "FID", "FactoryName", Model.SelectedFactoryId), "All", new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+}
+
+<!-- Table for displaying bills -->
+<table class="table" id="Mytable">
+    <thead>
+        <tr>
+            <th>Factory Name</th>
+            <th>Bill Date</th>
+            <th>Bill Number</th>
+            <th>Bill Type</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Bills)
+        {
+            <tr>
+                <td>@item.FactoryName</td>
+                <td>@item.BillDate?.ToString("yyyy-MM-dd")</td>
+                <td>@item.BillNum</td>
+                <td>@item.BillType</td>
+                <td>
+                    @Html.ActionLink("Detail", "Details", new { id = item.BillID }) |
+                    <form asp-action="Delete" asp-route-id="@item.BillID" method="post" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this bill? Linked dispatches will be unlinked.');">
+                        <button type="submit" class="btn btn-link p-0 text-danger" style="vertical-align: baseline;">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
