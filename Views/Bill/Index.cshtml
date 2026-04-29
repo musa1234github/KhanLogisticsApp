@@ -6,6 +6,45 @@
 
 <h1 style="text-align:center">GST</h1>
 
+<div class="card mb-4 shadow-sm">
+    <div class="card-body">
+        <form method="get" asp-action="Index" class="row g-3 align-items-end">
+            <div class="col-md-3">
+                <label class="form-label">Factory</label>
+                <select name="factoryId" class="form-select">
+                    <option value="">-- All Factories --</option>
+                    @foreach (var factory in (IEnumerable<SelectListItem>)ViewBag.Factories)
+                    {
+                        <option value="@factory.Value" selected="@(factory.Value == ViewBag.SelectedFactoryId?.ToString())">@factory.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">GST Rec. Start Date</label>
+                <input type="date" name="startDate" class="form-control" value="@ViewBag.StartDate" />
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">GST Rec. End Date</label>
+                <input type="date" name="endDate" class="form-control" value="@ViewBag.EndDate" />
+            </div>
+            <div class="col-md-3 d-flex gap-2">
+                <button type="submit" class="btn btn-primary w-100">Filter</button>
+                <a asp-action="Index" class="btn btn-secondary w-100">Reset</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mb-3 text-end">
+    <a asp-action="ExportIndexExcel" 
+       asp-route-factoryId="@ViewBag.SelectedFactoryId" 
+       asp-route-startDate="@ViewBag.StartDate" 
+       asp-route-endDate="@ViewBag.EndDate" 
+       class="btn btn-success">
+       <i class="bi bi-file-earmark-excel"></i> Export to Excel
+    </a>
+</div>
+
 @if (Model == null || !Model.Any())
 {
     <p>No bills available.</p>

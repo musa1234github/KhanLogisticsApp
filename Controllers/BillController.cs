@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OfficeOpenXml;
+using System.IO;
 
 public class BillController : Controller
 {
@@ -14,10 +15,68 @@ public class BillController : Controller
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }
 
-    public IActionResult Index()
+    public IActionResult ExportIndexExcel(int? factoryId, DateTime? startDate, DateTime? endDate)
+    {
+        ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+        var billsQuery = _context.BillTables.AsQueryable();
+        
+        if (factoryId.HasValue)
+        {
+            billsQuery = billsQuery.Where(b => b.FID == factoryId.Value);
+        }
+        if (startDate.HasValue)
+        {
+            billsQuery = billsQuery.Where(b => b.GstDate >= startDate.Value);
+        }
+        if (endDate.HasValue)
+        {
+            billsQuery = billsQuery.Where(b => b.GstDate <= endDate.Value);
+        }
+
+        var bills = billsQuery.ToList();
+
+        using (var package = new ExcelPackage())
+        {
+            var worksheet = package.Workbook.Worksheets.Add("Bills");
+            worksheet.Cells[1, 1].Value = "Bill No";
+            worksheet.Cells[1, 2].Value = "Bill Date";
+            worksheet.Cells[1, 3].Value = "GST Amount";
+
+            for (int i = 0; i < bills.Count; i++)
+            {
+                worksheet.Cells[i + 2, 1].Value = bills[i].BillNum;
+                worksheet.Cells[i + 2, 2].Value = bills[i].BillDate?.ToString("yyyy-MM-dd");
+                worksheet.Cells[i + 2, 3].Value = bills[i].Gst;
+            }
+
+            worksheet.Cells.AutoFitColumns();
+
+            var stream = new MemoryStream();
+            package.SaveAs(stream);
+            var content = stream.ToArray();
+            return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Bills_Export.xlsx");
+        }
+    }
+
+    public IActionResult Index(int? factoryId, DateTime? startDate, DateTime? endDate)
     {
         var vendors = _context.TblFactories.ToList();
-        var bills = _context.BillTables.ToList();
+        var billsQuery = _context.BillTables.AsQueryable();
+        
+        if (factoryId.HasValue)
+        {
+            billsQuery = billsQuery.Where(b => b.FID == factoryId.Value);
+        }
+        if (startDate.HasValue)
+        {
+            billsQuery = billsQuery.Where(b => b.GstDate >= startDate.Value);
+        }
+        if (endDate.HasValue)
+        {
+            billsQuery = billsQuery.Where(b => b.GstDate <= endDate.Value);
+        }
+
+        var bills = billsQuery.ToList();
 
         var billViewModels = bills.Select(bill => new BillDispatchViewModel
         {
@@ -35,9 +94,15 @@ public class BillController : Controller
             Vendors = vendors.Select(vendor => new SelectListItem
             {
                 Value = vendor.FID.ToString(),
-                Text = vendor.FactoryName
+                Text = vendor.FactoryName,
+                Selected = vendor.FID == factoryId
             }).ToList()
         }).ToList();
+
+        ViewBag.Factories = vendors.Select(v => new SelectListItem { Value = v.FID.ToString(), Text = v.FactoryName, Selected = v.FID == factoryId }).ToList();
+        ViewBag.SelectedFactoryId = factoryId;
+        ViewBag.StartDate = startDate?.ToString("yyyy-MM-dd");
+        ViewBag.EndDate = endDate?.ToString("yyyy-MM-dd");
 
         return View("Index", billViewModels);
     }

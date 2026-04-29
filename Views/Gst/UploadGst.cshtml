@@ -2,11 +2,70 @@
 
 <h1 style="text-align:center">Upload GST Update Data</h1>
 
-<p>
-    Please ensure your Excel file has three columns in the following order:
-    <strong>1) GST Amount</strong>, <strong>2) Bill Date</strong> (yyyy-MM-dd),
-    and <strong>3) GST Update Date</strong> (yyyy-MM-dd).
-</p>
+<p>Please ensure your Excel file has the following <strong>3 columns</strong> with a header row:</p>
+<table class="table table-bordered" style="max-width:600px;">
+    <thead class="table-dark">
+        <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>GST Amount</strong></td>
+            <td><strong>Bill Date</strong></td>
+            <td><strong>GST Updated Date</strong></td>
+        </tr>
+        <tr>
+            <td>1250.75</td>
+            <td>10/01/2026</td>
+            <td>15/01/2026</td>
+        </tr>
+    </tbody>
+</table>
+<p><small>
+    <strong>Matching Rules:</strong><br />
+    1. Matches by <strong>Rounded GST Amount</strong> (ignoring decimals).<br />
+    2. <strong>Priority Date Matching:</strong> Exact Date > 1 Month Back > 2 Months Back > 3 Months Back.<br />
+    3. Existing records can be updated if a better match is found.
+</small></p>
+
+@if (TempData["DriftPreviews"] != null)
+{
+    var previews = Newtonsoft.Json.JsonConvert.DeserializeObject<List<KhanLogistics.Controllers.GstUpdatePreview>>(TempData["DriftPreviews"].ToString());
+    <div class="alert alert-warning">
+        <h4>⚠️ Date Mismatches Detected!</h4>
+        <p>The following bills match by <strong>Amount</strong> but the <strong>Date</strong> is not exact (it matched 1 or 2 months ago). Do you want to proceed with updating these?</p>
+        <table class="table table-sm table-bordered bg-white">
+            <thead>
+                <tr>
+                    <th>Bill Number</th>
+                    <th>Excel Date</th>
+                    <th>Actual Bill Date</th>
+                    <th>GST Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in previews)
+                {
+                    <tr>
+                        <td>@p.BillNum</td>
+                        <td>@p.ExcelDate.ToString("dd/MM/yyyy")</td>
+                        <td class="text-danger">@p.ActualDate.ToString("dd/MM/yyyy")</td>
+                        <td>@p.GstAmt</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <form asp-action="UploadGst" method="post">
+            <input type="hidden" name="selectedFactoryId" value="@TempData["SelectedFactoryId"]" />
+            <input type="hidden" name="isConfirmed" value="true" />
+            <button type="submit" class="btn btn-warning">Confirm and Update All</button>
+            <a href="@Url.Action("UploadGst")" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+}
 
 @if (TempData["SuccessCount"] != null && TempData["FailureCount"] != null)
 {
@@ -14,11 +73,11 @@
         <strong>Upload Summary:</strong><br />
         Records Uploaded Successfully: @TempData["SuccessCount"]<br />
         Records Failed to Upload: @TempData["FailureCount"]
-        @if (TempData["FailedRecords"] is List<string> failed && failed.Count > 0)
+        @if (TempData["FailedRecords"] != null && !string.IsNullOrEmpty(TempData["FailedRecords"].ToString()))
         {
             <br />
             <strong>Failed Record Info:</strong>
-            @string.Join(", ", failed)
+            @TempData["FailedRecords"]
         }
     </div>
 }

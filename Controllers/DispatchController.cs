@@ -15,18 +15,14 @@ namespace KhanLogistics.Controllers
     {
         TransportMgmtContext _transportMgmtContext;
         IConfiguration _configuration;
-        IWebHostEnvironment _hostingEnvironment;
         IExcelDataReader _excelDataReader;
         ILogger<DispatchController> _logger; // Inject Logger
        
 
-        public DispatchController(TransportMgmtContext context, IWebHostEnvironment webHostEnvironment, ILogger<DispatchController> logger)
+        public DispatchController(TransportMgmtContext context, ILogger<DispatchController> logger)
         {
             this._transportMgmtContext = context;
-            this._hostingEnvironment = webHostEnvironment;
             _logger = logger;
-            
-
         }
 
 
@@ -69,20 +65,12 @@ namespace KhanLogistics.Controllers
                     return RedirectToAction("UploadDispatch");
                 }
 
-                string dirpath = Path.Combine(_hostingEnvironment.WebRootPath, "files");
-                if (!Directory.Exists(dirpath)) Directory.CreateDirectory(dirpath);
-
-                string datafilename = Path.GetFileName(file.FileName);
-                string savetopath = Path.Combine(dirpath, datafilename);
-
-                using (FileStream stream = new FileStream(savetopath, FileMode.Create))
-                {
-                    await file.CopyToAsync(stream);
-                }
-
                 System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
-                using (var stream = new FileStream(savetopath, FileMode.Open))
+                var factoryObj = await _transportMgmtContext.TblFactories.FirstOrDefaultAsync(f => f.FID == FID);
+                string currentFactoryName = factoryObj?.FactoryName?.ToUpper() ?? "";
+
+                using (var stream = file.OpenReadStream())
                 {
                     using (var reader = ExcelReaderFactory.CreateReader(stream))
                     {
@@ -128,7 +116,7 @@ namespace KhanLogistics.Controllers
 
                                     // --- CHALLAN PRIORITY (Strong matches first) ---
                                     bool isStrongChallan = h == "CHALLAN" || h == "CHALLANNO" || h == "DELIVERYNO" || h == "DINO" || h == "LRNO" || h == "SHIPMENTNO" || h == "INVOICENO";
-                                    bool isWeakChallan = h.Contains("CHALLAN") || h.Contains("DELIVERY") || h == "DI" || h.Contains("LR") || h.Contains("SHIPMENT") || h.Contains("INV") || h.Contains("BILL") || h.Contains("DOC") || h.Contains("GR") || h.Contains("DC") || h.Contains("DN") || h.Contains("DO") || h.Contains("INTERNAL") || h.Contains("NUMBER");
+                                    bool isWeakChallan = h.Contains("CHALLAN") || h.Contains("DELIVERY") || h == "DI" || h.Contains("LR") || h.Contains("SHIPMENT") || h.Contains("INV") || h.Contains("BILL") || h.Contains("DOC") || h.Contains("GR") || h.Contains("DC") || h.Contains("DN") || h.Contains("DO") || h.Contains("INTERNAL");
 
                                     if (isWeakChallan && !h.Contains("DATE")) 
                                     { 
@@ -208,7 +196,68 @@ namespace KhanLogistics.Controllers
                                         colUnitPrice = c; headerNames += $"Price='{rawH}'(Col {c+1}), ";
                                     }
                                 }
+
+                                // Force mapping for MANIGAR (important fix)
+                                if (currentFactoryName.Trim() == "MANIGAR")
+                                {
+                                    colChallan = -1;  // reset wrong mapping
+                                    for (int c = 0; c < dt.Columns.Count; c++)
+                                    {
+                                        string h = (dt.Rows[headerRowIndex][c]?.ToString() ?? "").ToUpper().Replace(" ", "").Replace(".", "").Replace("-", "").Replace("_", "").Replace("#", "");
+                                        // Only accept real challan columns (NOT EX NUMBER)
+                                        if (h.Contains("CHALLAN") || h.Contains("DELIVERY") || h.Contains("DINO"))
+                                        {
+                                            colChallan = c;
+                                        }
+                                        // Map EX NUMBER separately
+                                        if (h.Contains("EXNO") || h.Contains("EXNUMBER"))
+                                        {
+                                            colExNo = c;
+                                        }
+                                    }
+                                }
+
                                 break;
+                            }
+                        }
+
+                        // --- VALIDATE CHALLAN COLUMN (fallback if detected challan col has no data) ---
+                        if (colChallan != -1 && headerRowIndex + 1 < dt.Rows.Count)
+                        {
+                            int checkUpTo = Math.Min(5, dt.Rows.Count - headerRowIndex - 1);
+                            bool challanHasData = Enumerable.Range(headerRowIndex + 1, checkUpTo)
+                                .Any(r => !string.IsNullOrWhiteSpace(dt.Rows[r][colChallan]?.ToString()));
+
+                            if (!challanHasData)
+                            {
+                                // Current challan col is empty — find a better one
+                                int fallbackCol = -1;
+                                string fallbackName = "";
+                                for (int c = 0; c < dt.Columns.Count; c++)
+                                {
+                                    if (c == colChallan || c == colDate || c == colQty || c == colVehicle || c == colParty || c == colDest) continue;
+
+                                    string hFb = (dt.Rows[headerRowIndex][c]?.ToString() ?? "")
+                                        .ToUpper().Replace(" ", "").Replace(".", "").Replace("-", "").Replace("_", "").Replace("#", "");
+                                    if (string.IsNullOrEmpty(hFb)) continue;
+
+                                    bool isGoodFallback = (hFb.Contains("DELIVERY") || hFb.Contains("OUTBOUND") ||
+                                                            hFb.Contains("CHALLAN") || hFb.Contains("INVOICE") ||
+                                                            hFb == "DO" || hFb.Contains("DONO") || hFb.Contains("BILLDOC"))
+                                                           && !hFb.Contains("DATE");
+                                    if (!isGoodFallback) continue;
+
+                                    bool fbHasData = Enumerable.Range(headerRowIndex + 1, checkUpTo)
+                                        .Any(r => !string.IsNullOrWhiteSpace(dt.Rows[r][c]?.ToString()));
+
+                                    if (fbHasData) { fallbackCol = c; fallbackName = dt.Rows[headerRowIndex][c]?.ToString() ?? ""; break; }
+                                }
+
+                                if (fallbackCol != -1)
+                                {
+                                    colChallan = fallbackCol;
+                                    headerNames += $"Challan(AutoFixed)='{fallbackName}'(Col {fallbackCol + 1}), ";
+                                }
                             }
                         }
 
@@ -235,9 +284,47 @@ namespace KhanLogistics.Controllers
                             DataRow row = dt.Rows[i];
                             
                             string rawChallan = row[colChallan]?.ToString();
-                            if (string.IsNullOrWhiteSpace(rawChallan)) { skippedNoChallan++; continue; } 
-
                             string challanNo = NormalizeChallan(rawChallan);
+                            string exNo = colExNo != -1 ? row[colExNo]?.ToString() : "";
+
+                            // --- AUTO FIX LOGIC for MANIGAR ---
+                            if (currentFactoryName.Trim() == "MANIGAR")
+                            {
+                                // 1. If wrong challan is 89-series, rescue it to ExNo
+                                if (challanNo.StartsWith("89") && string.IsNullOrWhiteSpace(exNo))
+                                {
+                                    exNo = challanNo;
+                                }
+
+                                // 2. If we don't have a valid 69-series challan, search the row for it
+                                if (!challanNo.StartsWith("69"))
+                                {
+                                    bool foundRealChallan = false;
+                                    for (int c = 0; c < dt.Columns.Count; c++)
+                                    {
+                                        string cellVal = NormalizeChallan(row[c]?.ToString());
+                                        if (cellVal.StartsWith("69"))
+                                        {
+                                            challanNo = cellVal;
+                                            foundRealChallan = true;
+                                            break;
+                                        }
+                                        else if (cellVal.StartsWith("89") && string.IsNullOrWhiteSpace(exNo))
+                                        {
+                                            exNo = cellVal; // Catch any stray 89-series as ExNo too
+                                        }
+                                    }
+
+                                    // 3. If STILL no valid challan found, we MUST skip (cannot insert without primary key)
+                                    if (!foundRealChallan)
+                                    {
+                                        skippedRows++;
+                                        errors.Add($"Row {i+1}: Skipped - No valid 69-series Challan found. Wrong mapping was: {rawChallan}");
+                                        continue;
+                                    }
+                                }
+                            }
+
                             if (string.IsNullOrWhiteSpace(challanNo)) { skippedNoChallan++; continue; }
 
                              // Skip duplicates within the same file
@@ -249,7 +336,6 @@ namespace KhanLogistics.Controllers
                             string vehicleNo = colVehicle != -1 ? NormalizeVehicle(row[colVehicle]?.ToString()) : "";
                             string partyName = colParty != -1 ? row[colParty]?.ToString() : "";
                             string destination = colDest != -1 ? row[colDest]?.ToString() : "";
-                            string exNo = colExNo != -1 ? row[colExNo]?.ToString() : "";
                             double unitPrice = colUnitPrice != -1 ? ParseQuantity(row[colUnitPrice]) : 0;
 
                             if (!dispatchDate.HasValue || qty <= 0)

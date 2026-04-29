@@ -9,13 +9,7 @@
     <RootNamespace>KhanLogistics</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Remove="wwwroot\files\TransportMgmtContext.cs" />
-  </ItemGroup>
 
-  <ItemGroup>
-    <Compile Include="wwwroot\files\TransportMgmtContext.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <None Include="Views\Shared\Components\NearExpiryReminder\Default.cshtml" />

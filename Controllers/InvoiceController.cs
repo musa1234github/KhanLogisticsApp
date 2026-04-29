@@ -67,26 +67,12 @@ namespace KhanLogistics.Controllers
                 var factory = _transportMgmtContext.TblFactories.Find(selectedFactoryId);
                 string factoryName = factory?.FactoryName?.ToUpper() ?? "";
 
-                string dirPath = Path.Combine(_hostingEnvironment.WebRootPath, "files");
-                if (!Directory.Exists(dirPath))
-                {
-                    Directory.CreateDirectory(dirPath);
-                }
-
-                string fileName = Path.GetFileName(file.FileName);
-                string filePath = Path.Combine(dirPath, fileName);
-
-                using (FileStream stream = new FileStream(filePath, FileMode.Create))
-                {
-                    file.CopyTo(stream);
-                }
-
                 System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
                 List<ParsedRow> parsedRows = new List<ParsedRow>();
                 HashSet<string> uniqueChallansInFile = new HashSet<string>();
 
-                using (var stream = new FileStream(filePath, FileMode.Open))
+                using (var stream = file.OpenReadStream())
                 {
                     _excelDataReader = ExcelReaderFactory.CreateReader(stream);
                     DataSet dataSet = _excelDataReader.AsDataSet();
@@ -586,22 +572,9 @@ public IActionResult ShowInvoice()
                 List<string> failedRecords = new List<string>(); // List to store failed record details
                 Dictionary<string, BillTable> billDictionary = new Dictionary<string, BillTable>(); // Dictionary to store unique bill records mapped by bill number
 
-                string filename = $"{_hostingEnvironment.WebRootPath}\files{file.FileName}";
-                string dirpath = Path.Combine(_hostingEnvironment.WebRootPath, "files");
-                string datafilename = Path.GetFileName(file.FileName);
-                string savetopath = Path.Combine(dirpath, datafilename);
-                string extension = Path.GetExtension(datafilename);
-
-                // Save file to server
-                using (FileStream stream = new FileStream(savetopath, FileMode.Create))
-                {
-                    file.CopyTo(stream);
-                    stream.Flush();
-                }
-
                 System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
-                using (var stream = new FileStream(savetopath, FileMode.Open))
+                using (var stream = file.OpenReadStream())
                 {
                     _excelDataReader = ExcelReaderFactory.CreateReader(stream);
                     DataSet dataSet = _excelDataReader.AsDataSet();

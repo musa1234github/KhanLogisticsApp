@@ -111,11 +111,22 @@ namespace KhanLogistics.Controllers
         [HttpPost]
         public JsonResult LoadOutstandingDetails(DateTime fromDate, DateTime toDate, int? factoryId)
         {
-            var outstandingDetails = _context.SpOutStanding
-                .FromSqlRaw("EXEC [dbo].[SpOutStanding] @FromDate = {0}, @ToDate = {1}, @FactoryId = {2}", fromDate, toDate, factoryId)
-                .ToList();
+            try
+            {
+                var pFrom = new Microsoft.Data.SqlClient.SqlParameter("@FromDate", fromDate);
+                var pTo = new Microsoft.Data.SqlClient.SqlParameter("@ToDate", toDate);
+                var pFact = new Microsoft.Data.SqlClient.SqlParameter("@FactoryId", (object)factoryId ?? DBNull.Value);
 
-            return Json(outstandingDetails);
+                var outstandingDetails = _context.SpOutStanding
+                    .FromSqlRaw("EXEC [dbo].[SpOutStanding] @FromDate, @ToDate, @FactoryId", pFrom, pTo, pFact)
+                    .ToList();
+
+                return Json(outstandingDetails);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message, stackTrace = ex.StackTrace });
+            }
         }
 
     }

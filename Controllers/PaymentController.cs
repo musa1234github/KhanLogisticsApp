@@ -19,12 +19,9 @@ namespace KhanLogistics.Controllers
         public PaymentController(TransportMgmtContext context, IWebHostEnvironment webHostEnvironment)
         {
             this._transportMgmtContext = context;
-            //this._excelDataReader = excelDataReader;
-            //this._configuration  = configuration;
             this._hostingEnvironment = webHostEnvironment;
-            //this._hostingEnvironment = hostingEnvironment;
-
         }
+
         public IActionResult ShowBill()
         {
             PaymentVm model = new PaymentVm();
@@ -48,35 +45,33 @@ namespace KhanLogistics.Controllers
             return View("ShowBill", model);
         }
 
-
-
-
-        
         [HttpPost]
         public async Task<IActionResult> ShowBill(IFormFile file)
         {
             try
             {
-                List<BillTable> updatedBills = new List<BillTable>(); // List to store updated bill records
-                Dictionary<string, PaymentTable> paymentDictionary = new Dictionary<string, PaymentTable>(); // Dictionary to store unique payment records mapped by payment number
+                if (file == null || file.Length == 0)
+                {
+                    return BadRequest("Please select a file.");
+                }
 
-                // Saving the uploaded file
-                string filename = $"{_hostingEnvironment.WebRootPath}\\files\\{file.FileName}";
-                string dirpath = Path.Combine(_hostingEnvironment.WebRootPath, "files");
-                string datafilename = Path.GetFileName(file.FileName);
-                string savetopath = Path.Combine(dirpath, datafilename);
-                string extension = Path.GetExtension(datafilename);
+                List<BillTable> updatedBills = new List<BillTable>();
+                Dictionary<string, PaymentTable> paymentDictionary = new Dictionary<string, PaymentTable>();
 
-                using (FileStream stream = new FileStream(savetopath, FileMode.Create))
+                string dirPath = Path.Combine(_hostingEnvironment.WebRootPath, "files");
+                if (!Directory.Exists(dirPath)) Directory.CreateDirectory(dirPath);
+
+                string fileName = Path.GetFileName(file.FileName);
+                string filePath = Path.Combine(dirPath, fileName);
+
+                using (FileStream stream = new FileStream(filePath, FileMode.Create))
                 {
                     file.CopyTo(stream);
-                    stream.Flush();
                 }
 
                 System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
-                // Reading the uploaded Excel file
-                using (var stream = new FileStream(savetopath, FileMode.Open))
+                using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
                 {
                     _excelDataReader = ExcelReaderFactory.CreateReader(stream);
                     DataSet dataSet = _excelDataReader.AsDataSet();
@@ -84,157 +79,132 @@ namespace KhanLogistics.Controllers
 
                     if (dataSet != null && dataSet.Tables.Count > 0)
                     {
-                        foreach (DataTable dataTable in dataSet.Tables)
+                        DataTable dataTable = dataSet.Tables[0];
+                        if (dataTable.Rows.Count < 2)
                         {
-                            foreach (DataRow row in dataTable.Rows)
+                            return BadRequest("File is empty or missing data rows.");
+                        }
+
+                        // --- DYNAMIC HEADER MAPPING ---
+                        DataRow headerRow = dataTable.Rows[0];
+                        int colBillNum = -1, colDocNum = -1, colDate = -1, colActualAmt = -1;
+                        int colTds = -1, colGst = -1, colPaidAmt = -1, colShortage = -1;
+
+                        for (int c = 0; c < dataTable.Columns.Count; c++)
+                        {
+                            string header = headerRow[c]?.ToString()?.Trim().ToLower() ?? "";
+                            if (header.Contains("bill") || header.Contains("invoice")) colBillNum = c;
+                            else if (header.Contains("doc") || header.Contains("payment num") || header.Contains("utr") || header.Contains("ref")) colDocNum = c;
+                            else if (header.Contains("date") || header.Contains("value") || header.Contains("posting") || header.Contains("voucher")) colDate = c;
+                            else if (header.Contains("actual") || (header.Contains("amount") && !header.Contains("paid") && !header.Contains("net"))) colActualAmt = c;
+                            else if (header.Contains("tds")) colTds = c;
+                            else if (header.Contains("gst")) colGst = c;
+                            else if (header.Contains("received") || header.Contains("paid") || header.Contains("net")) colPaidAmt = c;
+                            else if (header.Contains("shortage") || header.Contains("deduction")) colShortage = c;
+                        }
+
+                        // Fallback to previous hardcoded indices if headers not detected
+                        if (colBillNum == -1) colBillNum = 0;
+                        if (colDocNum == -1) colDocNum = 1;
+                        if (colDate == -1) colDate = 2;
+                        if (colActualAmt == -1) colActualAmt = 3;
+                        if (colTds == -1) colTds = 4;
+                        if (colGst == -1) colGst = 5;
+                        if (colPaidAmt == -1) colPaidAmt = 6;
+                        if (colShortage == -1) colShortage = 7;
+
+                        for (int i = 1; i < dataTable.Rows.Count; i++)
+                        {
+                            DataRow row = dataTable.Rows[i];
+                            if (row.ItemArray.All(v => v == null || string.IsNullOrWhiteSpace(v.ToString()))) continue;
+
+                            var billNumber = row[colBillNum]?.ToString()?.Trim();
+                            if (string.IsNullOrWhiteSpace(billNumber)) continue;
+
+                            var existingBill = _transportMgmtContext.BillTables.FirstOrDefault(b => b.BillNum == billNumber);
+                            if (existingBill != null)
                             {
-                                var billNumber = row[0]?.ToString();
-                                if (!string.IsNullOrWhiteSpace(billNumber))
+                                var paymentReceivedStr = row[colPaidAmt]?.ToString();
+                                if (!string.IsNullOrWhiteSpace(paymentReceivedStr) && double.TryParse(paymentReceivedStr, out double paymentReceived))
                                 {
-                                    var existingBill = _transportMgmtContext.BillTables.FirstOrDefault(b => b.BillNum == billNumber);
-                                    if (existingBill != null)
+                                    existingBill.PaymentReceived = paymentReceived;
+                                    existingBill.ActualAmount = SafeNum(row[colActualAmt]);
+                                    existingBill.Tds = SafeNum(row[colTds]);
+                                    existingBill.Gst = SafeNum(row[colGst]);
+
+                                    var paymentNumber = row[colDocNum]?.ToString()?.Trim();
+                                    if (!string.IsNullOrWhiteSpace(paymentNumber))
                                     {
-                                        var paymentReceivedStr = row[6]?.ToString(); // Updated column index for Payment Received
-                                        if (!string.IsNullOrWhiteSpace(paymentReceivedStr))
+                                        if (!paymentDictionary.ContainsKey(paymentNumber))
                                         {
-                                            if (double.TryParse(paymentReceivedStr, out double paymentReceived))
+                                            var existingPayment = _transportMgmtContext.PaymentTables.FirstOrDefault(p => p.DocNumber == paymentNumber);
+                                            if (existingPayment == null)
                                             {
-                                                existingBill.PaymentReceived = paymentReceived;
+                                                var payRecDate = ParseExcelDate(row[colDate]) ?? existingBill.BillDate ?? DateTime.Now;
+                                                var shortageStr = row[colShortage]?.ToString()?.Replace("-", "").Trim();
+                                                double shortage = 0;
+                                                double.TryParse(shortageStr, out shortage);
 
-                                                var actualAmountStr = row[3]?.ToString(); // Actual Amount
-                                                var tdsStr = row[4]?.ToString(); // Tds
-                                                var gstStr = row[5]?.ToString(); // Gst
-
-                                                if (double.TryParse(actualAmountStr, out double actualAmount))
+                                                var newPayment = new PaymentTable
                                                 {
-                                                    existingBill.ActualAmount = actualAmount;
-                                                }
-                                                else
-                                                {
-                                                    return BadRequest($"Error parsing Actual Amount for bill number {billNumber}. Actual Amount: {actualAmountStr}");
-                                                }
+                                                    DocNumber = paymentNumber,
+                                                    PayRecDate = payRecDate,
+                                                    Shortage = shortage,
+                                                };
 
-                                                if (double.TryParse(tdsStr, out double tds))
-                                                {
-                                                    existingBill.Tds = tds;
-                                                }
-                                                else
-                                                {
-                                                    return BadRequest($"Error parsing Tds for bill number {billNumber}. Tds: {tdsStr}");
-                                                }
-
-                                                if (double.TryParse(gstStr, out double gst))
-                                                {
-                                                    existingBill.Gst = gst;
-                                                }
-                                                else
-                                                {
-                                                    return BadRequest($"Error parsing Gst for bill number {billNumber}. Gst: {gstStr}");
-                                                }
-
-                                                var paymentNumber = row[1]?.ToString();
-                                                if (!string.IsNullOrWhiteSpace(paymentNumber))
-                                                {
-                                                    if (!paymentDictionary.ContainsKey(paymentNumber))
-                                                    {
-                                                        var existingPayment = _transportMgmtContext.PaymentTables.FirstOrDefault(p => p.DocNumber == paymentNumber);
-                                                        if (existingPayment == null)
-                                                        {
-                                                            var payRecDateStr = row[2]?.ToString();
-                                                            var shortageStr = row[7]?.ToString(); // Updated column index for Shortage
-
-                                                            if (DateTime.TryParse(payRecDateStr, out DateTime payRecDate))
-                                                            {
-                                                                shortageStr = shortageStr?.Replace("-", "").Trim();
-
-                                                                if (double.TryParse(shortageStr, out double shortage))
-                                                                {
-                                                                    var newPayment = new PaymentTable
-                                                                    {
-                                                                        DocNumber = paymentNumber,
-                                                                        PayRecDate = payRecDate,
-                                                                        Shortage = shortage,
-                                                                    };
-
-                                                                    _transportMgmtContext.PaymentTables.Add(newPayment);
-                                                                    await _transportMgmtContext.SaveChangesAsync(); // Save changes immediately to get the PId
-
-                                                                    paymentDictionary.Add(paymentNumber, newPayment);
-                                                                }
-                                                                else
-                                                                {
-                                                                    return BadRequest($"Error parsing shortage amount for payment number {paymentNumber}. Shortage: {shortageStr}");
-                                                                }
-                                                            }
-                                                            else
-                                                            {
-                                                                return BadRequest($"Error parsing payment date for payment number {paymentNumber}. PayRecDate: {payRecDateStr}");
-                                                            }
-                                                        }
-                                                        else
-                                                        {
-                                                            paymentDictionary.Add(paymentNumber, existingPayment);
-                                                        }
-                                                    }
-
-                                                    existingBill.PId = paymentDictionary[paymentNumber].PId;
-                                                    updatedBills.Add(existingBill);
-                                                }
-                                                else
-                                                {
-                                                    return BadRequest("Payment number is missing or empty.");
-                                                }
+                                                _transportMgmtContext.PaymentTables.Add(newPayment);
+                                                await _transportMgmtContext.SaveChangesAsync();
+                                                paymentDictionary.Add(paymentNumber, newPayment);
                                             }
                                             else
                                             {
-                                                return BadRequest("Error parsing PaymentReceived amount.");
+                                                paymentDictionary.Add(paymentNumber, existingPayment);
                                             }
                                         }
-                                        else
-                                        {
-                                            return BadRequest("PaymentReceived amount is missing or empty.");
-                                        }
+
+                                        existingBill.PId = paymentDictionary[paymentNumber].PId;
+                                        updatedBills.Add(existingBill);
                                     }
                                 }
                             }
                         }
 
-                        _transportMgmtContext.BillTables.UpdateRange(updatedBills);
-                        await _transportMgmtContext.SaveChangesAsync();
+                        if (updatedBills.Any())
+                        {
+                            _transportMgmtContext.BillTables.UpdateRange(updatedBills);
+                            await _transportMgmtContext.SaveChangesAsync();
+                        }
 
-                        int updatedBillCount = updatedBills.Count;
-                        return Ok(updatedBillCount);
+                        return Ok(updatedBills.Count);
                     }
-                    else
-                    {
-                        return BadRequest("No data found in the uploaded file.");
-                    }
+                    return BadRequest("No data found in the uploaded file.");
                 }
-            }
-            catch (DbUpdateException ex)
-            {
-                return BadRequest("An error occurred while saving the entity changes. See the inner exception for details.");
             }
             catch (Exception ex)
             {
-                return BadRequest($"An error occurred while processing the invoice: {ex.Message}");
+                return BadRequest($"An error occurred while processing the payments: {ex.Message}");
             }
-
         }
 
+        private double SafeNum(object value)
+        {
+            if (value == null || value == DBNull.Value) return 0;
+            string s = value.ToString().Replace(",", "").Trim();
+            if (double.TryParse(s, out double n)) return n;
+            return 0;
+        }
 
-
-      
-
-
+        private DateTime? ParseExcelDate(object value)
+        {
+            if (value == null || value == DBNull.Value) return null;
+            if (value is DateTime dt) return dt;
+            string s = value.ToString().Trim();
+            if (double.TryParse(s, out double d))
+            {
+                try { return DateTime.FromOADate(d); } catch { }
+            }
+            if (DateTime.TryParse(s, out DateTime parsedDt)) return parsedDt;
+            return null;
+        }
     }
-
 }
-
-
-
-
-    
-
-
-

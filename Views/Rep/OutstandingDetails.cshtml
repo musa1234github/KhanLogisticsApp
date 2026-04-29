@@ -126,6 +126,12 @@
                     success: function (resultData) {
                         console.log(resultData);  // Log the raw JSON response
 
+                        if (resultData.error) {
+                            alert("Error loading details: " + resultData.error);
+                            console.error("Stack Trace:", resultData.stackTrace);
+                            return;
+                        }
+
                         var htmlResult = "";
                             $.each(resultData, function (index, rowData) {
                             htmlResult += "<tr>";

@@ -62,8 +62,6 @@ namespace KhanLogistics.Controllers
             // Return the normal view with the data
             return View(result);
         }
-
-
         private IActionResult ExportToExcel(IEnumerable<KhanLogistics.Models.ViewModel.SpCheckBill> result, DateTime startDate, DateTime endDate, int? factoryId)
         {
             // Set the license context before using EPPlus

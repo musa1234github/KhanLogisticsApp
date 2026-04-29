@@ -5,6 +5,20 @@
 }
 
 <h1 style="text-align:center">Bill By Dispatch Number</h1>
+<hr />
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
 
 <!-- Form to accept StartDate, EndDate, and FactoryId -->
 <form asp-action="CheckBills" method="get" class="form-inline">
