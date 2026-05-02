@@ -145,11 +145,11 @@
                             htmlResult += "<td>" + rowData.billNum + "</td>";
                             htmlResult += "<td>" + rowData.lrQty + "</td>";
                             htmlResult += "<td>" + rowData.billQty + "</td>";
-                            htmlResult += "<td>" + rowData.taxableAmount + "</td>";
-                            htmlResult += "<td>" + rowData.finalPrice + "</td>"; // Corrected from finalePrice to finalPrice
-                            htmlResult += "<td>" + rowData.actualAmount + "</td>";
-                            htmlResult += "<td>" + parseFloat(rowData.tds).toFixed(2) + "</td>";
-                            htmlResult += "<td>" + rowData.gst + "</td>";
+                            htmlResult += "<td>" + (rowData.taxableAmount ? parseFloat(rowData.taxableAmount).toFixed(2) : '0.00') + "</td>";
+                            htmlResult += "<td>" + (rowData.finalPrice ? parseFloat(rowData.finalPrice).toFixed(2) : '0.00') + "</td>";
+                            htmlResult += "<td>" + (rowData.actualAmount ? parseFloat(rowData.actualAmount).toFixed(2) : '0.00') + "</td>";
+                            htmlResult += "<td>" + (rowData.tds ? parseFloat(rowData.tds).toFixed(2) : '0.00') + "</td>";
+                            htmlResult += "<td>" + (rowData.gst ? parseFloat(rowData.gst).toFixed(2) : '0.00') + "</td>";
 
                             // Format billDate to 'dd-mm-yy'
                             var billDate = new Date(rowData.billDate);

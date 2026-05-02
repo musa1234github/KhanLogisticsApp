@@ -1,0 +1,35 @@
+@model KhanLogistics.Models.ViewModel.PaymentVm
+
+<H1 style="text-align:center">Payments</H1>
+
+<div style="width: 100px; padding-bottom: 25px;">
+    @Html.DropDownListFor(model => model.SelectedIds, Model.FactoryList, new { @id = "ddlFactory", @placeholder = "Select Vendor", @class = "form-control" })
+</div>
+
+<table class="table" id="Mytable">
+    <thead>
+        <tr>
+            <th>Bill Number</th>
+            <th>Bill Date</th>
+            <th>Actual Amount</th>
+            <th>TDS</th>
+            <th>GST</th>
+            <th>Receive Amount</th>
+            <th>Shortage</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.payments)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.BillNum)</td>
+                <td>@Html.DisplayFor(modelItem => item.BillDate)</td>
+                <td>@(item.ActualAmount.HasValue ? item.ActualAmount.Value.ToString("F2") : "0.00")</td>
+                <td>@(item.Tds.HasValue ? item.Tds.Value.ToString("F2") : "0.00")</td>
+                <td>@(item.Gst.HasValue ? item.Gst.Value.ToString("F2") : "0.00")</td>
+                <td>@(item.PaymentReceived.HasValue ? item.PaymentReceived.Value.ToString("F2") : "0.00")</td>
+                <td>@(item.Shortage.HasValue ? item.Shortage.Value.ToString("F2") : "0.00")</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,185 +1,267 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Details</title>
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-    <!-- DataTables Buttons CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-</head>
-<body>
-    <h1 style="text-align:center">Payment By Date</h1>
-    <div class="form-container" style="text-align: center; margin-bottom: 20px;">
-        <div style="margin-bottom: 10px;">
-            <label for="startDate">Start Date:</label>
-            <input type="date" id="startDate" name="startDate">
-        </div>
-        <div style="margin-bottom: 10px;">
-            <label for="endDate">End Date:</label>
-            <input type="date" id="endDate" name="endDate">
-        </div>
-        <div style="margin-bottom: 10px;">
-            <label for="factory">Select Factory:</label>
-            <select id="factory" name="factory">
-                <option value="">All Factories</option>
-                <!-- Populate factories dynamically using JavaScript -->
-            </select>
-        </div>
-        <button id="GetAllDetails">Filter Payments</button>
+@model IEnumerable<KhanLogistics.Models.ViewModel.SpPaymentByDate>
+
+<h1 style="text-align:center">Payment By Date</h1>
+<div class="form-container" style="text-align: center; margin-bottom: 20px;">
+    <div style="margin-bottom: 10px;">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate">
     </div>
-
-    <div id="DtTable" style="margin-top: 20px;">
-        <table id="tblPaymentDetails" class="display" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Factory</th>
-                    <th>Payment Number</th>
-                    <th>Payment Date</th>
-                     <th>Actual Amount</th>
-                    <th>Tds</th>
-                    <th>Gst</th>
-                    <th>Payment Received</th>
-                    <th>Deduction</th>
-                    <th>Amount After Deduction</th>
-                </tr>
-            </thead>
-            <tbody id="tblPaymentDetailsBody">
-                <!-- Table rows will be populated here -->
-            </tbody>
-        </table>
+    <div style="margin-bottom: 10px;">
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate">
     </div>
+    <div style="margin-bottom: 10px;">
+        <label for="factory">Select Factory:</label>
+        <select id="factory" name="factory">
+            <option value="">All Factories</option>
+            <!-- Populate factories dynamically using JavaScript -->
+        </select>
+    </div>
+    <button id="GetAllDetails" class="btn btn-primary">Filter Payments</button>
+</div>
 
-    <!-- DataTables JavaScript -->
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <!-- DataTables Buttons JavaScript -->
-    <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
+<!-- Add Upload Option Here -->
+<div class="upload-container" style="text-align: center; margin-bottom: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 8px; background-color: #f9f9f9;">
+    <h4 style="margin-bottom: 15px;">Import/Update Payment Excel</h4>
+    <form asp-controller="Payment" asp-action="ShowBill" method="post" enctype="multipart/form-data" class="row g-3 justify-content-center">
+        <div class="col-auto">
+            <input type="file" name="file" class="form-control" required />
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-success">Upload & Update</button>
+        </div>
+    </form>
+</div>
 
-    <script>
-        $(document).ready(function () {
-            $('#tblPaymentDetails').hide();
+<div id="DtTable" style="margin-top: 20px;">
+    <table id="tblPaymentDetails" class="display table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Factory</th>
+                <th>Payment Number</th>
+                <th>Payment Date</th>
+                <th>Actual Amount</th>
+                <th>Tds</th>
+                <th>Gst</th>
+                <th>Payment Received</th>
+                <th>Deduction</th>
+                <th>Amount After Deduction</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="tblPaymentDetailsBody">
+            <!-- Table rows will be populated here -->
+        </tbody>
+    </table>
+</div>
 
-            function loadFactories() {
-                $.ajax({
-                    type: "GET",
-                    url: "/Rep/GetFactories", // Adjust URL based on your route
-                    dataType: "json",
-                    success: function (resultData) {
-                        var factoryDropdown = $('#factory');
-                        factoryDropdown.empty();
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
+
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#tblPaymentDetails').hide();
+
+        function loadFactories() {
+            $.ajax({
+                type: "GET",
+                url: "/Rep/GetFactories",
+                dataType: "json",
+                success: function (resultData) {
+                    console.log("Factories loaded:", resultData);
+                    var factoryDropdown = $('#factory');
+                    factoryDropdown.empty();
+                    factoryDropdown.append($('<option>', {
+                        value: '',
+                        text: 'All Factories'
+                    }));
+                    $.each(resultData, function (index, factory) {
+                        var id = factory.id || factory.Id;
+                        var name = factory.name || factory.Name;
                         factoryDropdown.append($('<option>', {
-                            value: '',
-                            text: 'All Factories'
+                            value: id,
+                            text: name
                         }));
-                        $.each(resultData, function (index, factory) {
-                            factoryDropdown.append($('<option>', {
-                                value: factory.id,
-                                text: factory.name
-                            }));
-                        });
-                    },
-                    error: function (xhr, status, error) {
-                        console.error(xhr.responseText);
-                    }
-                });
-            }
-
-            loadFactories();
-
-            $('#GetAllDetails').on('click', function () {
-                loadGridDataAjax();
-            });
-
-            function loadGridDataAjax() {
-                var startDate = $('#startDate').val();
-                var endDate = $('#endDate').val();
-                var factoryId = $('#factory').val();
-                $.ajax({
-                    type: "POST",
-                    url: "/Rep/LoadPaymentDetailsByDate", // Adjust URL based on your route
-                    data: { startDate: startDate, endDate: endDate, factoryId: factoryId },
-                    dataType: "json",
-                    success: function (resultData) {
-                        console.log(resultData); // Log the raw JSON response
-
-                        var htmlResult = "";
-                        // $.each(resultData, function (index, rowData) {
-                        //     htmlResult += "<tr>";
-                        //     htmlResult += "<td>" + rowData.factoryName + "</td>";
-                        //     htmlResult += "<td>" + rowData.paymentNum + "</td>";
-
-                        //     // Format payment date to dd-mm-yy format
-                        //     var paymentDate = new Date(rowData.paymentDate);
-                        //     var formattedPaymentDate = ('0' + paymentDate.getDate()).slice(-2) + '-' +
-                        //         ('0' + (paymentDate.getMonth() + 1)).slice(-2) + '-' +
-                        //         paymentDate.getFullYear().toString().slice(-2);
-
-                        //     htmlResult += "<td>" + formattedPaymentDate + "</td>";
-                        //     htmlResult += "<td>" + rowData.totalActualAmount.toFixed(2) + "</td>";
-                        //     htmlResult += "<td>" + rowData.tds.toFixed(2) + "</td>";
-                        //     htmlResult += "<td>" + rowData.gst.toFixed(2) + "</td>";
-                        //     htmlResult += "<td>" + rowData.totalPaymentReceived.toFixed(2) + "</td>";
-                        //     htmlResult += "<td>" + rowData.deduction.toFixed(2) + "</td>";
-                        //     htmlResult += "<td>" + rowData.amountAfterDeduction.toFixed(2) + "</td>";
-                        //     htmlResult += "</tr>";
-                        // });
-                        $.each(resultData, function (index, rowData) {
-                            htmlResult += "<tr>";
-                            htmlResult += "<td>" + rowData.factoryName + "</td>";
-                            htmlResult += "<td>" + rowData.paymentNum + "</td>";
-
-                            // Format payment date to dd-mm-yy format
-                            var paymentDate = new Date(rowData.paymentDate);
-                            var formattedPaymentDate = ('0' + paymentDate.getDate()).slice(-2) + '-' +
-                                ('0' + (paymentDate.getMonth() + 1)).slice(-2) + '-' +
-                                paymentDate.getFullYear().toString().slice(-2);
-
-                            htmlResult += "<td>" + formattedPaymentDate + "</td>";
-                            htmlResult += "<td>" + (rowData.totalActualAmount ? rowData.totalActualAmount.toFixed(2) : '0.00') + "</td>";
-                            htmlResult += "<td>" + (rowData.tds ? rowData.tds.toFixed(2) : '0.00') + "</td>";
-                            htmlResult += "<td>" + (rowData.gst ? rowData.gst.toFixed(2) : '0.00') + "</td>";
-                            htmlResult += "<td>" + (rowData.totalPaymentReceived ? rowData.totalPaymentReceived.toFixed(2) : '0.00') + "</td>";
-                            htmlResult += "<td>" + (rowData.deduction ? rowData.deduction.toFixed(2) : '0.00') + "</td>";
-                            htmlResult += "<td>" + (rowData.amountAfterDeduction ? rowData.amountAfterDeduction.toFixed(2) : '0.00') + "</td>";
-                            htmlResult += "</tr>";
-                        });
-
-                                       
-
-
-
-                        $('#tblPaymentDetailsBody').html(htmlResult);
-                        $('#tblPaymentDetails').show();
-                        initializeDataTable();
-                    },
-                    error: function (xhr, status, error) {
-                        console.error(xhr.responseText);
-                    }
-                });
-            }
-
-            function initializeDataTable() {
-                if ($.fn.DataTable.isDataTable('#tblPaymentDetails')) {
-                    $('#tblPaymentDetails').DataTable().destroy();
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error loading factories:", error);
+                    console.error(xhr.responseText);
                 }
+            });
+        }
 
-                $('#tblPaymentDetails').DataTable({
-                    dom: 'Bfrtip',
-                    buttons: [
-                        'copy', 'csv', 'excel', 'pdf', 'print'
-                    ],
-                    deferRender: true
-                });
-            }
+        loadFactories();
+
+        $('#GetAllDetails').on('click', function () {
+            loadGridDataAjax();
         });
-    </script>
-</body>
-</html>
+
+        function loadGridDataAjax() {
+            var startDate = $('#startDate').val();
+            var endDate = $('#endDate').val();
+            var factoryId = $('#factory').val();
+            $.ajax({
+                type: "POST",
+                url: "/Rep/LoadPaymentDetailsByDate",
+                data: { startDate: startDate, endDate: endDate, factoryId: factoryId },
+                dataType: "json",
+                success: function (resultData) {
+                    var htmlResult = "";
+                    $.each(resultData, function (index, rowData) {
+                        htmlResult += "<tr>";
+                        htmlResult += "<td>" + (rowData.factoryName || '') + "</td>";
+                        htmlResult += "<td>" + (rowData.paymentNum || '') + "</td>";
+
+                        var paymentDate = new Date(rowData.paymentDate);
+                        var formattedPaymentDate = isNaN(paymentDate.getTime()) ? '' :
+                            ('0' + paymentDate.getDate()).slice(-2) + '-' +
+                            ('0' + (paymentDate.getMonth() + 1)).slice(-2) + '-' +
+                            paymentDate.getFullYear().toString().slice(-2);
+
+                        htmlResult += "<td>" + formattedPaymentDate + "</td>";
+                        htmlResult += "<td>" + (rowData.totalActualAmount ? rowData.totalActualAmount.toFixed(2) : '0.00') + "</td>";
+                        var tds = rowData.tds || 0;
+                        var gst = rowData.gst || 0;
+                        var actualAmt = rowData.totalActualAmount || 0;
+                        var receivedAmt = rowData.totalPaymentReceived || 0;
+                        
+                        // Calculate deduction if it's 0 but TDS/GST exist
+                        var deduction = rowData.deduction || 0;
+                        if (deduction === 0 && (tds > 0 || gst > 0)) {
+                            deduction = tds + gst;
+                        }
+
+                        // Calculate amount after deduction if it's same as actual but there's a deduction
+                        var amountAfterDeduction = rowData.amountAfterDeduction || 0;
+                        if ((amountAfterDeduction === actualAmt || amountAfterDeduction === 0) && deduction > 0) {
+                            amountAfterDeduction = actualAmt - deduction;
+                        } else if (amountAfterDeduction === 0) {
+                            amountAfterDeduction = receivedAmt;
+                        }
+
+                        htmlResult += "<td>" + tds.toFixed(2) + "</td>";
+                        htmlResult += "<td>" + gst.toFixed(2) + "</td>";
+                        htmlResult += "<td>" + receivedAmt.toFixed(2) + "</td>";
+                        htmlResult += "<td>" + deduction.toFixed(2) + "</td>";
+                        htmlResult += "<td>" + amountAfterDeduction.toFixed(2) + "</td>";
+                        htmlResult += "<td><button class='btn btn-info btn-sm view-bills' data-paymentnum='" + rowData.paymentNum + "'>View</button></td>";
+                        htmlResult += "</tr>";
+                    });
+
+                    $('#tblPaymentDetailsBody').html(htmlResult);
+                    $('#tblPaymentDetails').show();
+                    initializeDataTable();
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error loading grid data:", error);
+                }
+            });
+        }
+
+        function initializeDataTable() {
+            if ($.fn.DataTable.isDataTable('#tblPaymentDetails')) {
+                $('#tblPaymentDetails').DataTable().destroy();
+            }
+
+            $('#tblPaymentDetails').DataTable({
+                dom: 'Bfrtip',
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+                deferRender: true
+            });
+        }
+
+        $(document).on('click', '.view-bills', function () {
+            var paymentNum = $(this).data('paymentnum');
+            $('#modalPaymentNum').text(paymentNum);
+            $('#billSearch').val(''); // Clear search input
+            $('#tblBillsBody').html('<tr><td colspan="7" class="text-center">Loading...</td></tr>');
+            $('#billsModal').modal('show');
+
+            $.ajax({
+                type: "GET",
+                url: "/Rep/GetBillsByPayment",
+                data: { paymentNum: paymentNum },
+                dataType: "json",
+                success: function (resultData) {
+                    var html = "";
+                    if (resultData && resultData.length > 0) {
+                        $.each(resultData, function (index, bill) {
+                            html += "<tr>";
+                            html += "<td>" + (bill.billNum || '') + "</td>";
+                            html += "<td>" + (bill.billDate || '') + "</td>";
+                            html += "<td>" + (bill.payRecDate || '') + "</td>";
+                            html += "<td>" + (bill.actualAmount ? bill.actualAmount.toFixed(2) : '0.00') + "</td>";
+                            html += "<td>" + (bill.paymentReceived ? bill.paymentReceived.toFixed(2) : '0.00') + "</td>";
+                            html += "<td>" + (bill.tds ? bill.tds.toFixed(2) : '0.00') + "</td>";
+                            html += "<td>" + (bill.gst ? bill.gst.toFixed(2) : '0.00') + "</td>";
+                            html += "<td>" + (bill.shortage ? bill.shortage.toFixed(2) : '0.00') + "</td>";
+                            html += "</tr>";
+                        });
+                    } else {
+                        html = "<tr><td colspan='7' class='text-center'>No bills found for this payment.</td></tr>";
+                    }
+                    $('#tblBillsBody').html(html);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error loading bills:", error);
+                    $('#tblBillsBody').html('<tr><td colspan="7" class="text-center text-danger">Error loading bills.</td></tr>');
+                }
+            });
+        });
+
+        $('#billSearch').on('keyup', function () {
+            var value = $(this).val().toLowerCase();
+            $("#tblBillsBody tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+
+<!-- Bills Modal -->
+<div class="modal fade" id="billsModal" tabindex="-1" aria-labelledby="billsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="billsModalLabel">Bills for Payment: <span id="modalPaymentNum"></span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div style="margin-bottom: 15px;">
+                    <input type="text" id="billSearch" class="form-control" placeholder="Search bills...">
+                </div>
+                <table class="table table-bordered table-striped" id="tblBills">
+                    <thead>
+                        <tr>
+                            <th>Bill No.</th>
+                            <th>Bill Date</th>
+                            <th>Payment Date</th>
+                            <th>Actual Amount</th>
+                            <th>Receive Amount</th>
+                            <th>TDS</th>
+                            <th>GST</th>
+                            <th>Shortage</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblBillsBody">
+                        <!-- Bills will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -85,35 +85,45 @@ namespace KhanLogistics.Controllers
                             return BadRequest("File is empty or missing data rows.");
                         }
 
-                        // --- DYNAMIC HEADER MAPPING ---
-                        DataRow headerRow = dataTable.Rows[0];
+                        // --- DYNAMIC HEADER ROW DETECTION ---
+                        int headerRowIndex = 0;
+                        for (int r = 0; r < Math.Min(dataTable.Rows.Count, 5); r++)
+                        {
+                            bool foundHeader = false;
+                            for (int c = 0; c < dataTable.Columns.Count; c++)
+                            {
+                                string cellValue = dataTable.Rows[r][c]?.ToString()?.ToLower() ?? "";
+                                if (cellValue.Contains("bill") || cellValue.Contains("invoice") || cellValue.Contains("amount") || cellValue.Contains("received"))
+                                {
+                                    foundHeader = true;
+                                    break;
+                                }
+                            }
+                            if (foundHeader)
+                            {
+                                headerRowIndex = r;
+                                break;
+                            }
+                        }
+
+                        DataRow headerRow = dataTable.Rows[headerRowIndex];
                         int colBillNum = -1, colDocNum = -1, colDate = -1, colActualAmt = -1;
                         int colTds = -1, colGst = -1, colPaidAmt = -1, colShortage = -1;
 
                         for (int c = 0; c < dataTable.Columns.Count; c++)
                         {
                             string header = headerRow[c]?.ToString()?.Trim().ToLower() ?? "";
-                            if (header.Contains("bill") || header.Contains("invoice")) colBillNum = c;
-                            else if (header.Contains("doc") || header.Contains("payment num") || header.Contains("utr") || header.Contains("ref")) colDocNum = c;
-                            else if (header.Contains("date") || header.Contains("value") || header.Contains("posting") || header.Contains("voucher")) colDate = c;
-                            else if (header.Contains("actual") || (header.Contains("amount") && !header.Contains("paid") && !header.Contains("net"))) colActualAmt = c;
+                            if (header == "bill" || header == "bill no" || header == "bill no." || header == "invoice" || header.Contains("bill num")) colBillNum = c;
+                            else if (header.Contains("doc") || header.Contains("payment num") || header.Contains("utr") || header.Contains("ref") || header == "page") colDocNum = c;
+                            else if (header.Contains("date") || header.Contains("value") || header.Contains("posting") || header.Contains("voucher") || header.Contains("receive date")) colDate = c;
+                            else if (header == "amount" || header.Contains("actual") || header.Contains("gross") || (header.Contains("amount") && !header.Contains("paid") && !header.Contains("net") && !header.Contains("received") && !header.Contains("payment") && !header.Contains("r.amount") && !header.Contains("rec"))) colActualAmt = c;
                             else if (header.Contains("tds")) colTds = c;
                             else if (header.Contains("gst")) colGst = c;
-                            else if (header.Contains("received") || header.Contains("paid") || header.Contains("net")) colPaidAmt = c;
-                            else if (header.Contains("shortage") || header.Contains("deduction")) colShortage = c;
+                            else if (header == "received" || header == "paid" || header.Contains("net") || header == "payment" || (header.Contains("payment") && header.Contains("amount")) || header.Contains("r.amount") || header.Contains("rec amount") || header.Contains("received amount")) colPaidAmt = c;
+                            else if (header.Contains("shortage") || header.Contains("deduction") || header.Contains("short")) colShortage = c;
                         }
 
-                        // Fallback to previous hardcoded indices if headers not detected
-                        if (colBillNum == -1) colBillNum = 0;
-                        if (colDocNum == -1) colDocNum = 1;
-                        if (colDate == -1) colDate = 2;
-                        if (colActualAmt == -1) colActualAmt = 3;
-                        if (colTds == -1) colTds = 4;
-                        if (colGst == -1) colGst = 5;
-                        if (colPaidAmt == -1) colPaidAmt = 6;
-                        if (colShortage == -1) colShortage = 7;
-
-                        for (int i = 1; i < dataTable.Rows.Count; i++)
+                        for (int i = headerRowIndex + 1; i < dataTable.Rows.Count; i++)
                         {
                             DataRow row = dataTable.Rows[i];
                             if (row.ItemArray.All(v => v == null || string.IsNullOrWhiteSpace(v.ToString()))) continue;

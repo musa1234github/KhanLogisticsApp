@@ -98,6 +98,27 @@ namespace KhanLogistics.Controllers
             return Json(paymentByDate);
         }
 
+        [HttpGet]
+        public JsonResult GetBillsByPayment(string paymentNum)
+        {
+            var bills = (from b in _context.BillTables
+                         join p in _context.PaymentTables on b.PId equals p.PId
+                         where p.DocNumber == paymentNum
+                         select new
+                         {
+                             b.BillNum,
+                             BillDate = b.BillDate.HasValue ? b.BillDate.Value.ToString("dd-MM-yy") : "",
+                             ActualAmount = b.ActualAmount ?? 0,
+                             PaymentReceived = b.PaymentReceived ?? 0,
+                             Tds = b.Tds ?? 0,
+                             Gst = b.Gst ?? 0,
+                             Shortage = p.Shortage ?? 0,
+                             PayRecDate = p.PayRecDate.HasValue ? p.PayRecDate.Value.ToString("dd-MM-yy") : ""
+                         }).ToList();
+
+            return Json(bills);
+        }
+
 
         [HttpGet]
         public IActionResult OutstandingDetails()

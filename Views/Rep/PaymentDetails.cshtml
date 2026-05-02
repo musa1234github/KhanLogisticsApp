@@ -51,6 +51,15 @@
     </div>
     <button id="GetAllDetails">Filter Payments</button>
 
+    <!-- Add Upload Option Here -->
+    <div class="upload-container" style="text-align: center; margin: 20px 0; border: 1px solid #ddd; padding: 15px; border-radius: 8px; background-color: #f9f9f9;">
+        <h4 style="margin-bottom: 15px;">Import/Update Payment Excel</h4>
+        <form asp-controller="Payment" asp-action="ShowBill" method="post" enctype="multipart/form-data" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+            <input type="file" name="file" class="form-control" style="width: auto;" required />
+            <button type="submit" class="btn btn-success" style="background-color: #28a745; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">Upload & Update</button>
+        </form>
+    </div>
+
     <div id="DtTable">
         <table id="tblPaymentDetails" class="display" style="width:100%">
             <thead>
