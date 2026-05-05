@@ -7,6 +7,8 @@ using OfficeOpenXml;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.WebHost.UseIISIntegration(); // IIS Integration for deployment
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<ISrvUser, UserServices>();
@@ -14,8 +16,7 @@ builder.Services.AddTransient<IRepUser, RepUser>();
 
 builder.Services.AddDbContext<TransportMgmtContext>(options =>
 {
-    options.UseSqlServer(@"Server=MUSAKHAN\SQLEXPRESS;
-    Database=KhanLogistics;Trusted_Connection=True;TrustServerCertificate=True;",
+    options.UseSqlServer(@"Server=MUSAKHAN\SQLEXPRESS;Database=KhanLogistics;Trusted_Connection=True;TrustServerCertificate=True;",
     sqlServerOptionsAction: sqlOptions =>
     {
         sqlOptions.EnableRetryOnFailure(maxRetryCount: 5,
@@ -30,11 +31,9 @@ ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
 var app = builder.Build();
 
-// Bind to all network interfaces (external access enabled)
-app.Urls.Clear();
-app.Urls.Add("http://0.0.0.0:5000");
+// HTTPS Redirection disabled for local HTTP testing on custom ports
+// app.UseHttpsRedirection();
 
-app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
