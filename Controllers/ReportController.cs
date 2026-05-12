@@ -32,8 +32,6 @@ namespace KhanLogistics.Controllers
 
 
 
-
-
         public IActionResult CheckBills(DateTime startDate, DateTime endDate, int? factoryId, bool exportExcel = false)
         {
             // Set the license context before using EPPlus
@@ -119,20 +117,6 @@ namespace KhanLogistics.Controllers
 
 
 
-        //public IActionResult CheckBills(DateTime startDate, DateTime endDate, int? factoryId)
-        //{
-        //    var factories = _context.TblFactories.ToList();
-        //    ViewBag.Factories = factories;
-
-        //    var result = _context.SpCheckBill
-        //        .FromSqlRaw("EXECUTE [dbo].[SpCheckBill] @StartDate = {0}, @EndDate = {1}, @FactoryId = {2}", startDate, endDate, factoryId)
-        //        .ToList();
-
-        //    return View(result);
-        //}
-
-
-
         [HttpGet]
         public IActionResult BillDetail()
         {
@@ -154,53 +138,28 @@ namespace KhanLogistics.Controllers
                 return View("Error", new ErrorViewModel { Message = "An error occurred while processing your request." });
             }
         }
+        
+        [HttpPost]
+        public IActionResult BillDetail(DateTime fromDate, DateTime toDate, int? factoryId)
+        {
+            try
+            {
+                var factories = _context.TblFactories.ToList();
+                ViewBag.Factories = factories;
 
-        //[HttpPost]
-        //public IActionResult BillDetail(DateTime? fromDate, DateTime? toDate, int? factoryId)
-        //    {
-        //    try
-        //    {
-        //        var factories = _context.TblFactories.ToList();
-        //        ViewBag.Factories = factories;
+                var result = _context.SpBilldetails
+                    .FromSqlRaw("EXECUTE [dbo].[SpBilldetail] @FromDate = {0}, @ToDate = {1}, @FID = {2}", fromDate, toDate, factoryId)
+                    .ToList();
 
-        //        if (factories == null || !factories.Any())
-        //        {
-        //            return View("Error", new ErrorViewModel { Message = "Factories could not be loaded." });
-        //        }
+                return View(result);
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new ErrorViewModel { Message = "An error occurred while fetching bill details." });
+            }
+        }
 
-        //        if (fromDate.HasValue && toDate.HasValue)
-        //        {
-        //            // Create parameters for the stored procedure execution
-        //            SqlParameter[] parameters = new SqlParameter[]
-        //            {
-        //        new SqlParameter("@FromDate", fromDate.Value),
-        //        new SqlParameter("@ToDate", toDate.Value),
-        //        new SqlParameter("@FactoryId", factoryId.HasValue ? (object)factoryId.Value : DBNull.Value)
-        //            };
-
-        //            // Execute stored procedure and get the result
-        //            var result = _context.SpBilldetails
-        //                .FromSqlRaw("EXECUTE [dbo].[SpBilldetail] @FromDate, @ToDate, @FactoryId", parameters)
-        //                .ToList();
-
-        //            return View(result);
-        //        }
-        //        else
-        //        {
-        //            ViewBag.Message = "No data to display. Please provide valid FromDate and ToDate.";
-        //            return View(new List<SpBilldetail>());
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Log the exception details for debugging purposes
-        //        // Logging.LogException(ex); // Example: Replace with your actual logging mechanism
-
-        //        return View("Error", new ErrorViewModel { Message = "An error occurred while processing your request." });
-        //    }
-        //}
-
-
+       
 
         public async Task<IActionResult> Details(int? id)
         {
@@ -213,7 +172,7 @@ namespace KhanLogistics.Controllers
             bd.BillNum = tblBill.BillNum;
             bd.BillDate = Convert.ToDateTime(tblBill.BillDate);
             bd.BillType = tblBill.BillType;
-            bd.FactoryName = _context.TblFactories.FirstOrDefault(f => f.FID == bd.FID)?.FactoryName;
+            bd.FactoryName = _context.TblFactories.FirstOrDefault(f => f.FID == bd.FID)?.FactoryName ?? "Unknown";
 
             return View(bd);
         }
@@ -230,7 +189,7 @@ namespace KhanLogistics.Controllers
             var blst = GetAllBills();
             var billVm = blst.Select(b => new SpBilldetail()
             {
-                FactoryName = _context.TblFactories.FirstOrDefault(f => f.FID == b.FID)?.FactoryName,
+                FactoryName = _context.TblFactories.FirstOrDefault(f => f.FID == b.FID)?.FactoryName ?? "Unknown",
                 BillNum = b.BillNum,
                 BillDate = b.BillDate,
                 BillType = b.BillType,
@@ -275,7 +234,7 @@ namespace KhanLogistics.Controllers
                 .Where(b => b.tblDispatches != null) // Ensure tblDispatches is not null
                 .SelectMany(b => b.tblDispatches.Select(d => new BillDispatchViewModel
                 {
-                    FactoryName = _context.TblFactories.FirstOrDefault(f => f.FID == b.FID)?.FactoryName,
+                    FactoryName = _context.TblFactories.FirstOrDefault(f => f.FID == b.FID)?.FactoryName ?? "Unknown",
                     BillNum = b.BillNum,
                     BillDate = b.BillDate,
                     Destination = d.Destination,
@@ -354,6 +313,117 @@ namespace KhanLogistics.Controllers
             }
             return months;
         }
+        [HttpGet]
+        public IActionResult DispatchDetails(DateTime? fromDate, DateTime? toDate, int? factoryId, string challanNo, bool exportExcel = false)
+        {
+            try
+            {
+                var factories = _context.TblFactories.ToList();
+                ViewBag.Factories = factories;
+
+                ViewBag.FromDate = fromDate?.ToString("yyyy-MM-dd");
+                ViewBag.ToDate = toDate?.ToString("yyyy-MM-dd");
+                ViewBag.FactoryId = factoryId;
+                ViewBag.ChallanNo = challanNo;
+
+                var result = new List<DispatchViewModel>();
+
+                var query = _context.TblDispatches.AsQueryable();
+                bool hasFilter = false;
+
+                if (!string.IsNullOrEmpty(challanNo))
+                {
+                    query = query.Where(d => d.ChallanNo.Contains(challanNo));
+                    hasFilter = true;
+                }
+
+                if (fromDate.HasValue)
+                {
+                    query = query.Where(d => d.DispatchDate >= fromDate);
+                    hasFilter = true;
+                }
+
+                if (toDate.HasValue)
+                {
+                    var endOfDate = toDate.Value.Date.AddDays(1);
+                    query = query.Where(d => d.DispatchDate < endOfDate);
+                    hasFilter = true;
+                }
+
+                if (factoryId.HasValue && factoryId > 0)
+                {
+                    query = query.Where(d => d.DisVid == factoryId);
+                    hasFilter = true;
+                }
+
+                if (hasFilter)
+                {
+                    result = query.Select(d => new DispatchViewModel
+                    {
+                        FactoryName = _context.TblFactories.Where(f => f.FID == d.DisVid).Select(f => f.FactoryName).FirstOrDefault() ?? "Unknown",
+                        ChallanNo = d.ChallanNo,
+                        ExNo = d.ExNo,
+                        DispatchDate = d.DispatchDate ?? DateTime.MinValue,
+                        DispatchQuantity = d.DispatchQuantity,
+                        Destination = !string.IsNullOrEmpty(d.Destination) ? d.Destination :
+                                      !string.IsNullOrEmpty(d.PartyName) ? d.PartyName :
+                                      !string.IsNullOrEmpty(d.Lr) ? d.Lr : d.DeliveryNum,
+                        PartyName = d.PartyName,
+                        VehicleNo = d.VehicleNo
+                    }).ToList();
+                }
+
+                if (exportExcel && result.Any())
+                {
+                    return ExportDispatchToExcel(result);
+                }
+
+                return View(result);
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new ErrorViewModel { Message = "An error occurred while processing your request." });
+            }
+        }
+
+        private IActionResult ExportDispatchToExcel(IEnumerable<DispatchViewModel> result)
+        {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            using (var package = new ExcelPackage())
+            {
+                var worksheet = package.Workbook.Worksheets.Add("DispatchDetails");
+
+                // Add header row
+                worksheet.Cells[1, 1].Value = "Factory Name";
+                worksheet.Cells[1, 2].Value = "Challan No.";
+                worksheet.Cells[1, 3].Value = "Ex. No.";
+                worksheet.Cells[1, 4].Value = "Dispatch Date";
+                worksheet.Cells[1, 5].Value = "Vehicle No.";
+                worksheet.Cells[1, 6].Value = "Qty.";
+                worksheet.Cells[1, 7].Value = "Destination";
+
+                // Add data rows
+                int row = 2;
+                foreach (var item in result)
+                {
+                    worksheet.Cells[row, 1].Value = item.FactoryName;
+                    worksheet.Cells[row, 2].Value = item.ChallanNo;
+                    worksheet.Cells[row, 3].Value = item.ExNo;
+                    worksheet.Cells[row, 4].Value = item.DispatchDate != DateTime.MinValue ? item.DispatchDate.ToString("dd-MM-yyyy") : "";
+                    worksheet.Cells[row, 5].Value = item.VehicleNo;
+                    worksheet.Cells[row, 6].Value = item.DispatchQuantity;
+                    worksheet.Cells[row, 7].Value = item.Destination;
+                    row++;
+                }
+
+                var fileContent = package.GetAsByteArray();
+                var fileName = $"DispatchDetails_{DateTime.Now:yyyyMMddHHmmss}.xlsx";
+
+                return File(fileContent, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
+            }
+        }
+
     }
 
     public class ErrorViewModel

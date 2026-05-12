@@ -168,6 +168,12 @@ namespace KhanLogistics.Controllers
                                             }
                                             else
                                             {
+                                                // Update date if payment already exists to allow corrections via re-upload
+                                                var payRecDate = ParseExcelDate(row[colDate]);
+                                                if (payRecDate.HasValue)
+                                                {
+                                                    existingPayment.PayRecDate = payRecDate.Value;
+                                                }
                                                 paymentDictionary.Add(paymentNumber, existingPayment);
                                             }
                                         }
@@ -213,7 +219,28 @@ namespace KhanLogistics.Controllers
             {
                 try { return DateTime.FromOADate(d); } catch { }
             }
-            if (DateTime.TryParse(s, out DateTime parsedDt)) return parsedDt;
+
+            // Priority 1: Exact Indian/UK formats (dots, dashes, slashes)
+            string[] formats = { 
+                "dd.MM.yyyy", "dd.MM.yy", 
+                "dd-MM-yyyy", "dd-MM-yy", 
+                "dd/MM/yyyy", "dd/MM/yy", 
+                "d.M.yyyy", "d.M.yy",
+                "dd-MMM-yy", "dd-MMM-yyyy",
+                "yyyy-MM-dd"
+            };
+            
+            if (DateTime.TryParseExact(s, formats, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out DateTime exactRes)) 
+            {
+                return exactRes;
+            }
+
+            // Priority 2: General parsing with Indian culture
+            if (DateTime.TryParse(s, System.Globalization.CultureInfo.GetCultureInfo("en-IN"), System.Globalization.DateTimeStyles.None, out DateTime res)) 
+            {
+                return res;
+            }
+            
             return null;
         }
     }

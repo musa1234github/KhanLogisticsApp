@@ -54,6 +54,7 @@
                                 <li><a class="nav-link text-light" asp-area="" asp-controller="Report" asp-action="BillDetail">Bill By Date</a></li>
                                 <li><a class="nav-link text-light" asp-area="" asp-controller="Report" asp-action="BillExport">Bill Export</a></li>
                                 <li><a class="nav-link text-light" asp-area="" asp-controller="Report" asp-action="ShowDayQty">Show Day Qty</a></li>
+                                <li><a class="nav-link text-light" asp-area="" asp-controller="Report" asp-action="DispatchDetails">Dispatch Details</a></li>
                             </ul>
                         </li>
                         <li class="nav-item has-children">
@@ -79,24 +80,20 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Dispatch" asp-action="ShowDispatch">Short</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Dispatch" asp-action="UploadDispatchImage">Upload Pouch</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Dispatch" asp-action="UploadDispatch">Upload Dispatch</a>
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Invoice" asp-action="ShowInvoice">Invoice</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Invoice" asp-action="UploadBill">Upload Bill</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Rep" asp-action="BillDetailExport">Bill Information</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Bill" asp-action="BillView">Bill</a>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Dispatch" asp-action="UploadDispatch">Upload Dispatch</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Invoice" asp-action="UploadBill">Upload Bill</a>
-                        </li>
-                        </li>
+
+
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Payment" asp-action="ShowBill">Payments</a>
                         </li>
@@ -121,7 +118,7 @@
     </div> *@
 
 
-    
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

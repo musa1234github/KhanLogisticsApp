@@ -8,6 +8,7 @@ using OfficeOpenXml;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Common;
 using System.Composition;
+using System.Text.RegularExpressions;
 
 namespace KhanLogistics.Controllers
 {
@@ -56,13 +57,13 @@ namespace KhanLogistics.Controllers
                 if (file == null || file.Length == 0)
                 {
                     TempData["Error"] = "File is empty or null.";
-                    return RedirectToAction("UploadDispatch");
+                    return RedirectToAction("DispatchDetails", "Report");
                 }
 
                 if (FID <= 0)
                 {
                     TempData["Error"] = "Please select a factory.";
-                    return RedirectToAction("UploadDispatch");
+                    return RedirectToAction("DispatchDetails", "Report");
                 }
 
                 System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
@@ -82,20 +83,20 @@ namespace KhanLogistics.Controllers
                         if (result == null || result.Tables.Count == 0)
                         {
                             TempData["Error"] = "No data found in Excel.";
-                            return RedirectToAction("UploadDispatch");
+                            return RedirectToAction("DispatchDetails", "Report");
                         }
 
                         DataTable dt = result.Tables[0];
                         
                         // --- DYNAMIC COLUMN MAPPING ---
-            int colChallan = -1, colDate = -1, colQty = -1, colVehicle = -1, colParty = -1, colDest = -1, colExNo = -1, colUnitPrice = -1;
+                        int colChallan = -1, colDate = -1, colQty = -1, colVehicle = -1, colParty = -1, colDest = -1, colExNo = -1, colUnitPrice = -1;
                         int headerRowIndex = -1;
-                        string headerNames = "";
+                        Dictionary<string, string> mappedCols = new Dictionary<string, string>();
 
-                        // Keywords matching the React logic
-                        string[] keywords = { "CHALLAN", "LR", "VEHICLE", "TRUCK", "DISPATCH", "SOLD", "QTY", "QUANTITY", "WT", "DEST", "DELIVERY", "INV", "BILL", "SHIPMENT" };
+                        // Keywords matching the logic
+                        string[] keywords = { "CHALLAN", "LR", "VEHICLE", "TRUCK", "DISPATCH", "SOLD", "QTY", "QUANTITY", "WT", "DEST", "DELIVERY", "INV", "BILL", "SHIPMENT", "ROUTE", "CITY", "EXNO" };
 
-                        // Scan first 50 rows for header (increased range for files with logos/headers)
+                        // Scan first 50 rows for header
                         for (int r = 0; r < Math.Min(dt.Rows.Count, 50); r++)
                         {
                             bool isHeader = false;
@@ -111,39 +112,31 @@ namespace KhanLogistics.Controllers
                                 for (int c = 0; c < dt.Columns.Count; c++)
                                 {
                                     string rawH = dt.Rows[r][c]?.ToString() ?? "";
-                                    string h = rawH.ToUpper().Replace(" ", "").Replace(".", "").Replace("-", "").Replace("_", "").Replace("#", "");
+                                    string h = rawH.ToUpper().Replace(" ", "").Replace(".", "").Replace("-", "").Replace("_", "").Replace("#", "").Replace("\n", "").Replace("\r", "");
                                     if (string.IsNullOrEmpty(h)) continue;
 
-                                    // --- CHALLAN PRIORITY (Strong matches first) ---
-                                    bool isStrongChallan = h == "CHALLAN" || h == "CHALLANNO" || h == "DELIVERYNO" || h == "DINO" || h == "LRNO" || h == "SHIPMENTNO" || h == "INVOICENO";
+                                    // --- CHALLAN PRIORITY ---
+                                    bool isStrongChallan = h == "CHALLAN" || h == "CHALLANNO" || h == "DELIVERYNO" || h == "DINO" || h == "LRNO" || h == "SHIPMENTNO" || h == "INVOICENO" || h == "INTERNALNO";
                                     bool isWeakChallan = h.Contains("CHALLAN") || h.Contains("DELIVERY") || h == "DI" || h.Contains("LR") || h.Contains("SHIPMENT") || h.Contains("INV") || h.Contains("BILL") || h.Contains("DOC") || h.Contains("GR") || h.Contains("DC") || h.Contains("DN") || h.Contains("DO") || h.Contains("INTERNAL");
 
                                     if (isWeakChallan && !h.Contains("DATE")) 
                                     { 
-                                        // If we haven't found a challan yet, OR if this is a "strong" match and the previous one wasn't
                                         if (colChallan == -1 || isStrongChallan)
                                         {
                                             colChallan = c; 
-                                            // Update headerNames: remove old mapping if we found a better one
-                                            if (isStrongChallan) {
-                                                headerNames = string.Join(", ", headerNames.Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries)
-                                                    .Where(x => !x.Contains("Challan=")));
-                                                if (!string.IsNullOrEmpty(headerNames)) headerNames += ", ";
-                                            }
-                                            headerNames += $"Challan='{rawH}'(Col {c+1}), "; 
+                                            mappedCols["Challan"] = $"Challan='{rawH}'(Col {c+1})";
                                         }
                                     }
                                     
-                                    // --- VEHICLE PRIORITY ---
+                                    // --- VEHICLE ---
                                     if ((h.Contains("VEHICLE") || h.Contains("TRUCK") || h.Contains("LORRY") || h.Contains("REGO")) && colVehicle == -1) 
                                     { 
-                                        colVehicle = c; headerNames += $"Vehicle='{rawH}'(Col {c+1}), "; 
+                                        colVehicle = c; mappedCols["Vehicle"] = $"Vehicle='{rawH}'(Col {c+1})"; 
                                     }
                                     
-                                    // --- DATE PRIORITY (Avoid names/parties) ---
+                                    // --- DATE ---
                                     if ((h.Contains("DATE") || h == "DT") && !h.Contains("NAME") && !h.Contains("PARTY")) 
                                     { 
-                                        // If we already have a date col, check if this one is "better" (contains dots/slashes in the first data row)
                                         bool isBetter = colDate == -1;
                                         if (!isBetter && r + 1 < dt.Rows.Count)
                                         {
@@ -154,74 +147,113 @@ namespace KhanLogistics.Controllers
                                         if (isBetter)
                                         {
                                             colDate = c; 
-                                            headerNames += $"Date='{rawH}'(Col {c+1}), "; 
+                                            mappedCols["Date"] = $"Date='{rawH}'(Col {c+1})"; 
                                         }
                                     }
                                     else if (h.Contains("DISPATCH") && colDate == -1)
                                     {
-                                        colDate = c; headerNames += $"Date='{rawH}'(Col {c+1}), ";
+                                        colDate = c; mappedCols["Date"] = $"Date='{rawH}'(Col {c+1})";
                                     }
                                     
-                                    // --- QTY PRIORITY ---
-                                    if ((h.Contains("QTY") || h.Contains("QUANTITY") || h == "WT" || h.Contains("WEIGHT")) && colQty == -1) 
+                                    // --- QTY (Check before Vehicle to avoid 'Truck Qty' issues) ---
+                                    if ((h.Contains("QTY") || h.Contains("QUANTITY") || h == "WT" || h.Contains("WEIGHT") || (h.Contains("MT") && !h.Contains("SHIPMENT"))) && colQty == -1) 
                                     { 
-                                        colQty = c; headerNames += $"Qty='{rawH}'(Col {c+1}), "; 
+                                        colQty = c; mappedCols["Qty"] = $"Qty='{rawH}'(Col {c+1})"; 
                                     }
-                                    else if (h.Contains("MT") && colQty == -1)
-                                    {
-                                        colQty = c; headerNames += $"Qty='{rawH}'(Col {c+1}), ";
+                                    // --- VEHICLE ---
+                                    else if ((h.Contains("VEHICLE") || h.Contains("TRUCK") || h.Contains("LORRY") || h.Contains("REGO")) && colVehicle == -1) 
+                                    { 
+                                        colVehicle = c; mappedCols["Vehicle"] = $"Vehicle='{rawH}'(Col {c+1})"; 
                                     }
 
-                                    // --- EX NUMBER ---
-                                    if ((h.Contains("EXNUMBER") || h.Contains("EXNO")) && colExNo == -1)
+                                    // --- EX NUMBER (Universal) ---
+                                    if ((h.Contains("EXNUMBER") || h.Contains("EXNO") || h.Contains("EXTRANUMBER")) && colExNo == -1)
                                     {
-                                        colExNo = c; headerNames += $"ExNo='{rawH}'(Col {c+1}), ";
+                                        colExNo = c; mappedCols["ExNo"] = $"ExNo='{rawH}'(Col {c+1})";
                                     }
 
                                     // --- PARTY ---
-                                    if ((h.Contains("PARTY") || h.Contains("CUSTOMER") || h.Contains("CONSIGNEE") || h.Contains("SOLDTOPARTY")) && colParty == -1 && !h.Contains("DATE"))
+                                    if ((h.Contains("PARTY") || h.Contains("CUSTOMER") || h.Contains("CONSIGNEE") || h.Contains("SOLDTOPARTY") || h.Contains("SOLD")) && colParty == -1 && !h.Contains("DATE"))
                                     {
-                                        colParty = c; headerNames += $"Party='{rawH}'(Col {c+1}), ";
+                                        colParty = c; mappedCols["Party"] = $"Party='{rawH}'(Col {c+1})";
                                     }
 
                                     // --- DESTINATION ---
-                                    if ((h.Contains("DESTINATION") || h.Contains("CITY") || h.Contains("TOCITY") || h.Contains("PLANT")) && colDest == -1)
+                                    bool isDestMatch = false;
+                                    bool isExactDest = false;
+                                    string normFactory = currentFactoryName.Replace(" ", "");
+
+                                    if (normFactory.Contains("ULTRATECH"))
                                     {
-                                        colDest = c; headerNames += $"Dest='{rawH}'(Col {c+1}), ";
+                                        if (h.Contains("CITYCODEDESCRIPTION")) { isDestMatch = true; isExactDest = true; }
+                                        else if (colDest == -1 && (h.Contains("DESTINATION") || (h.Contains("CITY") && h != "CITYCODE") || h.Contains("TOCITY"))) { isDestMatch = true; }
+                                    }
+                                    else if (normFactory.Contains("MANIGAR") || normFactory.Contains("MANIKGARH"))
+                                    {
+                                        if (h.Contains("ROUTENAME")) { isDestMatch = true; isExactDest = true; }
+                                        else if (colDest == -1 && (h.Contains("DESTINATION") || (h.Contains("CITY") && h != "CITYCODE"))) { isDestMatch = true; }
+                                    }
+                                    else if (normFactory.Contains("JSW"))
+                                    {
+                                        if (h == "DESTINATION") { isDestMatch = true; isExactDest = true; }
+                                        else if (colDest == -1 && h.Contains("DEST")) { isDestMatch = true; }
+                                    }
+                                    else
+                                    {
+                                        if (h.Contains("CITYCODEDESCRIPTION")) { isDestMatch = true; isExactDest = true; }
+                                        else if ((h.Contains("DESTINATION") || (h.Contains("CITY") && h != "CITYCODE") || h.Contains("TOCITY") || h.Contains("PLANT") || h.Contains("DEST") || h.Contains("DELIVERY")) && !h.Contains("DELIVERYNO"))
+                                        {
+                                            isDestMatch = true;
+                                        }
+                                    }
+
+                                    if (isDestMatch && (colDest == -1 || isExactDest))
+                                    {
+                                        colDest = c; mappedCols["Dest"] = $"Dest='{rawH}'(Col {c+1})";
                                     }
 
                                     // --- UNIT PRICE ---
                                     if ((h.Contains("UNITPRICE") || h.Contains("RATE")) && colUnitPrice == -1)
                                     {
-                                        colUnitPrice = c; headerNames += $"Price='{rawH}'(Col {c+1}), ";
+                                        colUnitPrice = c; mappedCols["Price"] = $"Price='{rawH}'(Col {c+1})";
                                     }
                                 }
 
-                                // Force mapping for MANIGAR (important fix)
-                                if (currentFactoryName.Trim() == "MANIGAR")
+                                // --- FACTORY SPECIFIC OVERRIDES ---
+                                for (int c = 0; c < dt.Columns.Count; c++)
                                 {
-                                    colChallan = -1;  // reset wrong mapping
-                                    for (int c = 0; c < dt.Columns.Count; c++)
+                                    string hFix = (dt.Rows[headerRowIndex][c]?.ToString() ?? "").ToUpper().Replace(" ", "").Replace(".", "").Replace("-", "").Replace("_", "").Replace("#", "").Replace("\n", "").Replace("\r", "");
+                                    
+                                    if (currentFactoryName.Contains("MANIGAR") || currentFactoryName.Contains("MANIKGARH"))
                                     {
-                                        string h = (dt.Rows[headerRowIndex][c]?.ToString() ?? "").ToUpper().Replace(" ", "").Replace(".", "").Replace("-", "").Replace("_", "").Replace("#", "");
-                                        // Only accept real challan columns (NOT EX NUMBER)
-                                        if (h.Contains("CHALLAN") || h.Contains("DELIVERY") || h.Contains("DINO"))
-                                        {
-                                            colChallan = c;
-                                        }
-                                        // Map EX NUMBER separately
-                                        if (h.Contains("EXNO") || h.Contains("EXNUMBER"))
-                                        {
-                                            colExNo = c;
-                                        }
+                                        if (hFix == "DELIVERYNO" || hFix == "CHALLANNO") { colChallan = c; mappedCols["Challan"] = $"Challan='{dt.Rows[headerRowIndex][c]}'(Col {c+1})"; }
+                                        else if (hFix.Contains("CHALLAN") || hFix.Contains("DELIVERY") || hFix == "DINO") { if (colChallan == -1) { colChallan = c; mappedCols["Challan"] = $"Challan='{dt.Rows[headerRowIndex][c]}'(Col {c+1})"; } }
+                                        else if (hFix.Contains("QTY") || hFix.Contains("QUANTITY")) { colQty = c; mappedCols["Qty"] = $"Qty='{dt.Rows[headerRowIndex][c]}'(Col {c+1})"; }
+                                        else if (hFix.Contains("TRUCK") || hFix.Contains("VEHICLE")) { colVehicle = c; mappedCols["Vehicle"] = $"Vehicle='{dt.Rows[headerRowIndex][c]}'(Col {c+1})"; }
+                                        else if (hFix.Contains("EXNUMBER") || hFix.Contains("EXNO")) { colExNo = c; mappedCols["ExNo"] = $"ExNo='{dt.Rows[headerRowIndex][c]}'(Col {c+1})"; }
+                                    }
+                                    else if (currentFactoryName.Contains("ULTRATECH"))
+                                    {
+                                        if (hFix == "DELIVERYNO" || hFix == "SHIPMENTNO") { colChallan = c; mappedCols["Challan"] = $"Challan='{dt.Rows[headerRowIndex][c]}'(Col {c+1})"; }
+                                        else if (hFix.Contains("DELIVERY") || hFix.Contains("CHALLAN") || hFix.Contains("SHIPMENT")) { if (colChallan == -1) { colChallan = c; mappedCols["Challan"] = $"Challan='{dt.Rows[headerRowIndex][c]}'(Col {c+1})"; } }
+                                        else if (hFix.Contains("QTY") || hFix.Contains("QUANTITY")) { colQty = c; mappedCols["Qty"] = $"Qty='{dt.Rows[headerRowIndex][c]}'(Col {c+1})"; }
+                                        else if (hFix.Contains("TRUCK") || hFix.Contains("VEHICLE")) { colVehicle = c; mappedCols["Vehicle"] = $"Vehicle='{dt.Rows[headerRowIndex][c]}'(Col {c+1})"; }
+                                        else if (hFix.Contains("EXNUMBER") || hFix.Contains("EXNO")) { colExNo = c; mappedCols["ExNo"] = $"ExNo='{dt.Rows[headerRowIndex][c]}'(Col {c+1})"; }
+                                    }
+                                    else if (currentFactoryName.Contains("JSW"))
+                                    {
+                                        if (hFix == "INTERNALNO" || hFix == "DELIVERYNO") { colChallan = c; mappedCols["Challan"] = $"Challan='{dt.Rows[headerRowIndex][c]}'(Col {c+1})"; }
+                                        else if (hFix.Contains("INTERNAL") || hFix.Contains("DELIVERY") || hFix.Contains("CHALLAN")) { if (colChallan == -1) { colChallan = c; mappedCols["Challan"] = $"Challan='{dt.Rows[headerRowIndex][c]}'(Col {c+1})"; } }
+                                        else if (hFix.Contains("QTY") || hFix.Contains("QUANTITY")) { colQty = c; mappedCols["Qty"] = $"Qty='{dt.Rows[headerRowIndex][c]}'(Col {c+1})"; }
+                                        else if (hFix.Contains("VEHICLE") || hFix.Contains("TRUCK")) { colVehicle = c; mappedCols["Vehicle"] = $"Vehicle='{dt.Rows[headerRowIndex][c]}'(Col {c+1})"; }
+                                        else if (hFix.Contains("EXNUMBER") || hFix.Contains("EXNO")) { colExNo = c; mappedCols["ExNo"] = $"ExNo='{dt.Rows[headerRowIndex][c]}'(Col {c+1})"; }
                                     }
                                 }
-
                                 break;
                             }
                         }
 
-                        // --- VALIDATE CHALLAN COLUMN (fallback if detected challan col has no data) ---
+                        // --- VALIDATE CHALLAN COLUMN ---
                         if (colChallan != -1 && headerRowIndex + 1 < dt.Rows.Count)
                         {
                             int checkUpTo = Math.Min(5, dt.Rows.Count - headerRowIndex - 1);
@@ -230,33 +262,21 @@ namespace KhanLogistics.Controllers
 
                             if (!challanHasData)
                             {
-                                // Current challan col is empty — find a better one
-                                int fallbackCol = -1;
-                                string fallbackName = "";
                                 for (int c = 0; c < dt.Columns.Count; c++)
                                 {
                                     if (c == colChallan || c == colDate || c == colQty || c == colVehicle || c == colParty || c == colDest) continue;
-
-                                    string hFb = (dt.Rows[headerRowIndex][c]?.ToString() ?? "")
-                                        .ToUpper().Replace(" ", "").Replace(".", "").Replace("-", "").Replace("_", "").Replace("#", "");
+                                    string hFb = (dt.Rows[headerRowIndex][c]?.ToString() ?? "").ToUpper().Replace(" ", "").Replace(".", "").Replace("-", "").Replace("_", "").Replace("#", "").Replace("\n", "").Replace("\r", "");
                                     if (string.IsNullOrEmpty(hFb)) continue;
 
-                                    bool isGoodFallback = (hFb.Contains("DELIVERY") || hFb.Contains("OUTBOUND") ||
-                                                            hFb.Contains("CHALLAN") || hFb.Contains("INVOICE") ||
-                                                            hFb == "DO" || hFb.Contains("DONO") || hFb.Contains("BILLDOC"))
-                                                           && !hFb.Contains("DATE");
-                                    if (!isGoodFallback) continue;
-
-                                    bool fbHasData = Enumerable.Range(headerRowIndex + 1, checkUpTo)
-                                        .Any(r => !string.IsNullOrWhiteSpace(dt.Rows[r][c]?.ToString()));
-
-                                    if (fbHasData) { fallbackCol = c; fallbackName = dt.Rows[headerRowIndex][c]?.ToString() ?? ""; break; }
-                                }
-
-                                if (fallbackCol != -1)
-                                {
-                                    colChallan = fallbackCol;
-                                    headerNames += $"Challan(AutoFixed)='{fallbackName}'(Col {fallbackCol + 1}), ";
+                                    if ((hFb.Contains("DELIVERY") || hFb.Contains("CHALLAN") || hFb.Contains("INVOICE") || hFb.Contains("SHIPMENT") || hFb.Contains("BILLDOC")) && !hFb.Contains("DATE"))
+                                    {
+                                        if (Enumerable.Range(headerRowIndex + 1, checkUpTo).Any(r => !string.IsNullOrWhiteSpace(dt.Rows[r][c]?.ToString())))
+                                        {
+                                            colChallan = c;
+                                            mappedCols["ChallanFix"] = $"Challan(AutoFixed)='{dt.Rows[headerRowIndex][c]}'(Col {c + 1})";
+                                            break;
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -268,15 +288,14 @@ namespace KhanLogistics.Controllers
                                 string val = dt.Rows[headerRowIndex][c]?.ToString() ?? "EMPTY";
                                 if (!string.IsNullOrWhiteSpace(val)) allDetected += $"Col {c+1}: '{val}', ";
                             }
-                            TempData["Error"] = "Could not map required columns. Found: " + headerNames + " | All Headers: " + allDetected;
-                            return RedirectToAction("UploadDispatch");
+                            TempData["Error"] = "Could not map required columns. Found: " + string.Join(", ", mappedCols.Values) + " | All Headers: " + allDetected;
+                            return RedirectToAction("DispatchDetails", "Report");
                         }
 
                         int skippedNoChallan = 0;
                         List<TblDispatch> newRecords = new List<TblDispatch>();
                         HashSet<string> processedChallansInFile = new HashSet<string>();
-
-                        string mappingInfo = headerNames.TrimEnd(',', ' ');
+                        string mappingInfo = string.Join(", ", mappedCols.Values);
 
 
                         for (int i = headerRowIndex + 1; i < dt.Rows.Count; i++)
@@ -288,7 +307,7 @@ namespace KhanLogistics.Controllers
                             string exNo = colExNo != -1 ? row[colExNo]?.ToString() : "";
 
                             // --- AUTO FIX LOGIC for MANIGAR ---
-                            if (currentFactoryName.Trim() == "MANIGAR")
+                            if (currentFactoryName.Replace(" ", "").Contains("MANIGAR") || currentFactoryName.Replace(" ", "").Contains("MANIKGARH"))
                             {
                                 // 1. If wrong challan is 89-series, rescue it to ExNo
                                 if (challanNo.StartsWith("89") && string.IsNullOrWhiteSpace(exNo))
@@ -338,25 +357,83 @@ namespace KhanLogistics.Controllers
                             string destination = colDest != -1 ? row[colDest]?.ToString() : "";
                             double unitPrice = colUnitPrice != -1 ? ParseQuantity(row[colUnitPrice]) : 0;
 
-                            if (!dispatchDate.HasValue || qty <= 0)
+                            // --- VALIDATION ---
+                            // 1. Qty must be numeric and positive (ParseQuantity already handles decimal conversion)
+                            if (qty <= 0)
                             {
                                 skippedRows++;
-                                errors.Add($"Row {i+1}: Invalid Date({row[colDate]}) or Qty({row[colQty]})");
+                                errors.Add($"Row {i + 1}: Invalid Qty ({row[colQty]}) - Must be a number.");
+                                continue;
+                            }
+
+                            // 2. Vehicle No should be alphanumeric
+                            if (!string.IsNullOrWhiteSpace(vehicleNo) && !Regex.IsMatch(vehicleNo, "^[A-Z0-9]+$"))
+                            {
+                                skippedRows++;
+                                errors.Add($"Row {i + 1}: Invalid Vehicle No ({row[colVehicle]}) - Must be alphanumeric.");
+                                continue;
+                            }
+
+                            if (!dispatchDate.HasValue)
+                            {
+                                skippedRows++;
+                                errors.Add($"Row {i+1}: Invalid Date({row[colDate]})");
+                                continue;
+                            }
+
+                            if (dispatchDate.Value > DateTime.Now)
+                            {
+                                skippedRows++;
+                                errors.Add($"Row {i+1}: Future date detected ({dispatchDate.Value:dd-MM-yyyy}). Only current or past dates are allowed.");
                                 continue;
                             }
 
                             var existing = _transportMgmtContext.TblDispatches.FirstOrDefault(d => d.ChallanNo == challanNo);
                             if (existing != null)
                             {
-                                existing.DispatchDate = dispatchDate.Value;
-                                existing.DispatchQuantity = qty;
-                                existing.VehicleNo = vehicleNo;
-                                existing.PartyName = partyName;
-                                existing.Destination = destination;
-                                existing.ExNo = exNo;
-                                if (unitPrice > 0) existing.UnitPrice = unitPrice;
-                                existing.DisVid = FID;
-                                updatedRecords++;
+                                bool isUpdated = false;
+
+                                if (!string.IsNullOrWhiteSpace(vehicleNo) && existing.VehicleNo != vehicleNo)
+                                {
+                                    existing.VehicleNo = vehicleNo;
+                                    isUpdated = true;
+                                }
+                                if (!string.IsNullOrWhiteSpace(partyName) && existing.PartyName != partyName)
+                                {
+                                    existing.PartyName = partyName;
+                                    isUpdated = true;
+                                }
+                                if (!string.IsNullOrWhiteSpace(destination) && existing.Destination != destination)
+                                {
+                                    existing.Destination = destination;
+                                    isUpdated = true;
+                                }
+                                if (!string.IsNullOrWhiteSpace(exNo) && existing.ExNo != exNo)
+                                {
+                                    existing.ExNo = exNo;
+                                    isUpdated = true;
+                                }
+                                if (unitPrice > 0 && existing.UnitPrice != unitPrice)
+                                {
+                                    existing.UnitPrice = unitPrice;
+                                    isUpdated = true;
+                                }
+                                if (qty > 0 && existing.DispatchQuantity != qty)
+                                {
+                                    existing.DispatchQuantity = qty;
+                                    isUpdated = true;
+                                }
+                                if (dispatchDate.HasValue && existing.DispatchDate != dispatchDate.Value)
+                                {
+                                    existing.DispatchDate = dispatchDate.Value;
+                                    isUpdated = true;
+                                }
+
+                                if (isUpdated)
+                                {
+                                    existing.DisVid = FID; // optionally update the factory if we are updating a blank record
+                                    updatedRecords++;
+                                }
                             }
                             else
                             {
@@ -400,7 +477,7 @@ namespace KhanLogistics.Controllers
                 TempData["Error"] = $"Critical Error: {ex.Message}";
             }
 
-            return RedirectToAction("UploadDispatch");
+            return RedirectToAction("DispatchDetails", "Report");
         }
 
         private string NormalizeChallan(string v)
@@ -428,7 +505,7 @@ namespace KhanLogistics.Controllers
             string s = v.ToString().ToUpper();
             s = s.Replace("MT", "").Replace("TONS", "").Replace("TON", "").Replace(",", "").Trim();
             
-            if (double.TryParse(s, out double res)) return res;
+            if (double.TryParse(s, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double res)) return res;
             return 0;
         }
 
@@ -443,7 +520,28 @@ namespace KhanLogistics.Controllers
             }
 
             string s = v.ToString().Trim();
-            if (DateTime.TryParse(s, out DateTime res)) return res;
+            if (string.IsNullOrWhiteSpace(s)) return null;
+
+            // Priority 1: Exact Indian/UK formats (dots, dashes, slashes)
+            string[] formats = { 
+                "dd.MM.yyyy", "dd.MM.yy", 
+                "dd-MM-yyyy", "dd-MM-yy", 
+                "dd/MM/yyyy", "dd/MM/yy", 
+                "d.M.yyyy", "d.M.yy",
+                "dd-MMM-yy", "dd-MMM-yyyy",
+                "yyyy-MM-dd"
+            };
+            
+            if (DateTime.TryParseExact(s, formats, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out DateTime exactRes)) 
+            {
+                return exactRes;
+            }
+
+            // Priority 2: General parsing with Indian culture
+            if (DateTime.TryParse(s, System.Globalization.CultureInfo.GetCultureInfo("en-IN"), System.Globalization.DateTimeStyles.None, out DateTime res)) 
+            {
+                return res;
+            }
             
             return null;
         }
@@ -480,12 +578,12 @@ namespace KhanLogistics.Controllers
                 DispatchDate = Convert.ToDateTime(a.DispatchDate),
                 DispatchQuantity = a.DispatchQuantity,
                 VehicleNo = a.VehicleNo,
-                Destination = a.Destination,
+                Destination = string.IsNullOrEmpty(a.Destination) ? a.PartyName : a.Destination,
                 PartyName = a.PartyName,
                 Shortage = a.Shortage,
                 ExNo = a.ExNo,
                 IsReceived = a.IsReceived ?? false, // Ensure default value to prevent null issues
-                FactoryName = _transportMgmtContext.TblFactories.FirstOrDefault(f => f.FID == a.DisVid).FactoryName,
+                FactoryName = _transportMgmtContext.TblFactories.Where(f => f.FID == a.DisVid).Select(f => f.FactoryName).FirstOrDefault() ?? "Unknown",
             }).ToList();
 
             return PartialView("_DispatchTable", filteredData);
@@ -522,11 +620,11 @@ namespace KhanLogistics.Controllers
                             d.DispatchDate <= endDate)
                 .Select(d => new DispatchViewModel
                 {
-                    FactoryName = _transportMgmtContext.TblFactories.FirstOrDefault(f => f.FID == d.DisVid).FactoryName,
+                    FactoryName = _transportMgmtContext.TblFactories.Where(f => f.FID == d.DisVid).Select(f => f.FactoryName).FirstOrDefault() ?? "Unknown",
                     DispatchDate = Convert.ToDateTime(d.DispatchDate),
                     ChallanNo = d.ChallanNo,
                     VehicleNo = d.VehicleNo,
-                    Destination = d.Destination,
+                    Destination = string.IsNullOrEmpty(d.Destination) ? d.PartyName : d.Destination,
                     PartyName = d.PartyName,
                     DispatchQuantity = d.DispatchQuantity,
                     Shortage = d.Shortage,
@@ -553,10 +651,9 @@ namespace KhanLogistics.Controllers
                 worksheet.Cells[1, 3].Value = "Challan No";
                 worksheet.Cells[1, 4].Value = "Vehicle No";
                 worksheet.Cells[1, 5].Value = "Destination";
-                worksheet.Cells[1, 6].Value = "Party Name";
-                worksheet.Cells[1, 7].Value = "Dispatch Quantity";
-                worksheet.Cells[1, 8].Value = "Ex. Number";
-                worksheet.Cells[1, 9].Value = reportType == "Shortage" ? "Shortage" : "Is Received";
+                worksheet.Cells[1, 6].Value = "Dispatch Quantity";
+                worksheet.Cells[1, 7].Value = "Ex. Number";
+                worksheet.Cells[1, 8].Value = reportType == "Shortage" ? "Shortage" : "Is Received";
 
                 // Data
                 int row = 2;
@@ -567,10 +664,9 @@ namespace KhanLogistics.Controllers
                     worksheet.Cells[row, 3].Value = item.ChallanNo;
                     worksheet.Cells[row, 4].Value = item.VehicleNo;
                     worksheet.Cells[row, 5].Value = item.Destination;
-                    worksheet.Cells[row, 6].Value = item.PartyName;
-                    worksheet.Cells[row, 7].Value = item.DispatchQuantity;
-                    worksheet.Cells[row, 8].Value = item.ExNo;
-                    worksheet.Cells[row, 9].Value = reportType == "Shortage" ? item.Shortage : (item.IsReceived == true ? "Yes" : "No");
+                    worksheet.Cells[row, 6].Value = item.DispatchQuantity;
+                    worksheet.Cells[row, 7].Value = item.ExNo;
+                    worksheet.Cells[row, 8].Value = reportType == "Shortage" ? item.Shortage : (item.IsReceived == true ? "Yes" : "No");
                     row++;
                 }
 

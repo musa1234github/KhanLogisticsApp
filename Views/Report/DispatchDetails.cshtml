@@ -1,0 +1,112 @@
+@model IEnumerable<KhanLogistics.Models.ViewModel.DispatchViewModel>
+
+@{
+    ViewData["Title"] = "Dispatch Details";
+}
+
+<h1 style="text-align:center">Dispatch Details</h1>
+<hr />
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong><i class="fas fa-check-circle"></i> Success!</strong> @TempData["Success"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong><i class="fas fa-exclamation-triangle"></i> Error!</strong> @TempData["Error"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+<div class="card mb-4" style="background: #f8f9fa; border-radius: 10px; border: 1px solid #dee2e6;">
+    <div class="card-body">
+        <h5 class="card-title"><i class="fas fa-search"></i> Search & Export Dispatch Details</h5>
+        <form asp-action="DispatchDetails" method="get" class="form-inline">
+            <div class="row w-100 align-items-end">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="fromDate">From Date:</label>
+                        <input type="date" name="fromDate" class="form-control w-100" value="@ViewBag.FromDate" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="toDate">To Date:</label>
+                        <input type="date" name="toDate" class="form-control w-100" value="@ViewBag.ToDate" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="factoryId">Factory:</label>
+                        <select name="factoryId" class="form-control w-100">
+                            <option value="">All</option>
+                            @if (ViewBag.Factories != null)
+                            {
+                                foreach (var factory in ViewBag.Factories)
+                                {
+                                    bool isSelected = factory.FID == (int?)ViewBag.FactoryId;
+                                    <option value="@factory.FID" selected="@(isSelected ? "selected" : null)">@factory.FactoryName</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="challanNo">Challan No:</label>
+                        <input type="text" name="challanNo" class="form-control w-100" placeholder="Search..." value="@ViewBag.ChallanNo" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="btn-group w-100">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                        <button type="submit" name="exportExcel" value="true" class="btn btn-success">
+                            <i class="fas fa-file-excel"></i> Export
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped" id="Mytable" style="margin-top: 20px;">
+    <thead class="thead-dark">
+        <tr>
+            <th>Factory Name</th>
+            <th>Challan No.</th>
+            <th>Ex. No.</th>
+            <th>Dispatch Date</th>
+            <th>Vehicle No.</th>
+            <th>Qty.</th>
+            <th>Destination</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FactoryName</td>
+                    <td>@item.ChallanNo</td>
+                    <td>@item.ExNo</td>
+                    <td>@(item.DispatchDate != DateTime.MinValue ? item.DispatchDate.ToString("dd-MM-yyyy") : "")</td>
+                    <td>@item.VehicleNo</td>
+                    <td>@item.DispatchQuantity</td>
+                    <td>@item.Destination</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

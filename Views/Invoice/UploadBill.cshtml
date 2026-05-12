@@ -1,43 +1,142 @@
-@using System.Collections.Generic
 @model KhanLogistics.Models.ViewModel.DispatchVm
 
-<h1 style="text-align:center">Upload Bill</h1>
+<H1 style="text-align:center">Upload Bill</H1>
 
-@if (TempData["SuccessCount"] != null && TempData["FailureCount"] != null)
-{
-    <div class="alert alert-info">
-        <strong>Upload Summary:</strong><br />
-        Records Uploaded Successfully: @TempData["SuccessCount"]<br />
-        Records Failed to Upload: @TempData["FailureCount"]
-        @if (TempData["FailedRecords"] is List<string> failedRecords && failedRecords.Count > 0)
-        {
-            <br />
-            <strong>Failed Record IDs:</strong> @string.Join(", ", failedRecords)
-        }
-    </div>
-}
-
-@if (TempData["ErrorMessage"] != null)
-{
-    <div class="alert alert-danger">
-        <strong>Error:</strong> @TempData["ErrorMessage"]
-    </div>
-}
+<div style="width: 100px; padding-bottom: 25px;">
+    @Html.DropDownListFor(model => model.SelectedIds, Model.ddlFactory, new { @id = "ddlFactory", @placeholder = "Select Vendor", @class = "form-control" })
+</div>
 
 <form asp-controller="Invoice" asp-action="UploadBill" method="post" enctype="multipart/form-data">
-    <div class="form-group" style="margin-bottom: 15px;">
-        <label for="ddlFactory">Select Factory:</label>
-        <select name="selectedFactoryId" id="ddlFactory" class="form-control">
-            <option value="">-- Select Factory --</option>
-            @foreach (var factory in Model.ddlFactory)
-            {
-                <option value="@factory.Value">@factory.Text</option>
-            }
-        </select>
-    </div>
-    <div class="form-group" style="margin-bottom: 15px;">
-        <label for="file">Select Excel File to Upload:</label>
-        <input type="file" name="file" id="file" class="form-control" />
-    </div>
-    <button type="submit" class="btn btn-primary">Upload</button>
+    <input type="file" name="file" />
+    <input type="submit" value="Import" />
 </form>
+
+<table class="table" id="Mytable">
+    <thead>
+        <tr>
+            <th>
+                <input type="checkbox" class="form-check-input" id="Select_All" name="Select_All" />Select All
+            </th>
+            <th>
+                Factory
+            </th>
+            <th>
+                Challan No
+            </th>
+            <th>
+                Destination
+            </th>
+            <th>
+                Vehicle No
+            </th>
+
+            <th>
+                Date
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Unit Price
+            </th>
+            <th>
+                Shortage
+            </th>
+             <th>
+                Received
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.dispatchVm)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" class="form-check-input" id="Select_One_@item.DispId" name="Select_One_@item.DispId" value="@item.DispId" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FactoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChallanNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Destination)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VehicleNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DispatchDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DispatchQuantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Shortage)
+                </td>
+                 <td>
+            @Html.DisplayFor(modelItem => item.IsReceived)
+            </td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+<button style="cursor:pointer" class="btn btn-sm btn-outline-danger m-2 p-2 float-left btnDelete" id="DispId">Delete</button>
+
+
+@* <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> *@
+<script>
+    $(document).ready(function () {
+        $('#Select_All').on('click', function () {
+            let checkboxes = $('input[type="checkbox"]');
+            let val = this.checked;
+            checkboxes.prop('checked', val);
+        });
+
+        $('.btnDelete').on('click', function () {
+            console.log("Delete button clicked."); // Debugging
+            let ids = []; // Array to hold selected IDs
+            let allChecked = $('#Select_All').prop('checked');
+
+            if (allChecked) {
+                // If "Select All" is checked, get all checkbox values except for the "Select All" checkbox
+                $('input[type="checkbox"]:not(#Select_All)').each(function () {
+                    ids.push($(this).val()); // Push each ID into the array
+                });
+            } else {
+                // If individual checkboxes are checked, get their values
+                $('input[type="checkbox"]:checked').each(function () {
+                    ids.push($(this).val()); // Push each selected ID into the array
+                });
+            }
+
+            if (ids.length > 0) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("DeleteSingleOrMultiple", "Dispatch")',
+                    contentType: 'application/json', // Set content type to JSON
+                    data: JSON.stringify(ids), // Pass array of IDs directly
+                    success: function (response) {
+                        if (response === 'success') {
+                            location.reload();
+                        } else {
+                            console.log("Error occurred during deletion."); // Debugging
+                        }
+                    },
+                    error: function () {
+                        console.log("Error occurred during AJAX request."); // Debugging
+                    }
+                });
+            } else {
+                console.log("No records selected for deletion."); // Debugging
+            }
+        });
+    });
+</script>

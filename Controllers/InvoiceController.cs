@@ -31,270 +31,7 @@ namespace KhanLogistics.Controllers
         }
 
 
-        public IActionResult UploadBill()
-        {
-            DispatchVm model = new DispatchVm
-            {
-                ddlFactory = _transportMgmtContext.TblFactories
-                    .Select(a => new SelectListItem
-                    {
-                        Text = a.FactoryName,
-                        Value = a.FID.ToString()
-                    })
-                    .ToList()
-            };
 
-            return View(model);
-        }
-
-
-        [HttpPost]
-        public async Task<IActionResult> UploadBill(IFormFile file, int selectedFactoryId)
-        {
-            int successCount = 0;
-            int failureCount = 0;
-            List<string> failedRecords = new List<string>();
-            List<string> successfulRecords = new List<string>();
-
-            try
-            {
-                if (file == null || file.Length == 0)
-                {
-                    TempData["ErrorMessage"] = "Please select a file.";
-                    return RedirectToAction("UploadBill");
-                }
-
-                var factory = _transportMgmtContext.TblFactories.Find(selectedFactoryId);
-                string factoryName = factory?.FactoryName?.ToUpper() ?? "";
-
-                System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-
-                List<ParsedRow> parsedRows = new List<ParsedRow>();
-                HashSet<string> uniqueChallansInFile = new HashSet<string>();
-
-                using (var stream = file.OpenReadStream())
-                {
-                    _excelDataReader = ExcelReaderFactory.CreateReader(stream);
-                    DataSet dataSet = _excelDataReader.AsDataSet();
-                    _excelDataReader.Close();
-
-                    if (dataSet != null && dataSet.Tables.Count > 0)
-                    {
-                        DataTable dataTable = dataSet.Tables[0];
-                        if (dataTable.Rows.Count < 2)
-                        {
-                            TempData["ErrorMessage"] = "File is empty or missing data rows.";
-                            return RedirectToAction("UploadBill");
-                        }
-
-                        // --- DYNAMIC HEADER MAPPING ---
-                        DataRow headerRow = dataTable.Rows[0];
-                        int colChallan = -1, colQty = -1, colUnitPrice = -1, colFinalPrice = -1;
-                        int colBillNum = -1, colBillDate = -1, colBillType = -1, colDeliveryNum = -1;
-
-                        for (int c = 0; c < dataTable.Columns.Count; c++)
-                        {
-                            string header = headerRow[c]?.ToString()?.Trim().ToLower() ?? "";
-                            if (header.Contains("challanno")) colChallan = c;
-                            else if (header.Contains("quantity")) colQty = c;
-                            else if (header.Contains("unitprice")) colUnitPrice = c;
-                            else if (header.Contains("finalprice")) colFinalPrice = c;
-                            else if (header.Contains("billnum")) colBillNum = c;
-                            else if (header.Contains("billdate")) colBillDate = c;
-                            else if (header.Contains("billtype") || header.Contains("lr")) colBillType = c;
-                            else if (header.Contains("deliverynum")) colDeliveryNum = c;
-                        }
-
-                        // Fallback to defaults if headers not found (using the JSW/Ultra standard seen in screenshot)
-                        if (colChallan == -1) colChallan = 0;
-                        if (colQty == -1) colQty = 4;
-                        if (colUnitPrice == -1) colUnitPrice = 6;
-                        if (colFinalPrice == -1) colFinalPrice = 7;
-                        if (colBillNum == -1) colBillNum = 8;
-                        if (colBillDate == -1) colBillDate = 9;
-                        if (colBillType == -1) colBillType = 10;
-                        if (colDeliveryNum == -1) colDeliveryNum = 11;
-
-                        // Skip header row (i = 1)
-                        for (int i = 1; i < dataTable.Rows.Count; i++)
-                        {
-                            DataRow row = dataTable.Rows[i];
-                            if (row.ItemArray.All(v => v == null || string.IsNullOrWhiteSpace(v.ToString())))
-                                continue;
-
-                            string challanNo = row[colChallan]?.ToString()?.Trim() ?? "";
-                            // For MP BIRLA, clean up challan number (remove .0 if present)
-                            if (factoryName.Contains("MP BIRLA") && challanNo.EndsWith(".0"))
-                            {
-                                challanNo = challanNo.Substring(0, challanNo.Length - 2);
-                            }
-
-                            if (string.IsNullOrEmpty(challanNo)) continue;
-
-                            if (uniqueChallansInFile.Contains(challanNo))
-                            {
-                                failedRecords.Add($"{challanNo} (Duplicate in file)");
-                                failureCount++;
-                                continue;
-                            }
-                            uniqueChallansInFile.Add(challanNo);
-
-                            ParsedRow pRow = new ParsedRow
-                            {
-                                OriginalRowIndex = i + 1,
-                                ChallanNo = challanNo,
-                                Quantity = colQty >= 0 ? SafeNum(row[colQty]) : 0,
-                                UnitPrice = colUnitPrice >= 0 ? SafeNum(row[colUnitPrice]) : 0,
-                                FinalPrice = colFinalPrice >= 0 ? SafeNum(row[colFinalPrice]) : 0,
-                                BillNum = colBillNum >= 0 ? row[colBillNum]?.ToString()?.Trim() ?? "" : "",
-                                BillDate = colBillDate >= 0 ? ParseExcelDate(row[colBillDate]) : null,
-                                BillTypeOrLR = colBillType >= 0 ? row[colBillType]?.ToString()?.Trim() ?? "" : "",
-                                DeliveryNum = colDeliveryNum >= 0 ? row[colDeliveryNum]?.ToString()?.Trim() ?? "" : ""
-                            };
-
-                            if (string.IsNullOrEmpty(pRow.BillNum) || pRow.BillDate == null)
-                            {
-                                failedRecords.Add($"{challanNo} (Missing BillNum or BillDate)");
-                                failureCount++;
-                                continue;
-                            }
-
-                            parsedRows.Add(pRow);
-                        }
-                    }
-                }
-
-                if (parsedRows.Count == 0)
-                {
-                    TempData["ErrorMessage"] = "No valid data found in the file.";
-                    return RedirectToAction("UploadBill");
-                }
-
-                // --- PRE-AGGREGATE BILL TOTALS ---
-                var billTotalsMap = new Dictionary<string, BillTotals>();
-                foreach (var row in parsedRows)
-                {
-                    if (!billTotalsMap.ContainsKey(row.BillNum))
-                    {
-                        billTotalsMap[row.BillNum] = new BillTotals();
-                    }
-
-                    var bt = billTotalsMap[row.BillNum];
-                    double taxable = row.UnitPrice * row.Quantity;
-                    bool fpValid = row.FinalPrice > 0 && (taxable == 0 || row.FinalPrice <= taxable);
-
-                    bt.BillQuantity += row.Quantity;
-                    bt.TaxableAmount += taxable;
-                    bt.TotalFinalPrice += row.FinalPrice;
-                    bt.DispatchCount += 1;
-                    if (fpValid) bt.FpValidCount += 1;
-                }
-
-                const double GST_RATE = 0.18;
-                const double TDS_RATE = 0.00984;
-
-                // Finalize Bill Totals and sync with DB
-                Dictionary<string, BillTable> billDbCache = new Dictionary<string, BillTable>();
-                foreach (var entry in billTotalsMap)
-                {
-                    string bNum = entry.Key;
-                    var bt = entry.Value;
-                    bool allHaveFP = bt.DispatchCount > 0 && bt.FpValidCount == bt.DispatchCount;
-
-                    double baseAmount = allHaveFP ? bt.TotalFinalPrice : bt.TaxableAmount;
-                    if (bt.TaxableAmount == 0 && baseAmount > 0)
-                    {
-                        bt.TaxableAmount = baseAmount;
-                    }
-
-                    bt.CalculatedGST = baseAmount * GST_RATE;
-                    bt.CalculatedTDS = baseAmount * TDS_RATE;
-                    bt.CalculatedActualAmount = baseAmount + bt.CalculatedGST;
-
-                    // Fetch or Create Bill
-                    var existingBill = _transportMgmtContext.BillTables
-                        .FirstOrDefault(b => b.BillNum == bNum && b.FID == selectedFactoryId);
-
-                    if (existingBill == null)
-                    {
-                        existingBill = new BillTable
-                        {
-                            BillNum = bNum,
-                            BillDate = parsedRows.First(r => r.BillNum == bNum).BillDate,
-                            BillType = GetBillType(parsedRows.First(r => r.BillNum == bNum).BillTypeOrLR, factoryName),
-                            FID = selectedFactoryId
-                        };
-                        _transportMgmtContext.BillTables.Add(existingBill);
-                    }
-                    else
-                    {
-                        // Update BillType and Date for existing bills to allow corrections
-                        existingBill.BillType = GetBillType(parsedRows.First(r => r.BillNum == bNum).BillTypeOrLR, factoryName);
-                        existingBill.BillDate = parsedRows.First(r => r.BillNum == bNum).BillDate;
-                    }
-
-                    existingBill.Gst = bt.CalculatedGST;
-                    existingBill.Tds = bt.CalculatedTDS;
-                    existingBill.ActualAmount = bt.CalculatedActualAmount;
-                    existingBill.TotalValue = bt.TaxableAmount; 
-
-                    billDbCache[bNum] = existingBill;
-                }
-
-                // Save bills to get IDs if new
-                await _transportMgmtContext.SaveChangesAsync();
-
-                // --- UPDATE DISPATCHES ---
-                foreach (var row in parsedRows)
-                {
-                    var existingDispatch = _transportMgmtContext.TblDispatches
-                        .Include(d => d.bill)
-                        .FirstOrDefault(d => d.ChallanNo == row.ChallanNo && d.DisVid == selectedFactoryId);
-
-                    if (existingDispatch == null)
-                    {
-                        failedRecords.Add($"{row.ChallanNo} (Dispatch Not Found)");
-                        failureCount++;
-                        continue;
-                    }
-
-                    if (existingDispatch.BillID != null && existingDispatch.bill?.BillNum != row.BillNum)
-                    {
-                        failedRecords.Add($"{row.ChallanNo} (Already assigned to Bill {existingDispatch.bill?.BillNum})");
-                        failureCount++;
-                        continue;
-                    }
-
-                    existingDispatch.UnitPrice = row.UnitPrice;
-                    existingDispatch.FinalPrice = row.FinalPrice;
-                    existingDispatch.DispatchQuantity = row.Quantity;
-                    existingDispatch.DeliveryNum = row.DeliveryNum;
-                    existingDispatch.BillID = billDbCache[row.BillNum].BillID;
-                    existingDispatch.TotalValue = row.UnitPrice * row.Quantity;
-
-                    if (factoryName.Contains("JSW") && !string.IsNullOrEmpty(row.BillTypeOrLR))
-                    {
-                        existingDispatch.Lr = row.BillTypeOrLR;
-                    }
-
-                    successCount++;
-                    successfulRecords.Add(row.ChallanNo);
-                }
-
-                await _transportMgmtContext.SaveChangesAsync();
-
-                TempData["SuccessCount"] = successCount;
-                TempData["FailureCount"] = failureCount;
-                TempData["SuccessfulRecords"] = successfulRecords;
-                TempData["FailedRecords"] = failedRecords;
-            }
-            catch (Exception ex)
-            {
-                TempData["ErrorMessage"] = $"An error occurred: {ex.Message}";
-            }
-
-            return RedirectToAction("UploadBill");
-        }
 
         private double SafeNum(object value)
         {
@@ -313,12 +50,28 @@ namespace KhanLogistics.Controllers
             {
                 try { return DateTime.FromOADate(d); } catch { }
             }
-            if (DateTime.TryParse(s, out DateTime parsedDt)) return parsedDt;
 
-            string[] formats = { "dd-MM-yyyy", "dd/MM/yyyy", "dd-MMM-yy", "dd-MM-yy", "MM/dd/yyyy", "yyyy-MM-dd", "dd-MMM-yyyy" };
-            if (DateTime.TryParseExact(s, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime exactDt))
-                return exactDt;
+            // Priority 1: Exact Indian/UK formats (dots, dashes, slashes)
+            string[] formats = { 
+                "dd.MM.yyyy", "dd.MM.yy", 
+                "dd-MM-yyyy", "dd-MM-yy", 
+                "dd/MM/yyyy", "dd/MM/yy", 
+                "d.M.yyyy", "d.M.yy",
+                "dd-MMM-yy", "dd-MMM-yyyy",
+                "yyyy-MM-dd"
+            };
+            
+            if (DateTime.TryParseExact(s, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime exactRes)) 
+            {
+                return exactRes;
+            }
 
+            // Priority 2: General parsing with Indian culture (dd/MM/yyyy)
+            if (DateTime.TryParse(s, CultureInfo.GetCultureInfo("en-IN"), DateTimeStyles.None, out DateTime res)) 
+            {
+                return res;
+            }
+            
             return null;
         }
 
@@ -329,190 +82,16 @@ namespace KhanLogistics.Controllers
             return value.Trim();
         }
 
-        private class ParsedRow
-        {
-            public int OriginalRowIndex { get; set; }
-            public string ChallanNo { get; set; }
-            public double Quantity { get; set; }
-            public double UnitPrice { get; set; }
-            public double FinalPrice { get; set; }
-            public string BillNum { get; set; }
-            public DateTime? BillDate { get; set; }
-            public string BillTypeOrLR { get; set; }
-            public string DeliveryNum { get; set; }
-        }
-
-        private class BillTotals
-        {
-            public double BillQuantity { get; set; }
-            public double TaxableAmount { get; set; }
-            public double TotalFinalPrice { get; set; }
-            public int DispatchCount { get; set; }
-            public int FpValidCount { get; set; }
-            public double CalculatedGST { get; set; }
-            public double CalculatedTDS { get; set; }
-            public double CalculatedActualAmount { get; set; }
-        }
 
 
 
 
-        //[HttpPost]
-        //public async Task<IActionResult> UploadBill(IFormFile file, int selectedFactoryId)
-        //{
-        //    int successCount = 0;
-        //    int failureCount = 0;
-        //    List<string> failedRecords = new List<string>();
-        //    List<string> successfulRecords = new List<string>();
-
-        //    try
-        //    {
-        //        string dirPath = Path.Combine(_hostingEnvironment.WebRootPath, "files");
-        //        if (!Directory.Exists(dirPath))
-        //        {
-        //            Directory.CreateDirectory(dirPath);
-        //        }
-
-        //        string fileName = Path.GetFileName(file.FileName);
-        //        string filePath = Path.Combine(dirPath, fileName);
-
-        //        // Save the uploaded file to server
-        //        using (FileStream stream = new FileStream(filePath, FileMode.Create))
-        //        {
-        //            file.CopyTo(stream);
-        //        }
-
-        //        System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-
-        //        using (var stream = new FileStream(filePath, FileMode.Open))
-        //        {
-        //            _excelDataReader = ExcelReaderFactory.CreateReader(stream);
-        //            DataSet dataSet = _excelDataReader.AsDataSet();
-        //            _excelDataReader.Close();
-
-        //            if (dataSet != null && dataSet.Tables.Count > 0)
-        //            {
-        //                List<TblDispatch> updatedDispatches = new List<TblDispatch>();
-        //                Dictionary<string, BillTable> billDictionary = new Dictionary<string, BillTable>();
-
-        //                foreach (DataTable dataTable in dataSet.Tables)
-        //                {
-        //                    foreach (DataRow row in dataTable.Rows)
-        //                    {
-        //                        try
-        //                        {
-        //                            string dispatchId = row[0].ToString();
-        //                            if (!string.IsNullOrWhiteSpace(dispatchId))
-        //                            {
-        //                                var existingDispatch = _transportMgmtContext.TblDispatches
-        //                                    .FirstOrDefault(c => c.ChallanNo == dispatchId);
-
-        //                                if (existingDispatch != null)
-        //                                {
-        //                                    // Update dispatch details
-        //                                    existingDispatch.UnitPrice = double.TryParse(row[5].ToString(), out var unitPrice) ? unitPrice : 0;
-        //                                    existingDispatch.FinalPrice = double.TryParse(row[6].ToString(), out var finalPrice) ? finalPrice : 0;
-
-        //                                    // Handle BillTable updates
-        //                                    var billNumber = row[7].ToString(); // Bill number (8th column)
-        //                                    if (!string.IsNullOrWhiteSpace(billNumber))
-        //                                    {
-        //                                        // Check if the bill already exists in the BillTable
-        //                                        if (!billDictionary.ContainsKey(billNumber))
-        //                                        {
-        //                                            var existingBill = _transportMgmtContext.BillTables.FirstOrDefault(b => b.BillNum == billNumber);
-        //                                            if (existingBill == null)
-        //                                            {
-        //                                                var newBill = new BillTable
-        //                                                {
-        //                                                    BillNum = billNumber,
-        //                                                    BillDate = DateTime.TryParse(row[8].ToString(), out DateTime billDate) ? billDate : DateTime.Now, // Bill date (9th column)
-        //                                                    BillType = row[9].ToString(), // Bill type (10th column)
-        //                                                    FID = selectedFactoryId
-        //                                                };
-
-        //                                                _transportMgmtContext.BillTables.Add(newBill);
-        //                                                await _transportMgmtContext.SaveChangesAsync();
-        //                                                billDictionary.Add(billNumber, newBill);
-        //                                            }
-        //                                            else
-        //                                            {
-        //                                                billDictionary.Add(billNumber, existingBill);
-        //                                            }
-        //                                        }
-
-        //                                        // Retrieve the bill object from the dictionary
-        //                                        var billToUpdate = billDictionary[billNumber];
-
-        //                                        // We update the LR and Delivery Number in TblDispatch if the factory is JSW (ID = 10)
-        //                                        if (selectedFactoryId == 10) // JSW
-        //                                        {
-        //                                            string newLr = row[9].ToString(); // LR from the uploaded file (10th column)
-        //                                            string newDeliveryNum = row[10].ToString(); // Delivery Number from the uploaded file (11th column)
-
-        //                                            // Update LR and DeliveryNum in dispatch if necessary
-        //                                            if (existingDispatch.Lr != newLr)
-        //                                            {
-        //                                                existingDispatch.Lr = newLr;
-        //                                            }
-        //                                            if (existingDispatch.DeliveryNum != newDeliveryNum)
-        //                                            {
-        //                                                existingDispatch.DeliveryNum = newDeliveryNum;
-        //                                            }
-
-        //                                            // Save after each dispatch update to ensure the changes are committed
-        //                                            await _transportMgmtContext.SaveChangesAsync();
-        //                                        }
-
-        //                                        // Update the BillID association with TblDispatch
-        //                                        existingDispatch.BillID = billToUpdate.BillID; // Associate Bill with Dispatch
-        //                                    }
-
-        //                                    updatedDispatches.Add(existingDispatch); // Add to list for batch update
-        //                                    successfulRecords.Add(dispatchId);
-        //                                    successCount++;
-        //                                }
-        //                                else
-        //                                {
-        //                                    failedRecords.Add(dispatchId);
-        //                                    failureCount++;
-        //                                }
-        //                            }
-        //                        }
-        //                        catch (Exception ex)
-        //                        {
-        //                            failedRecords.Add(row[0].ToString());
-        //                            failureCount++;
-        //                        }
-        //                    }
-        //                }
-
-        //                // Perform a batch update for dispatch records
-        //                if (updatedDispatches.Any())
-        //                {
-        //                    _transportMgmtContext.TblDispatches.UpdateRange(updatedDispatches);
-        //                    await _transportMgmtContext.SaveChangesAsync();
-        //                }
-        //            }
-        //        }
-
-        //        // Set success/failure counts in TempData for feedback
-        //        TempData["SuccessCount"] = successCount;
-        //        TempData["FailureCount"] = failureCount;
-        //        TempData["SuccessfulRecords"] = successfulRecords;
-        //        TempData["FailedRecords"] = failedRecords;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        TempData["ErrorMessage"] = $"An error occurred: {ex.Message}";
-        //    }
-
-        //    return RedirectToAction("UploadBill");
-        //}
 
 
 
-public IActionResult ShowInvoice()
+
+
+public IActionResult UploadBill()
  {
      DispatchVm model = new DispatchVm();
 
@@ -527,44 +106,16 @@ public IActionResult ShowInvoice()
      // Keep dispatchVm empty so nothing loads initially
      model.dispatchVm = Enumerable.Empty<DispatchViewModel>();
 
-     return View("ShowInvoice", model);
+     return View("UploadBill", model);
  }
 
 
 
 
-        // public IActionResult ShowInvoice()
-        // {
-        //     DispatchVm model = new DispatchVm();
-        //     var vendors = _transportMgmtContext.TblFactories.ToList();
-        //     model.ddlFactory = _transportMgmtContext.TblFactories.ToList().Select(a => new SelectListItem()
-        //     {
-        //         Text = a.FactoryName,
-        //         Value = Convert.ToString(a.FID)
-        //     }).ToList();
-        //     model.dispatchVm = _transportMgmtContext.TblDispatches.ToList().Select(a => new DispatchViewModel()
-        //     {
-        //         FID = a.DisVid,
-        //         DispId = Convert.ToInt32(a.DispId),
-        //         DispatchDate = Convert.ToDateTime(a.DispatchDate),
-        //         DispatchQuantity = Convert.ToDouble(a.DispatchQuantity),
-        //         VehicleNo = a.VehicleNo,
-        //         ChallanNo = a.ChallanNo,
-        //         UnitPrice = Convert.ToDouble(a.UnitPrice),
-        //         TotalValue = Convert.ToDouble(a.TotalValue),
-        //         Destination = Convert.ToString(a.Destination),
-        //         Shortage = Convert.ToInt32(a.Shortage),
-        //         Lr = a.Lr,
-        //         IsReceived = a.IsReceived,
-        //         FactoryName = vendors.FirstOrDefault(f => f.FID == a.DisVid)?.FactoryName,
-
-        //     }).AsEnumerable();
-
-        //     return View("ShowInvoice", model);
-        // }
+        
 
         [HttpPost]
-        public async Task<IActionResult> ShowInvoice(IFormFile file)
+        public async Task<IActionResult> UploadBill(IFormFile file)
         {
             try
             {
@@ -588,7 +139,7 @@ public IActionResult ShowInvoice()
                             return BadRequest("File is empty or missing data rows.");
                         }
 
-                        // --- DYNAMIC HEADER MAPPING (Copied from UploadBill for consistency) ---
+                        // --- DYNAMIC HEADER MAPPING (Copied from BillUpload for consistency) ---
                         DataRow headerRow = dataTable.Rows[0];
                         int colChallan = -1, colQty = -1, colUnitPrice = -1, colFinalPrice = -1;
                         int colBillNum = -1, colBillDate = -1, colBillType = -1, colDeliveryNum = -1;
@@ -629,11 +180,22 @@ public IActionResult ShowInvoice()
                                 // Clean up MP BIRLA challan number
                                 if (dispatchId.EndsWith(".0")) dispatchId = dispatchId.Substring(0, dispatchId.Length - 2);
 
-                                var existingDispatch = _transportMgmtContext.TblDispatches.FirstOrDefault(c => c.ChallanNo == dispatchId);
+                                var existingDispatch = _transportMgmtContext.TblDispatches
+                                    .Include(d => d.bill)
+                                    .FirstOrDefault(c => c.ChallanNo == dispatchId);
+
                                 if (existingDispatch != null)
                                 {
                                     try
                                     {
+                                        var billNumber = row[colBillNum]?.ToString()?.Trim();
+
+                                        if (existingDispatch.BillID != null && existingDispatch.bill?.BillNum != billNumber)
+                                        {
+                                            failedRecords.Add($"Dispatch ID: {dispatchId} already linked with Bill {existingDispatch.bill?.BillNum}.");
+                                            continue;
+                                        }
+
                                         var factoryId = existingDispatch.DisVid;
                                         string factoryName = _transportMgmtContext.TblFactories.Find(factoryId)?.FactoryName?.ToUpper() ?? "";
 
@@ -647,7 +209,7 @@ public IActionResult ShowInvoice()
                                         existingDispatch.DispatchQuantity = quantity;
                                         existingDispatch.TotalValue = unitPrice * quantity;
 
-                                        var billNumber = row[colBillNum]?.ToString()?.Trim();
+
                                         if (!string.IsNullOrWhiteSpace(billNumber))
                                         {
                                             if (!billDictionary.ContainsKey(billNumber))
@@ -669,6 +231,11 @@ public IActionResult ShowInvoice()
                                                 }
                                                 else
                                                 {
+                                                    // Update date if bill already exists to allow corrections via re-upload
+                                                    if (billDate.HasValue)
+                                                    {
+                                                        existingBill.BillDate = billDate.Value;
+                                                    }
                                                     billDictionary.Add(billNumber, existingBill);
                                                 }
                                             }
@@ -890,5 +457,3 @@ public IActionResult ShowInvoice()
         }
     }
 }
-
-

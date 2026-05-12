@@ -9,7 +9,6 @@
             <th>Vehicle No</th>
             <th>Date</th>
             <th>Quantity</th>
-            <th>Party Name</th>
             <th>Shortage</th>
             <th>Ex. Number</th>
             <th>Price</th>
@@ -27,7 +26,6 @@
                 <td>@Html.DisplayFor(modelItem => item.VehicleNo)</td>
                 <td>@Html.DisplayFor(modelItem => item.DispatchDate)</td>
                 <td>@Html.DisplayFor(modelItem => item.DispatchQuantity)</td>
-                <td>@Html.DisplayFor(modelItem => item.PartyName)</td>
                 <td>
                     <input type="number" class="editable-shortage" data-id="@item.DispId" value="@item.Shortage" />
                 </td>
