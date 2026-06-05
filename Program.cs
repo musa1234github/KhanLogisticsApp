@@ -31,6 +31,8 @@ ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
 var app = builder.Build();
 
+app.UseDeveloperExceptionPage();
+
 // HTTPS Redirection disabled for local HTTP testing on custom ports
 // app.UseHttpsRedirection();
 

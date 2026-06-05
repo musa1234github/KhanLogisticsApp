@@ -5,6 +5,7 @@
 }
 
 <h1 style="text-align:center">Dispatch Details</h1>
+
 <hr />
 
 @if (TempData["Success"] != null)
@@ -53,7 +54,14 @@
                                 foreach (var factory in ViewBag.Factories)
                                 {
                                     bool isSelected = factory.FID == (int?)ViewBag.FactoryId;
-                                    <option value="@factory.FID" selected="@(isSelected ? "selected" : null)">@factory.FactoryName</option>
+                                    @if (isSelected)
+                                    {
+                                        <option value="@factory.FID" selected>@factory.FactoryName</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@factory.FID">@factory.FactoryName</option>
+                                    }
                                 }
                             }
                         </select>
@@ -81,15 +89,15 @@
 </div>
 
 <table class="table table-bordered table-striped" id="Mytable" style="margin-top: 20px;">
-    <thead class="thead-dark">
+    <thead>
         <tr>
-            <th>Factory Name</th>
             <th>Challan No.</th>
             <th>Ex. No.</th>
             <th>Dispatch Date</th>
             <th>Vehicle No.</th>
             <th>Qty.</th>
             <th>Destination</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -98,13 +106,17 @@
             foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.FactoryName</td>
                     <td>@item.ChallanNo</td>
                     <td>@item.ExNo</td>
                     <td>@(item.DispatchDate != DateTime.MinValue ? item.DispatchDate.ToString("dd-MM-yyyy") : "")</td>
                     <td>@item.VehicleNo</td>
                     <td>@item.DispatchQuantity</td>
                     <td>@item.Destination</td>
+                    <td>
+                        <a href="@Url.Action("EditDispatch", "Report", new { id = item.DispId })" class="btn btn-sm btn-primary">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                    </td>
                 </tr>
             }
         }

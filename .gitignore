@@ -6,3 +6,4 @@ obj/
 *.log
 wwwroot/files/*
 !wwwroot/files/.gitkeep
+publish/

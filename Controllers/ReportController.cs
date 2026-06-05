@@ -360,6 +360,7 @@ namespace KhanLogistics.Controllers
                 {
                     result = query.Select(d => new DispatchViewModel
                     {
+                        DispId = d.DispId,
                         FactoryName = _context.TblFactories.Where(f => f.FID == d.DisVid).Select(f => f.FactoryName).FirstOrDefault() ?? "Unknown",
                         ChallanNo = d.ChallanNo,
                         ExNo = d.ExNo,
@@ -424,6 +425,60 @@ namespace KhanLogistics.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult EditDispatch(int id)
+        {
+            try
+            {
+                var dispatch = _context.TblDispatches.FirstOrDefault(d => d.DispId == id);
+                if (dispatch == null)
+                {
+                    TempData["Error"] = "Dispatch record not found.";
+                    return RedirectToAction("DispatchDetails");
+                }
+
+                var model = new DispatchViewModel
+                {
+                    DispId = dispatch.DispId,
+                    ChallanNo = dispatch.ChallanNo,
+                    DispatchDate = dispatch.DispatchDate ?? DateTime.MinValue
+                };
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "An error occurred while loading the dispatch record: " + ex.Message;
+                return RedirectToAction("DispatchDetails");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult EditDispatch(DispatchViewModel model)
+        {
+            try
+            {
+                var dispatch = _context.TblDispatches.FirstOrDefault(d => d.DispId == model.DispId);
+                if (dispatch == null)
+                {
+                    return NotFound();
+                }
+
+                dispatch.ChallanNo = model.ChallanNo;
+                dispatch.DispatchDate = model.DispatchDate;
+
+                _context.TblDispatches.Update(dispatch);
+                _context.SaveChanges();
+
+                TempData["Success"] = "Dispatch details updated successfully.";
+                return RedirectToAction("DispatchDetails");
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Error updating dispatch: " + ex.Message;
+                return View(model);
+            }
+        }
     }
 
     public class ErrorViewModel
