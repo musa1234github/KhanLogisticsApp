@@ -117,7 +117,7 @@ namespace KhanLogistics.Controllers
                         var driftMatch3 = candidates.FirstOrDefault(b => b.BillDate.HasValue && b.BillDate.Value.Month == date3M.Month && b.BillDate.Value.Year == date3M.Year);
 
                         BillTable? bestMatch = exactMatch ?? driftMatch1 ?? driftMatch2 ?? driftMatch3;
-                        bool isDrift = bestMatch != null && bestMatch.BillDate.Value.Date != targetDate;
+                        bool isDrift = bestMatch != null && bestMatch.BillDate!.Value.Date != targetDate;
 
                         if (bestMatch != null)
                         {
@@ -126,7 +126,7 @@ namespace KhanLogistics.Controllers
                                 previews.Add(new GstUpdatePreview { 
                                     BillNum = bestMatch.BillNum ?? "N/A", 
                                     ExcelDate = targetDate, 
-                                    ActualDate = bestMatch.BillDate.Value,
+                                    ActualDate = bestMatch.BillDate!.Value,
                                     GstAmt = gstMatch
                                 });
                             }

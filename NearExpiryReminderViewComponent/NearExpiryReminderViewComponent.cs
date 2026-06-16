@@ -52,7 +52,7 @@ namespace KhanLogistics.ViewComponents
         };
 
             // Get the nearest expiry date
-            var nearestExpiryDate = expiryDates.Where(d => d.HasValue).Min(d => d.Value);
+            var nearestExpiryDate = expiryDates.Where(d => d.HasValue).Select(d => d!.Value).DefaultIfEmpty(today).Min();
 
             // Calculate the days to expire
             return (nearestExpiryDate - today).Days;

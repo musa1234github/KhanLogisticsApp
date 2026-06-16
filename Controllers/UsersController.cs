@@ -58,7 +58,7 @@ namespace KhanLogistics.Controllers
         // GET: TblUsers/Edit/5
         public async Task<IActionResult> Edit(int id)
         {
-            if (id == null || id == 0)
+            if (id == 0)
             {
                 return await Task.FromResult<IActionResult>(NotFound());
             }
